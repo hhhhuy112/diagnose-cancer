@@ -1,0 +1,8 @@
+.image-register{
+  max-height: 236px;
+  max-width: 304px;
+}
+
+.errors, .help-block {
+  color: red;
+}

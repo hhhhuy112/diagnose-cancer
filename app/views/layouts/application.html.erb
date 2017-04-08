@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="AngularCasts">
+<head>
+  <title><%= full_title yield :title %></title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "application", media: "all",
+  "data-turbolinks-track": "reload" %>
+  <%= javascript_include_tag "application",
+  "data-turbolinks-track": "reload" %>
+</head>
+<body>
+  <% if user_signed_in? %>
+    <%= render "layouts/header" %>
+    <%= yield %>
+    <%= render "layouts/footer" %>
+  <% else %>
+    <section>
+      <%= render "shared/flash" if flash[:notice] %>
+      <%= yield %>
+    </section>
+  <% end %>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<% provide :title, t("register") %>
+<%= render "layouts/background_login" %>
+<div id="login-container"
+  class="animation-fadeIn register_header row top_register overflow_auto">
+  <div class="login-title text-center row">
+    <h1>
+      <i class="gi gi-flash"></i>
+      <strong><%= t "diagnostic" %></strong>
+      <br>
+      <small>
+        <strong><%= t "register" %></strong>
+      </small>
+    </h1>
+  </div>
+  <div class="block push-bit login_form row">
+    <div class="row">
+     <%= form_for resource, as: resource_name,
+      url: registration_path(resource_name), multiple: true,
+        class: "form-horizontal form-bordered form-control-borderless" do |f| %>
+      <div class="form-group">
+        <div class="col-xs-12">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="gi gi-user"></i></span>
+            <%= f.text_field :name, autofocus: true,
+              class: "form-control input-lg", placeholder: t("name") %>
+          </div>
+          <ul class = "errors">
+            <% @user.errors[:name].each do |err|%>
+              <li><span class="help-block"><%= t("name") + " #{err}" %></span></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-12">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+            <%= f.email_field :email, autofocus: true,
+              class: "form-control input-lg", placeholder: t("email") %>
+          </div>
+          <ul class = "errors">
+            <% @user.errors[:email].each do |err|%>
+              <li><span class="help-block"><%= t("email") + " #{err}" %></span></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-12">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="gi gi-parents"></i></span>
+            <div class = "form-control input-lg">
+              <%= label :male, t("male"), class: "radio-inline"  do %>
+              <%= f.radio_button :gender, t("admin.users.value_male") %><%= t("male") %>
+               <% end %>
+              <%= label :female, t("female"), class: "radio-inline" do %>
+              <%= f.radio_button :gender, t("admin.users.value_female") %><%= t("female") %>
+              <% end %>
+            </div>
+          </div>
+          <ul class = "errors">
+            <% @user.errors[:gender].each do |err|%>
+              <li><span class="help-block"><%= t("gender") + " #{err}" %></span></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-12">
+          <div id='datetimepicker1' class="input-group">
+            <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
+              <%= f.text_field :birthday,
+                  class: "form-control datepicker",
+                  placeholder: t("date_month_year_place") %>
+          </div>
+          <ul class = "errors">
+            <% @user.errors[:birthday].each do |err|%>
+              <li><span class="help-block"><%= t("birthday") + " #{err}" %></span></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-12">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+            <%= f.password_field :password, autocomplete: "off",
+              class: "form-control input-lg", placeholder: t("password") %>
+          </div>
+          <ul class = "errors">
+            <% @user.errors[:password].each do |err|%>
+              <li><span class="help-block"><%= t("password") + " #{err}" %></span></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-12">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+            <%= f.password_field :password_confirmation, autocomplete: "off",
+              class: "form-control input-lg", placeholder: t("retype_password") %>
+          </div>
+          <ul class = "errors">
+            <% @user.errors[:password_confirmation].each do |err|%>
+              <li><span class="help-block"><%= t("retype_password") + " #{err}" %></span></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-xs-12">
+          <div class="input-group">
+            <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+            <%= f.file_field :avatar, accept: Settings.image_format_accept, class: "form-control avatar-register" %>
+          </div>
+          <ul class = "errors">
+            <% @user.errors[:avatar].each do |err|%>
+              <li><span class="help-block"><%= t("avatar") + " #{err}" %></span></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+      <div class="form-group text-center">
+        <%= image_tag Settings.image_default, class: "image-register img-thumbnail" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit t("register_account"),
+          class: "btn btn-primary col-md-12" %>
+      </div>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <div class="color_format text-center">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>

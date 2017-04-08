@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title yield :title %></title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag "admin", media: "all",
+  "data-turbolinks-track": "reload" %>
+  <%= javascript_include_tag "admin",
+  "data-turbolinks-track": "reload" %>
+  </head>
+  <body>
+    <div id="page-wrapper">
+      <div id="page-container" class="sidebar-partial sidebar-visible-lg sidebar-no-animations">
+        <%= render "admin/layouts/admin_sidebar" %>
+        <div id="main-container">
+          <%= render "admin/layouts/admin_header" %>
+          <div id="page-content">
+            <%= render "shared/flash" if flash[:notice] %>
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

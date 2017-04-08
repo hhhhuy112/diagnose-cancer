@@ -1,0 +1,94 @@
+<div class="col-md-4 col-sm-6 col-xs-12 row">
+  <div class="text-center col-md-12">
+    <%= image_tag @user.avatar.url, class: "height-250 image-register", id: "img_prev" %>
+    <%= f.file_field :avatar, accept: Settings.image_format_accept, class: "avatar-register" %>
+  </div>
+</div>
+<div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+  <div class="form-group">
+    <%= f.label :name,  t("dashboard.users.name"),
+    class: "col-md-3 control-label field-compulsory-before" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-user"></i>
+        </div>
+        <%= f.text_field :name, class: "form-control input-md field-compulsory-before",
+        placeholder: t("name") %>
+      </div>
+      <ul class = "errors">
+        <% @user.errors[:name].each do |err|%>
+          <li><span class="help-block"><%= t("name") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="fix-clear form-group">
+    <%= f.label :email, t("email"), class: "col-md-3 control-label" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </div>
+        <%= f.email_field :email, class: "form-control input-md",
+        placeholder: t("email") %>
+      </div>
+      <ul class = "errors">
+        <% @user.errors[:email].each do |err|%>
+          <li><span class="help-block"><%= t("email") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="fix-clear form-group">
+    <%= f.label :gender, t("dashboard.users.gender"), class: "col-md-3 control-label  gender" %>
+    <div class="col-md-5 select-container">
+      <div class="input-group">
+          <% User.genders.keys.each do |key| %>
+            <%= f.radio_button :gender, t("admin.users.value_#{key}") %>
+            <%= t "admin.users.#{key}" %>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+          <% end %>
+      </div>
+    </div>
+    <ul class = "errors">
+        <% @user.errors[:gender].each do |err|%>
+          <li><span class="help-block"><%= t("gender") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+  </div>
+  <div class="form-group">
+    <%= f.label :birthday, t("dashboard.users.birthday"),
+    class: "col-md-3 control-label" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-birthday-cake"></i>
+        </div>
+        <% if @user.birthday.nil? %>
+        <%= f.text_field :birthday,
+        class: "form-control datepicker",
+          placeholder: t("date_month_year_place") %>
+          <% else %>
+          <%= f.text_field :birthday,
+          value: @user.birthday,
+          class: "form-control datepicker",
+            placeholder: t("date_month_year_place") %>
+            <% end %>
+          </div>
+        </div>
+        <ul class = "errors">
+          <% @user.errors[:email].each do |err|%>
+            <li><span class="help-block"><%= t("email") + " #{err}" %></span></li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="fix-clear form-group row">
+        <label class="col-md-3 control-label"></label>
+        <div class="col-md-5">
+          <%= f.submit t("register_account"),
+          class: "btn btn-primary col-md-12" %>
+        </div>
+      </div>
+    </div>
+  </div>

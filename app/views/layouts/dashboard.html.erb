@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="AngularCasts">
+  <head>
+    <title><%= full_title yield :title %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application",
+      "data-turbolinks-track": "reload" %>
+    <%= render "shared/i18n_js" %>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <%#= javascript_include_tag "angular_app", "data-turbolinks-track": false %>
+  </head>
+  <body>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.7/angular-resource.min.js"></script> -->
+    <div id="page-wrapper">
+      <div id="page-container" class="sidebar-partial sidebar-visible-lg sidebar-no-animations">
+        <%= render "layouts/sidebar" %>
+        <div id="main-container" class="main-container clearfix <%= controller_class %>">
+          <div class="header-content">
+            <%= render "shared/navbar" %>
+          </div>
+          <div class="page-content">
+            <%= render "shared/flash" %>
+            <%= yield %>
+          </div>
+          <%= render "layouts/footer" %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

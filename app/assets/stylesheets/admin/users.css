@@ -1,0 +1,16 @@
+.image-register{
+  max-height: 236px;
+  max-width: 304px;
+}
+
+.errors, .help-block {
+  color: red;
+}
+
+.height-250{
+  height: 250px;
+}
+
+.gender{
+  padding-top: 0 !important;
+}

@@ -1,0 +1,7 @@
+en:
+  admin:
+    users:
+      value_male: "male"
+      value_female: "female"
+      information_user: "Infomation User"
+      edit_user: "Update User"
