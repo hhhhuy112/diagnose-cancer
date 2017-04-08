@@ -15,3 +15,8 @@ en:
   please: "Please"
   login: "Login"
   remember: "Remember"
+  current_password : "Current password"
+  update: "Update"
+  current_password: "Current password"
+  password_confirmation: "Password Confirmation"
+
