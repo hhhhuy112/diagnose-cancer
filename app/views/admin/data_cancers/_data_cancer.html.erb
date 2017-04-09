@@ -2,14 +2,28 @@
   <td>
     <%= current_index @data_cancers.current_page, Settings.per_page.admin.data_cancer, data_cancer_counter %>
   </td>
-  <td><%= data_cancer.clump_thickness%></td>
-  <td><%= data_cancer.uniformity_of_cell_size%></td>
-  <td><%= data_cancer.uniformity_of_cell_shape%></td>
-  <td><%= data_cancer.marginal_adhesion%></td>
-  <td><%= data_cancer.single_epithelial_cell_size%></td>
-  <td><%= data_cancer.bare_nuclei%></td>
-  <td><%= data_cancer.band_romatin%></td>
-  <td><%= data_cancer.nomal_nucleoli%></td>
-  <td><%= data_cancer.mitoses%></td>
-  <td><%= data_cancer.classification.name%></td>
+  <td><%= data_cancer.clump_thickness %></td>
+  <td><%= data_cancer.uniformity_of_cell_size %></td>
+  <td><%= data_cancer.uniformity_of_cell_shape %></td>
+  <td><%= data_cancer.marginal_adhesion %></td>
+  <td><%= data_cancer.single_epithelial_cell_size %></td>
+  <td><%= data_cancer.bare_nuclei %></td>
+  <td><%= data_cancer.band_romatin %></td>
+  <td><%= data_cancer.nomal_nucleoli %></td>
+  <td><%= data_cancer.mitoses %></td>
+  <td><%= data_cancer.classification.name %></td>
+  <td class="text-center">
+      <div class="btn-group btn-group-xs">
+        <%= link_to admin_data_cancer_path(data_cancer), class: "btn btn-default" do %>
+          <i class="fa fa-eye"></i>
+        <% end %>
+        <%= link_to edit_admin_data_cancer_path(data_cancer), class: "btn btn-warning" do %>
+          <i class="fa fa-pencil"></i>
+        <% end %>
+        <%= link_to admin_data_cancer_path(data_cancer),
+          method: :delete, class: "btn btn-danger", data: {confirm: t("are_you_sure")} do %>
+          <i class="fa fa-trash"></i>
+        <% end %>
+      </div>
+    </td>
 </tr>

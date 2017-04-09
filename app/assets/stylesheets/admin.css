@@ -18,6 +18,7 @@
  *= require admin/themes
  *= require bootstrap-datepicker3
  *= require admin/users
+ *= require custom
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
