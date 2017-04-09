@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.create(name: "Admin", email: "admin@gmail.com", birthday: "20/11/1994", gender: "male", password: "123456", role: "admin")
 Classification.create(name: "benign")
 Classification.create(name: "malignant")
-
+value = [1,2,3,4,5,6,7,8,9,10]
 f = File.open("/home/ubuntu/datn/data/data.txt", "r")
 count = 1
 c =1
@@ -31,3 +32,18 @@ f.each_line do |line|
   end
 end
 f.close
+
+putc "create fiction"
+
+fiction_file = File.open("/home/ubuntu/datn/data/data_fiction.txt", "r")
+fiction_file.each_line do |line|
+  Fiction.create(name: line, description: "")
+end
+fiction_file.close
+
+Fiction.all.each do |f|
+  putc "create fiction"
+  value.each do |v|
+    ValueFiction.create(name: "#{v}", value: v, description: "", fiction_id: f.id)
+  end
+end

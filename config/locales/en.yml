@@ -22,3 +22,12 @@
 en:
   name_app: "Diagnostic Cancer"
   not_found_item: "Find not item"
+  admin:
+    data_cancers:
+      title: "Data Cancers"
+    users:
+      title: "Users"
+      add: "Add User"
+    knowledges:
+      title: "Knowledges"
+      create_knowledges: "Create knowledges"

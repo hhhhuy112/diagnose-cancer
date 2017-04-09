@@ -1,0 +1,42 @@
+<% provide :title, t("admin.users.title") %>
+<div class = "row">
+  <div class = "block-title">
+
+  </div>
+  <div class = "block-content-full">
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= t"dashboard.users.title_profile" %>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <% if current_user.admin? %>
+          <div class="row manage_user">
+            <div class="col-md-12">
+              <div class="users_button_group">
+                <%= link_to new_admin_user_path,
+                  class: "btn btn-md btn-success float_right" do %>
+                <i class="fa fa-plus"></i> <%= t "new_user" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead class = "header-table-users">
+              <%= render "table_header" %>
+            </thead>
+            <tbody class = "users-content">
+              <%= render(@users) || t(".data_not_find") %>
+            </tbody>
+          </table>
+        </div>
+        <center class = "paginate-items"><%= paginate @users %></center>
+      </div>
+    </div>
+  </div>
+</div>
+

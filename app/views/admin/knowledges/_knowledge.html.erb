@@ -1,0 +1,23 @@
+<tr id="knowledge-#{knowledge.id}">
+  <td>
+    <%= current_index @knowledges.current_page, Settings.per_page.admin.knowledge, knowledge_counter %>
+  </td>
+  <td><%= knowledge.fiction.name %></td>
+  <td><%= knowledge.value %></td>
+  <td><%= knowledge.classification.name %></td>
+  <td><%= knowledge.probability %></td>
+  <td class="text-center">
+      <div class="btn-group btn-group-xs">
+        <%= link_to admin_knowledge_path(knowledge), class: "btn btn-default" do %>
+          <i class="fa fa-eye"></i>
+        <% end %>
+        <%= link_to edit_admin_knowledge_path(knowledge), class: "btn btn-warning" do %>
+          <i class="fa fa-pencil"></i>
+        <% end %>
+        <%= link_to admin_knowledge_path(knowledge),
+          method: :delete, class: "btn btn-danger", data: {confirm: t("are_you_sure")} do %>
+          <i class="fa fa-trash"></i>
+        <% end %>
+      </div>
+    </td>
+</tr>

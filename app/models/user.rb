@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader
+  has_many :diagnose
   validate  :avatar_size
   validates :name, presence: true, length: {minimum: Settings.user.name_max}
   validates :gender, presence: true
@@ -13,7 +14,7 @@ class User < ApplicationRecord
   enum gender: {male: 0, female: 1}
 
   def is_user? user
-    user.id = self.id
+    user.id == self.id
   end
 
   private
