@@ -14,28 +14,17 @@
       <div class="panel-body">
         <div class="table-responsive">
           <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                <th>STT</th>
-                <th>Clump Thickness</th>
-                <th>Uniformity of Cell Size</th>
-                <th>Uniformity of Cell Shape</th>
-                <th>Marginal Adhesion</th>
-                <th>Single Epithelial Cell Size</th>
-                <th>Bare Nuclei</th>
-                <th>Bland Chromatin</th>
-                <th>Normal Nucleoli</th>
-                <th>Mitoses</th>
-                <th>Result</th>
-              </tr>
+            <thead class = "header-table-data-cancer">
+            <%= render "table_header" %>
             </thead>
-            <tbody>
+            <tbody class = "data-cancers-content">
               <%= render(@data_cancers) || t(".data_not_find") %>
             </tbody>
           </table>
         </div>
-        <center><%= paginate @data_cancers %></center>
+        <center class = "paginate-items"><%= paginate @data_cancers %></center>
       </div>
     </div>
   </div>
 </div>
+

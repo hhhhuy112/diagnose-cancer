@@ -19,6 +19,7 @@
 //= require admin/bootstrap.min
 //= require admin/plugins
 //= require bootstrap-datepicker
+//= require ./admin/data_cancers
 
 $(document).ready(function(){
     $('.datepicker').datepicker({
@@ -44,4 +45,15 @@ function readURL(input) {
   }
 }
 
+$(document).on('click', '.paginate-items .pagination a', function (event){
+  event.preventDefault();
+  $.getScript($(this).attr('href'));
+  return false;
+});
+
+$(document).on('click', '.name-colum th a', function (event){
+  event.preventDefault();
+  $.getScript($(this).attr('href'));
+  return false;
+});
 

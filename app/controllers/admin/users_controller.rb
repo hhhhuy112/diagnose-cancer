@@ -1,6 +1,5 @@
 class Admin::UsersController < Admin::BaseController
   before_action :load_user, only: [:update, :edit, :show]
-
   def index
 
   end
@@ -44,5 +43,6 @@ class Admin::UsersController < Admin::BaseController
     @user = User.find_by id: params[:id]
     return if @user
     flash[:error] = t "not_found_item"
+    redirect_to :back
   end
 end
