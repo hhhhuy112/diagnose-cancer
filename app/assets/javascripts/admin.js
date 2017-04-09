@@ -21,7 +21,9 @@
 //= require bootstrap-datepicker
 
 $(document).ready(function(){
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+      format: "dd-mm-yyyy"
+    });
 
     $('.avatar-register').change(function(){
       readURL(this);

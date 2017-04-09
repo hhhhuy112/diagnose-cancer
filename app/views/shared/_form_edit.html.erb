@@ -71,7 +71,7 @@
           placeholder: t("date_month_year_place") %>
           <% else %>
           <%= f.text_field :birthday,
-          value: @user.birthday,
+         value: l(@user.birthday, format: :date_month_year_v1),
           class: "form-control datepicker",
             placeholder: t("date_month_year_place") %>
             <% end %>
