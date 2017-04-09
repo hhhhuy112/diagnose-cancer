@@ -1,4 +1,7 @@
 <tr id="data-cancer-#{data_cancer.id}">
+  <td>
+    <%= current_index @data_cancers.current_page, Settings.per_page.admin.data_cancer, data_cancer_counter %>
+  </td>
   <td><%= data_cancer.clump_thickness%></td>
   <td><%= data_cancer.uniformity_of_cell_size%></td>
   <td><%= data_cancer.uniformity_of_cell_shape%></td>

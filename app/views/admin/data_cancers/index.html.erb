@@ -1,29 +1,41 @@
-<div class="row manage_user">
-  <div class="col-md-12">
-    <div class="table-responsive">
-    <table class="table table-bordered table-hover">
-      <thead>
-        <tr>
-            <th>STT</th>
-            <th>Clump Thickness</th>
-            <th>Uniformity of Cell Size</th>
-            <th>Uniformity of Cell Shape</th>
-            <th>Marginal Adhesion</th>
-            <th>Single Epithelial Cell Size</th>
-            <th>Bare Nuclei</th>
-            <th>Bland Chromatin</th>
-            <th>Normal Nucleoli</th>
-            <th>Mitoses</th>
-            <th>Result</th>
-            <th>Action</th>
-          </tr>
-      </thead>
-      <tbody>
-        <%= render(@data_cancers) || t(".data_not_find") %>
-      </tbody>
-    </table>
+<% provide :title, t("admin.users.information_user") %>
+<div class = "row">
+  <div class = "block-title">
+
+  </div>
+  <div class = "block-content-full">
+
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= t"dashboard.users.title_profile" %>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead>
+              <tr>
+                <th>STT</th>
+                <th>Clump Thickness</th>
+                <th>Uniformity of Cell Size</th>
+                <th>Uniformity of Cell Shape</th>
+                <th>Marginal Adhesion</th>
+                <th>Single Epithelial Cell Size</th>
+                <th>Bare Nuclei</th>
+                <th>Bland Chromatin</th>
+                <th>Normal Nucleoli</th>
+                <th>Mitoses</th>
+                <th>Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <%= render(@data_cancers) || t(".data_not_find") %>
+            </tbody>
+          </table>
+        </div>
+        <center><%= paginate @data_cancers %></center>
+      </div>
     </div>
-    <center><%= paginate @data_cancers %></center>
   </div>
 </div>
-<div class="loader hide hide-load-modal"></div>
