@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170404092825) do
+ActiveRecord::Schema.define(version: 20170409074818) do
 
   create_table "classifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -61,9 +61,21 @@ ActiveRecord::Schema.define(version: 20170404092825) do
 
   create_table "fictions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
+    t.string   "description"
     t.datetime "deleted_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "knowledges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "classification_id"
+    t.integer  "fiction_id"
+    t.integer  "value"
+    t.float    "probability",       limit: 24
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["classification_id"], name: "index_knowledges_on_classification_id", using: :btree
+    t.index ["fiction_id"], name: "index_knowledges_on_fiction_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -88,9 +100,22 @@ ActiveRecord::Schema.define(version: 20170404092825) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  create_table "value_fictions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.integer  "value"
+    t.integer  "description"
+    t.integer  "fiction_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["fiction_id"], name: "index_value_fictions_on_fiction_id", using: :btree
+  end
+
   add_foreign_key "data_cancers", "classifications"
   add_foreign_key "data_users", "diagnoses", column: "diagnose_id"
   add_foreign_key "data_users", "fictions"
   add_foreign_key "diagnoses", "classifications"
   add_foreign_key "diagnoses", "users"
+  add_foreign_key "knowledges", "classifications"
+  add_foreign_key "knowledges", "fictions"
+  add_foreign_key "value_fictions", "fictions"
 end

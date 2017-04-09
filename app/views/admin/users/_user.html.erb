@@ -1,0 +1,27 @@
+<tr id="user-#{user.id}">
+  <td>
+    <%= current_index @users.current_page, Settings.per_page.admin.user, user_counter %>
+  </td>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.gender %></td>
+  <td><%= user.birthday %></td>
+  <td class="text-center">
+    <div class="btn-group btn-group-xs">
+      <% if current_user.admin? || current_user.is_user?(user) %>
+        <%= link_to admin_user_path(user), class: "btn btn-default" do %>
+          <i class="fa fa-eye"></i>
+        <% end %>
+        <%= link_to edit_admin_user_path(user), class: "btn btn-warning" do %>
+          <i class="fa fa-pencil"></i>
+        <% end %>
+      <% end %>
+      <% if current_user.admin? %>
+        <%= link_to admin_user_path(user),
+          method: :delete, class: "btn btn-danger", data: {confirm: t("are_you_sure")} do %>
+          <i class="fa fa-trash"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </td>
+</tr>

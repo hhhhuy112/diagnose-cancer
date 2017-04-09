@@ -1,6 +1,4 @@
-<% provide :title, t("admin.data_cancers.title") %>
-
-
+<% provide :title, t("admin.knowledges.title") %>
 <div class = "row">
   <div class = "block-title">
 
@@ -18,9 +16,9 @@
         <div class="row manage_user">
           <div class="col-md-12">
             <div class="users_button_group">
-            <%= link_to create_knowledge_admin_knowledges_path,
+            <%= link_to new_admin_knowledge_path,
               class: "btn btn-md btn-success float_right" do %>
-              <i class="glyphicon glyphicon-plus"></i> <%= t "admin.knowledges.create_knowledges" %>
+              <i class="glyphicon glyphicon-plus"></i> <%= t "new_user" %>
               <% end %>
             </div>
           </div>
@@ -28,15 +26,15 @@
         <% end %>
         <div class="table-responsive">
           <table class="table table-bordered table-hover">
-            <thead class = "header-table-data-cancer">
+            <thead class = "header-table-knowledge">
               <%= render "table_header" %>
             </thead>
-            <tbody class = "data-cancers-content">
-              <%= render(@data_cancers) || t(".data_not_find") %>
+            <tbody class = "knowledge-content">
+              <%= render(@knowledges) || t(".data_not_find") %>
             </tbody>
           </table>
         </div>
-        <center class = "paginate-items"><%= paginate @data_cancers %></center>
+        <center class = "paginate-items"><%= paginate @knowledges %></center>
       </div>
     </div>
   </div>
