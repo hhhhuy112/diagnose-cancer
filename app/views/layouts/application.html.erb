@@ -10,15 +10,23 @@
 </head>
 <body>
   <% if user_signed_in? %>
-    <%= render "layouts/header" %>
-    <%= yield %>
-    <%= render "layouts/footer" %>
-  <% else %>
-    <section>
-      <%= render "shared/flash" if flash[:notice] %>
-      <%= yield %>
-    </section>
-  <% end %>
+    <div id="page-container">
+      <%= render "layouts/header" %>
+      <%= render "layouts/media_container" %>
+      <div class = "row">
+        <div class = "col-md-offset-2 col-md-8">
+          <%= render "shared/flash" %>
+          <%= yield %>
+        </div>
+      </div>
+      <%= render "layouts/footer" %>
+    </div>
 
+  <% else %>
+  <section>
+    <%= render "shared/flash" if flash[:notice] %>
+    <%= yield %>
+  </section>
+  <% end %>
 </body>
 </html>
