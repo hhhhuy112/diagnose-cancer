@@ -1,0 +1,17 @@
+<div class="panel panel-info">
+  <% if current_user.admin? %>
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= t"dashboard.users.title_profile" %>
+    </h3>
+  </div>
+  <% end %>
+  <div class="panel-body form-horizontal">
+    <div class="row">
+      <%= simple_form_for @user do |f| %>
+        <%= render "shared/form_edit", f: f %>
+      <% end %>
+    </div>
+  </div>
+</div>
+

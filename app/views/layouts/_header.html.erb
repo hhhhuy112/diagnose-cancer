@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Site Logo -->
     <a href="index.html" class="site-logo">
-      <i class="gi gi-flash"></i> <strong>Pro</strong>UI
+      <i class="gi gi-flash"></i> <strong>Diagnostic </strong>Cancer
     </a>
     <!-- Site Logo -->
 
@@ -118,9 +118,24 @@
           <a href="contact.html">Contact</a>
         </li>
         <li>
-          <a href="about.html">About</a>
+          <a href="javascript:void(0)" class="site-nav-sub"><i class="fa fa-angle-down site-nav-arrow"></i></a>
+          <ul>
+            <li>
+              <%= link_to current_user  do %>
+                <i class="gi gi-user"></i>
+                <span><%= t "profile" %></span>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to destroy_user_session_path,method: :delete,
+              data: {toggle: "tooltip", placement: "bottom"} do %>
+                <i class="gi gi-exit"></i>
+                <span><%= t "logout" %></span>
+              <% end %>
+            </li>
+          </ul>
         </li>
-      </ul>
+       </ul>
       <!-- END Main Menu -->
     </nav>
     <!-- END Site Navigation -->

@@ -22,9 +22,9 @@
               <% end %>
             </a>
           </div>
-          <div class="sidebar-user-name"><%= link_to current_user.name, [:admin, current_user] %></div>
+          <div class="sidebar-user-name"><%= link_to current_user.name, current_user %></div>
           <div class="sidebar-user-links">
-            <%= link_to admin_user_path(current_user),
+            <%= link_to user_path(current_user),
             data: {toggle: "tooltip", placement: "bottom"} do %>
             <i class="gi gi-user"></i>
           <% end %>

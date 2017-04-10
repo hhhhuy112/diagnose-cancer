@@ -14,15 +14,30 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for _resource
     if current_user.admin?
       admin_data_cancers_path
+    else
+      user_path(current_user)
     end
+  end
+
+  def logged_in_user
+    unless user_signed_in?
+      flash[:danger] = t "please_log_in"
+      redirect_to root_path
+    end
+  end
+
+  def authenticate_admin!
+    return if current_user.admin?
+    flash[:alert] = t "you_do_not_have_access"
+    redirect_to root_path
   end
 
   def layout
     if current_user.present?
       if current_user.admin?
-        is_a?(Devise::RegistrationsController) ? "admin/layouts/admin" : false
+        "admin/layouts/admin"
       else
-        is_a?(Devise::RegistrationsController) ? "application" : false
+        "application"
       end
     end
   end

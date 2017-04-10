@@ -1,3 +1,7 @@
+$pink-color: pink;
+
+
+
 .changed-password ul li {
   list-style-type: none;
 }
@@ -1589,15 +1593,15 @@ code {
 }
 
 .themed-color-dark {
-  color: #394263;
+  color: $pink_color;
 }
 
 .themed-border-dark {
-  border-color: #394263;
+  border-color: $pink_color;
 }
 
 .themed-background-dark {
-  background-color: #394263;
+  background-color: $pink_color;
 }
 
 
@@ -1911,4 +1915,9 @@ code {
   /* Preserve aspet ratio */
   min-width: 100%;
   min-height: 100%;
+}
+
+/*huy*/
+.site-footer{
+  background-color: $pink_color;
 }

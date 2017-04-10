@@ -1,8 +1,20 @@
 class UsersController < ApplicationController
-  def new
+  before_action :load_user, only: [:update, :edit, :show]
+
+  def show
   end
 
-  def create
+  def edit
+
+  end
+
+  def update
+    if @user.update_attributes user_params
+      flash[:notice] = t "devise.registrations.updated"
+      redirect_to @user
+    else
+      render :edit
+    end
   end
 
   private
@@ -10,5 +22,12 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit :name, :gender, :birthday, :avatar, :email,
       :password, :password_confirmation, :role
+  end
+
+  def load_user
+    @user = User.find_by id: params[:id]
+    return if @user
+    flash[:error] = t "not_found_item"
+    redirect_to :back
   end
 end

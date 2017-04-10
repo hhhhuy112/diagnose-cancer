@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  logout: "Logout"
+  profile: "Profile"
   name_app: "Diagnostic Cancer"
   not_found_item: "Find not item"
   admin:
