@@ -14,9 +14,10 @@ ActiveRecord::Schema.define(version: 20170409074818) do
 
   create_table "classifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
+    t.float    "probability", limit: 24
     t.datetime "deleted_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "data_cancers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -39,11 +40,12 @@ ActiveRecord::Schema.define(version: 20170409074818) do
 
   create_table "data_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "value"
+    t.string   "name_fiction"
     t.integer  "fiction_id"
     t.integer  "diagnose_id"
     t.datetime "deleted_at"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["diagnose_id"], name: "index_data_users_on_diagnose_id", using: :btree
     t.index ["fiction_id"], name: "index_data_users_on_fiction_id", using: :btree
   end
@@ -70,10 +72,10 @@ ActiveRecord::Schema.define(version: 20170409074818) do
   create_table "knowledges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "classification_id"
     t.integer  "fiction_id"
-    t.integer  "value"
+    t.integer  "value",                        default: 0
     t.float    "probability",       limit: 24
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.index ["classification_id"], name: "index_knowledges_on_classification_id", using: :btree
     t.index ["fiction_id"], name: "index_knowledges_on_fiction_id", using: :btree
   end

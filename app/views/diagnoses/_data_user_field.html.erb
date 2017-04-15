@@ -1,0 +1,15 @@
+<div class="col-md-12 personal-info">
+  <%= data_user.hidden_field :fiction_id, class: "form-control",
+        placeholder: t("name") %>
+  <div class="form-group">
+    <%= data_user.label data_user.object.name_fiction, class: "col-md-3 control-label field-compulsory-before" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-user"></i>
+        </div>
+        <%= data_user.select :value, DataCancer.values.collect { |k,v| [k, v] }, {}, {class: "form-control col-md-9"} %>
+      </div>
+    </div>
+  </div>
+</div>

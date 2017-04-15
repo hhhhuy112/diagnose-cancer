@@ -1,0 +1,173 @@
+<%= simple_form_for [:admin, @data_cancer] do |f| %>
+<div class="col-md-6 col-sm-6 col-xs-6 personal-info">
+  <div class="fix-clear form-group">
+    <%= f.label :sample_code_number, t("sample_code_number"), class: "col-md-3 control-label" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </div>
+        <%= f.select :sample_code_number, DataCancer.values.collect { |k,v| [k, v] }, {}, {class: "form-control input-md"} %>
+      </div>
+      <ul class = "errors">
+        <% @data_cancer.errors[:sample_code_number].each do |err|%>
+        <li><span class="help-block"><%= t("sample_code_number") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="fix-clear form-group">
+    <%= f.label :clump_thickness, t("clump_thickness"), class: "col-md-3 control-label" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </div>
+        <%= f.select :clump_thickness, DataCancer.values.collect { |k,v| [k, v] }, {}, {class: "form-control input-md"} %>
+      </div>
+      <ul class = "errors">
+        <% @data_cancer.errors[:clump_thickness].each do |err|%>
+        <li><span class="help-block"><%= t("clump_thickness") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="fix-clear form-group">
+    <%= f.label :uniformity_of_cell_size, t("uniformity_of_cell_size"), class: "col-md-3 control-label" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </div>
+        <%= f.select :uniformity_of_cell_size, DataCancer.values.collect { |k,v| [k, v] }, {}, {class: "form-control input-md"} %>
+      </div>
+      <ul class = "errors">
+        <% @data_cancer.errors[:uniformity_of_cell_size].each do |err|%>
+        <li><span class="help-block"><%= t("uniformity_of_cell_size") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="fix-clear form-group">
+    <%= f.label :uniformity_of_cell_shape, t("uniformity_of_cell_shape"), class: "col-md-3 control-label" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </div>
+        <%= f.select :uniformity_of_cell_shape, DataCancer.values.collect { |k,v| [k, v] }, {}, {class: "form-control input-md"} %>
+      </div>
+      <ul class = "errors">
+        <% @data_cancer.errors[:uniformity_of_cell_shape].each do |err|%>
+        <li><span class="help-block"><%= t("uniformity_of_cell_shape") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="fix-clear form-group">
+    <%= f.label :marginal_adhesion, t("marginal_adhesion"), class: "col-md-3 control-label" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </div>
+        <%= f.select :marginal_adhesion, DataCancer.values.collect { |k,v| [k, v] }, {}, {class: "form-control input-md"} %>
+      </div>
+      <ul class = "errors">
+        <% @data_cancer.errors[:marginal_adhesion].each do |err|%>
+        <li><span class="help-block"><%= t("marginal_adhesion") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="col-md-6 col-sm-6 col-xs-6 personal-info">
+  <div class="fix-clear form-group">
+    <%= f.label :single_epithelial_cell_size, t("single_epithelial_cell_size"), class: "col-md-3 control-label" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </div>
+        <%= f.select :single_epithelial_cell_size, DataCancer.values.collect { |k,v| [k, v] }, {}, {class: "form-control input-md"} %>
+      </div>
+      <ul class = "errors">
+        <% @data_cancer.errors[:single_epithelial_cell_size].each do |err|%>
+        <li><span class="help-block"><%= t("single_epithelial_cell_size") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="fix-clear form-group">
+    <%= f.label :bare_nuclei, t("bare_nuclei"), class: "col-md-3 control-label" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </div>
+        <%= f.select :bare_nuclei, DataCancer.values.collect { |k,v| [k, v] }, {}, {class: "form-control input-md"} %>
+      </div>
+      <ul class = "errors">
+        <% @data_cancer.errors[:bare_nuclei].each do |err|%>
+        <li><span class="help-block"><%= t("bare_nuclei") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="fix-clear form-group">
+    <%= f.label :band_romatin, t("band_romatin"), class: "col-md-3 control-label" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </div>
+        <%= f.select :band_romatin, DataCancer.values.collect { |k,v| [k, v] }, {}, {class: "form-control input-md"} %>
+      </div>
+      <ul class = "errors">
+        <% @data_cancer.errors[:band_romatin].each do |err|%>
+        <li><span class="help-block"><%= t("band_romatin") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="fix-clear form-group">
+    <%= f.label :nomal_nucleoli, t("nomal_nucleoli"), class: "col-md-3 control-label" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </div>
+        <%= f.select :nomal_nucleoli, DataCancer.values.collect { |k,v| [k, v] }, {}, {class: "form-control input-md"} %>
+      </div>
+      <ul class = "errors">
+        <% @data_cancer.errors[:nomal_nucleoli].each do |err|%>
+        <li><span class="help-block"><%= t("nomal_nucleoli") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="fix-clear form-group">
+    <%= f.label :mitoses, t("mitoses"), class: "col-md-3 control-label" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-envelope-o"></i>
+        </div>
+        <%= f.select :mitoses, DataCancer.values.collect { |k,v| [k, v] }, {}, {class: "form-control input-md"} %>
+      </div>
+      <ul class = "errors">
+        <% @data_cancer.errors[:mitoses].each do |err|%>
+        <li><span class="help-block"><%= t("mitoses") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="fix-clear form-group row">
+  <label class="col-md-3 control-label"></label>
+  <div class="col-md-5">
+    <%= f.submit t("register_account"),
+    class: "btn btn-primary col-md-12" %>
+  </div>
+</div>
+<% end %>

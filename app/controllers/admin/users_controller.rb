@@ -1,4 +1,5 @@
 class Admin::UsersController < Admin::BaseController
+  before_action :load_user, only: :destroy
   def index
     @search = User.ransack(params[:q])
     @users = @search.result
@@ -24,7 +25,12 @@ class Admin::UsersController < Admin::BaseController
   end
 
   def destroy
-
+    if @user.destroy
+      flash[:success] = t "devise.registrations.destroyed"
+    else
+      flash[:warning] = t "delete_not_success"
+    end
+    redirect_to admin_users_path
   end
 
   private
@@ -32,5 +38,12 @@ class Admin::UsersController < Admin::BaseController
   def user_params
     params.require(:user).permit :name, :gender, :birthday, :avatar, :email,
     :password, :role
+  end
+
+  def load_user
+    @user = User.find_by id: params[:id]
+    return if @user
+    flash[:error] = t "not_found_item"
+    redirect_to :back
   end
 end

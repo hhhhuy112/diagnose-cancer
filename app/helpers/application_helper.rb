@@ -22,4 +22,7 @@ module ApplicationHelper
   def current_index page_index, page_size, index
     (page_index - 1) * page_size + (index + 1)
   end
+
+  def get_value_by_fiction
+  end
 end

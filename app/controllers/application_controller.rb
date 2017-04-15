@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
   layout :layout
+  before_action :set_title_edit_password
 
   protected
 
@@ -30,6 +31,12 @@ class ApplicationController < ActionController::Base
     return if current_user.admin?
     flash[:alert] = t "you_do_not_have_access"
     redirect_to root_path
+  end
+
+  def set_title_edit_password
+     if is_a?(Devise::RegistrationsController)
+      @title = t "users.update_password"
+    end
   end
 
   def layout

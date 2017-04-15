@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user
   before_action :load_user, only: [:update, :edit, :show]
 
   def show
+    @title = t "users.information_user"
   end
 
   def edit
-
+    @title = t "users.update"
   end
 
   def update

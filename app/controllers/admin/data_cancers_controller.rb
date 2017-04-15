@@ -28,7 +28,12 @@ class Admin::DataCancersController < Admin::BaseController
   end
 
   def update
-
+    if @data_cancer.update_attributes data_cancer_params
+      flash[:notice] = t "admin.data_cancers.updated_success"
+      redirect_to [:admin, @data_cancer]
+    else
+      render :edit
+    end
   end
 
   def destroy
@@ -48,5 +53,9 @@ class Admin::DataCancersController < Admin::BaseController
     return if @data_cancer.present?
     flash[:error] = t "not_found_item"
     redirect_to :back
+  end
+
+  def data_cancer_params
+    params.require(:data_cancer).permit DataCancer::ATTR_PARAMS
   end
 end

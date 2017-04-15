@@ -1,13 +1,12 @@
 <% provide :title, t("admin.users.information_user") %>
 <div class = "row">
   <div class = "block-title">
-
   </div>
   <div class = "block-content-full">
     <div class="panel panel-info">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <%= t"dashboard.users.title_profile" %>
+          <%= t"admin.data_cancers.information_data_cancer" %>
         </h3>
       </div>
       <div class="panel-body">
@@ -110,6 +109,10 @@
             </tr>
           </tbody>
         </table>
+        <% if current_user.admin? %>
+          <%= link_to t("admin.data_cancers.update_data_cancer"), edit_admin_data_cancer_path,
+            class: "btn btn-primary" %>
+          <% end %>
       </div>
     </div>
     <div class="row">

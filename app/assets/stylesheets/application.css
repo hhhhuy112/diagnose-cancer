@@ -22,3 +22,10 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+
+
+
+.content-user{
+  min-height: 400px;
+}

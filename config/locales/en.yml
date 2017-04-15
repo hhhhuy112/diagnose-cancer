@@ -27,9 +27,22 @@ en:
   admin:
     data_cancers:
       title: "Data Cancers"
+      update_data_cancer: "Update data cancer"
+      list_data_cancers: "List data cancers"
+      information_data_cancer: "Information data cancer"
+      updated_success: "Update data cancer success"
     users:
       title: "Users"
       add: "Add User"
+      list_users: "List users"
     knowledges:
       title: "Knowledges"
       create_knowledges: "Create knowledges"
+      create_knowledges_success: "Create knowledges from data cancers success"
+  users:
+    update: "Update profile"
+    information_user: "Information user"
+    delete_not_success: "Delete item fail"
+    update_password: "Update password"
+  diagnoses:
+    diagnose: "Diagnose"

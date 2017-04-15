@@ -1,0 +1,49 @@
+<% provide :title, t("admin.users.edit_user") %>
+<div class = "row">
+  <div class = "block-content-full">
+    <div class="panel panel-info">
+      <% if current_user.admin? %>
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= t"diagnoses.diagnose" %>
+        </h3>
+      </div>
+      <% end %>
+      <div class="panel-body">
+        <div class = "section-infor col-md-6">
+          <%=  form_for @diagnose do |f| %>
+            <%= f.fields_for :data_users do |data_user| %>
+              <%=render "data_user_field", data_user: data_user %>
+            <%end%>
+            <div class="fix-clear form-group">
+              <div class="col-md-5">
+                <%= f.submit t("register_account"),
+                  class: "btn btn-primary col-md-12" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <div class = " panel panel-default section-result col-md-6">
+          <div class="panel-body">
+              <tr>Result:</tr>
+              <tr>
+                <textarea class = "form-control"></textarea>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <% if current_user.admin?%>
+      <%= link_to admin_users_path, class: "btn btn-default" do %>
+      <i class="fa fa-chevron-left"></i> <%= t "dashboard.users.list_user" %>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>

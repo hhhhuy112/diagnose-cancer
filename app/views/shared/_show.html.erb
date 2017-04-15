@@ -2,7 +2,7 @@
     <% if current_user.admin? %>
       <div class="panel-heading">
         <h3 class="panel-title">
-          <%= t"dashboard.users.title_profile" %>
+          <%= t"users.information_user" %>
         </h3>
       </div>
     <% end %>
@@ -56,8 +56,7 @@
           <% end %>
 
           <% if @user.is_user?(current_user) || current_user.admin? %>
-              <%= link_to t("dashboard.users.edit_profile"),
-                edit_user_path(current_user), class: "btn btn-primary" %>
+              <%= link_to t("dashboard.users.edit_profile"), edit_user_path(@user), class: "btn btn-primary" %>
           <% end %>
         </div>
       </div>

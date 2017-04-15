@@ -1,0 +1,28 @@
+<% provide :title, t("admin.data_cancers.update_data_cancer") %>
+<div class = "row">
+  <div class = "block-title">
+  </div>
+  <div class = "block-content-full">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= t"admin.data_cancers.update_data_cancer" %>
+        </h3>
+      </div>
+      <div class="panel-body form-horizontal">
+        <div class="row">
+          <%= render "edit_form_data_cancer" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3">
+    <% if current_user.admin?%>
+    <%= link_to admin_data_cancers_path, class: "btn btn-default" do %>
+    <i class="fa fa-chevron-left"></i> <%= t "list_data_cancer" %>
+    <% end %>
+    <% end %>
+  </div>
+</div>

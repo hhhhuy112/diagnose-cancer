@@ -18,7 +18,7 @@ class Admin::KnowledgesController < Admin::BaseController
   def create_knowledge
     create_know_service = CreateKnowledgeService.new(@data_cancers, @classifications, @fictions)
     create_know_service.create_knowledge
-    flash[:notice] = t("admin.knowledges.create_knowledges") + t("success")
+    flash[:notice] = t("admin.knowledges.create_knowledges_success")
     redirect_to admin_knowledges_path
   end
 

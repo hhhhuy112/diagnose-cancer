@@ -1,0 +1,2 @@
+class DataUsersController < ApplicationController
+end

@@ -1,6 +1,22 @@
 class DataCancer < ApplicationRecord
   belongs_to :classification
 
+  ATTR_PARAMS = [
+    :sample_code_number,
+    :clump_thickness,
+    :uniformity_of_cell_size,
+    :uniformity_of_cell_shape,
+    :marginal_adhesion,
+    :single_epithelial_cell_size,
+    :bare_nuclei,
+    :band_romatin,
+    :nomal_nucleoli,
+    :mitoses,
+    :classification_id,
+  ].freeze
+
+  enum value: [0,1,2,3,4,5,6,7,8,9,10]
+
   scope :is_clump_thickness, -> value do
     where clump_thickness: value
   end
