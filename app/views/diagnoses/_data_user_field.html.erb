@@ -6,9 +6,9 @@
     <div class="col-md-5">
       <div class="input-group">
         <div class="input-group-addon">
-          <i class="fa fa-user"></i>
+          <i class="fa fa-star"></i>
         </div>
-        <%= data_user.select :value, DataCancer.values.collect { |k,v| [k, v] }, {}, {class: "form-control col-md-9"} %>
+        <%= data_user.select :value, get_value_by_fiction(data_user.object.fiction).collect { |value_fiction| [value_fiction.name, value_fiction.value] }, {}, {class: "form-control col-md-9"} %>
       </div>
     </div>
   </div>

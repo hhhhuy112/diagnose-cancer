@@ -36,7 +36,7 @@ class Admin::UsersController < Admin::BaseController
   private
 
   def user_params
-    params.require(:user).permit :name, :gender, :birthday, :avatar, :email,
+    params.require(:user).permit :name, :patient_code,:gender, :birthday, :avatar, :email,
     :password, :role
   end
 

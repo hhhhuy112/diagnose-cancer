@@ -1,6 +1,6 @@
 class DataCancer < ApplicationRecord
   belongs_to :classification
-
+  enum value: [1,2,3,4,5,6,7,8,9,10]
   ATTR_PARAMS = [
     :sample_code_number,
     :clump_thickness,
@@ -15,7 +15,7 @@ class DataCancer < ApplicationRecord
     :classification_id,
   ].freeze
 
-  enum value: [0,1,2,3,4,5,6,7,8,9,10]
+  delegate :name, to: :classification, prefix: true, allow_nil: true
 
   scope :is_clump_thickness, -> value do
     where clump_thickness: value

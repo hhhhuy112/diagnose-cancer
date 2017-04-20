@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(name: "Admin", email: "admin@gmail.com", birthday: "20/11/1994", gender: "male", password: "123456", role: "admin")
+User.create(patient_code: "A0001" ,name: "Admin", email: "admin@gmail.com", birthday: "20/11/1994", gender: "male", password: "123456", role: "admin")
 Classification.create(name: "benign")
 Classification.create(name: "malignant")
 value = [1,2,3,4,5,6,7,8,9,10]
@@ -44,6 +44,6 @@ fiction_file.close
 Fiction.all.each do |f|
   putc "create fiction"
   value.each do |v|
-    ValueFiction.create(name: "#{v}", value: v, description: "", fiction_id: f.id)
+    ValueFiction.create(name: ("#{f.name}" +"#{v}").to_s, value: v, description: "", fiction_id: f.id)
   end
 end

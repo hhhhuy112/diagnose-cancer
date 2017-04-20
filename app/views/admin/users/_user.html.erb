@@ -2,6 +2,7 @@
   <td>
     <%= current_index @users.current_page, Settings.per_page.admin.user, user_counter %>
   </td>
+  <td><%= user.patient_code %></td>
   <td><%= user.name %></td>
   <td><%= user.email %></td>
   <td><%= user.gender %></td>

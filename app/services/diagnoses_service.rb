@@ -9,25 +9,22 @@ class DiagnosesService
   end
 
   def diagnose
-    max = 0
+    max_probability = 0
     classification_max = nil
     @classifications.each do |classification|
-      abc = math_probability_model_by_classification(classification)
-      if abc>max
-        max = abc
+      probability_model = math_probability_model_by_classification(classification)
+      if probability_model > max_probability
+        max_probability = probability_model
         classification_max = classification
       end
     end
-    @diagnose.update(classification_id: classification_max, user_id: @user.id, result: max)
-    # @classifications.max_by do |classification|
-    #   math_probability_model_by_classification(classification)
-    # end
+    @diagnose.update(classification_id: classification_max.id, user_id: @user.id, result: max_probability)
   end
 
   def math_probability_model_by_classification classification
     probability_model = classification.probability
     @data_users.each do |data_user|
-      if !data_user.value.zero?
+      if data_user.value.present?
         knowledge = Knowledge.find_by classification_id: classification.id, fiction_id: data_user.fiction_id, value: data_user.value
         probability_model *= knowledge.probability
       end

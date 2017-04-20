@@ -5,3 +5,7 @@ en:
       value_female: "female"
       information_user: "Infomation User"
       edit_user: "Update User"
+      name: "name"
+      patient_code: "Patient code"
+      gender: "Gender"
+      birthday: "Birthday"

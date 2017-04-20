@@ -5,8 +5,26 @@
   </div>
 </div>
 <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
+  <div class="fix-clear form-group">
+    <%= f.label :patient_code, t("admin.users.patient_code"),
+      class: "col-md-3 control-label field-compulsory-before" %>
+      <div class="col-md-5">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-address-card-o"></i>
+          </div>
+          <%= f.text_field :patient_code, class: "form-control input-md",
+            placeholder: t("admin.users.patient_code"), disabled: !current_user.admin? %>
+        </div>
+        <ul class = "errors">
+        <% @user.errors[:patient_code].each do |err|%>
+          <li><span class="help-block"><%= t("admin.users.patient_code") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+      </div>
+  </div>
   <div class="form-group">
-    <%= f.label :name,  t("dashboard.users.name"),
+    <%= f.label :name, t("admin.users.name"),
     class: "col-md-3 control-label field-compulsory-before" %>
     <div class="col-md-5">
       <div class="input-group">
@@ -41,7 +59,7 @@
     </div>
   </div>
   <div class="fix-clear form-group">
-    <%= f.label :gender, t("dashboard.users.gender"), class: "col-md-3 control-label  gender" %>
+    <%= f.label :gender, t("admin.users.gender"), class: "col-md-3 control-label  gender" %>
     <div class="col-md-5 select-container">
       <div class="input-group">
           <% User.genders.keys.each do |key| %>
@@ -58,7 +76,7 @@
       </ul>
   </div>
   <div class="form-group">
-    <%= f.label :birthday, t("dashboard.users.birthday"),
+    <%= f.label :birthday, t("admin.users.birthday"),
     class: "col-md-3 control-label" %>
     <div class="col-md-5">
       <div class="input-group">
@@ -78,8 +96,8 @@
           </div>
         </div>
         <ul class = "errors">
-          <% @user.errors[:email].each do |err|%>
-            <li><span class="help-block"><%= t("email") + " #{err}" %></span></li>
+          <% @user.errors[:birthday].each do |err|%>
+            <li><span class="help-block"><%= t("birthday") + " #{err}" %></span></li>
           <% end %>
         </ul>
       </div>

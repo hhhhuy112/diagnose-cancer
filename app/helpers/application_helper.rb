@@ -23,6 +23,13 @@ module ApplicationHelper
     (page_index - 1) * page_size + (index + 1)
   end
 
-  def get_value_by_fiction
+  def get_value_by_fiction fiction
+    fiction.value_fictions
+  end
+
+  def get_fiction_by_name name_fiction
+    fiction = Fiction.find_by name: name_fiction
+    return [] unless fiction.present?
+    fiction.value_fictions
   end
 end

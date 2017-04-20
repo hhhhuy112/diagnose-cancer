@@ -8,6 +8,7 @@ en:
   bland_chromatin: "Bland Chromatin"
   normal_nucleoli: "Normal Nucleoli"
   mitoses: "Mitoses"
+  classification: "Classification"
   result: "Result"
   action: "Action"
   add: "Add"

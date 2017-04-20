@@ -1,6 +1,7 @@
 class Admin::KnowledgesController < Admin::BaseController
   before_action :destroy_knowledge, only: :create_knowledge
   before_action :load_data, only: :create_knowledge
+  before_action :load_knowledge, only: :show
 
   def index
     @search = Knowledge.ransack(params[:q])
@@ -26,6 +27,10 @@ class Admin::KnowledgesController < Admin::BaseController
 
   end
 
+  def show
+
+  end
+
   def edit
 
   end
@@ -48,5 +53,12 @@ class Admin::KnowledgesController < Admin::BaseController
     @data_cancers = DataCancer.all
     @classifications = Classification.all
     @fictions = Fiction.all
+  end
+
+  def load_knowledge
+    @knowledge = Knowledge.find_by id: params[:id]
+    return if @knowledge
+    flash[:error] = t "not_found_item"
+    redirect_to admin_knowledges_path
   end
 end

@@ -1,5 +1,4 @@
 <% provide :title, t("login") %>
-
 <!-- Login Background -->
 <div id="login-background">
   <%= image_tag "background.jpg", class: "animation-pulseSlow" %>
@@ -8,7 +7,7 @@
 
 <!-- Login Container -->
 <div id="login-container" class="animation-fadeIn">
-  <%= render "shared/flash" if flash[:alert] %>
+  <%= render "shared/flash" %>
   <!-- Login Title -->
   <div class="login-title text-center">
     <h1>

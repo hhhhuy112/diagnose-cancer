@@ -1,4 +1,5 @@
 class DiagnosesController < ApplicationController
+  before_action :logged_in_user
   before_action :load_fictions, only: :create
   before_action :load_classifications, only: :create
 
@@ -12,11 +13,11 @@ class DiagnosesController < ApplicationController
   end
 
   def create
-    diagnose = Diagnose.new(params_diagnose)
-    if diagnose.save
-      diagose_service = DiagnosesService.new(@classifications, @fictions, diagnose.data_users, diagnose, current_user)
-      classification = diagose_service.diagnose
-      binding.pry
+    @diagnose = Diagnose.new(params_diagnose)
+    if @diagnose.save
+      diagose_service = DiagnosesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
+      diagose_service.diagnose
+      @diagnose
     else
        render :new
     end
@@ -31,7 +32,7 @@ class DiagnosesController < ApplicationController
   end
 
   def params_diagnose
-    params.require(:diagnose).permit(data_users_attributes: [:id, :fiction_id, :value])
+    params.require(:diagnose).permit( :user_id ,data_users_attributes: [:id, :fiction_id, :value])
   end
 
   private

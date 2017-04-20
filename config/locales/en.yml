@@ -20,8 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  patient: "Patient"
+  diagnostic_title: "Diagnose "
+  cancer_title: "Cancer"
+  please_log_in: "Please login"
   logout: "Logout"
   profile: "Profile"
+  data: "Data"
   name_app: "Diagnostic Cancer"
   not_found_item: "Find not item"
   admin:
@@ -35,10 +40,13 @@ en:
       title: "Users"
       add: "Add User"
       list_users: "List users"
+      errors:
+        patient_code: "Admin will has code start by A and patient is P"
     knowledges:
       title: "Knowledges"
       create_knowledges: "Create knowledges"
       create_knowledges_success: "Create knowledges from data cancers success"
+      information_knowledge: "Information knowledge"
   users:
     update: "Update profile"
     information_user: "Information user"
@@ -46,3 +54,11 @@ en:
     update_password: "Update password"
   diagnoses:
     diagnose: "Diagnose"
+  sidebar:
+    data_cancers: "Data cancers"
+    user: "Users"
+    fiction_value: "Fiction values"
+    fictions: "Fictions"
+    knowledges: "Knowledges"
+
+

@@ -7,7 +7,7 @@
         <!-- Brand -->
         <a href="index.html" class="sidebar-brand">
           <i class="gi gi-flash"></i>
-          <span class="sidebar-nav-mini-hide"><strong>Pro</strong>UI</span>
+          <span class="sidebar-nav-mini-hide"><strong><%= t "diagnostic_title" %></strong><%= t "cancer_title" %></span>
         </a>
         <!-- END Brand -->
 
@@ -41,31 +41,33 @@
         <!-- Sidebar Navigation -->
         <ul class="sidebar-nav">
           <li>
-            <a href="index.html"><i class="gi gi-stopwatch sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Dashboard</span></a>
-          </li>
-          <li>
-            <a href="index2.html"><i class="gi gi-leaf sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Dashboard 2</span></a>
+            <%= link_to admin_users_path do %>
+              <i class="gi gi-stopwatch sidebar-nav-icon"></i>
+              <span class="sidebar-nav-mini-hide"><%= t("sidebar.users")%></span>
+            <% end %>
           </li>
           <li class="active">
-            <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-shopping_cart sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">eCommerce</span></a>
+            <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-notes_2 sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide"><%= t "data" %></span></a>
             <ul>
               <li>
-                <a href="page_ecom_dashboard.html">Dashboard</a>
+                <%= link_to admin_data_cancers_path do %>
+                  <span class="sidebar-nav-mini-hide"><%= t("sidebar.data_cancers")%></span>
+                <% end %>
               </li>
               <li>
-                <a href="page_ecom_orders.html">Orders</a>
+                <%= link_to admin_knowledges_path do %>
+                  <span class="sidebar-nav-mini-hide"><%= t("sidebar.knowledges")%></span>
+                <% end %>
               </li>
               <li>
-                <a href="page_ecom_order_view.html">Order View</a>
+                <%= link_to admin_fictions_path do %>
+                  <span class="sidebar-nav-mini-hide"><%= t("sidebar.fictions")%></span>
+                <% end %>
               </li>
               <li>
-                <a href="page_ecom_products.html">Products</a>
-              </li>
-              <li>
-                <a href="page_ecom_product_edit.html">Product Edit</a>
-              </li>
-              <li>
-                <a href="page_ecom_customer_view.html" class=" active">Customer View</a>
+                <%= link_to admin_value_fictions_path do %>
+                  <span class="sidebar-nav-mini-hide"><%= t("sidebar.value_fictions")%></span>
+                <% end %>
               </li>
             </ul>
           </li>
@@ -210,214 +212,8 @@
               </li>
             </ul>
           </li>
-          <li class="sidebar-header">
-            <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
-            <span class="sidebar-header-title">Develop Kit</span>
-          </li>
-          <li>
-            <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-brush sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Ready Pages</span></a>
-            <ul>
-              <li>
-                <a href="#" class="sidebar-nav-submenu"><i class="fa fa-angle-left sidebar-nav-indicator"></i>Errors</a>
-                <ul>
-                  <li>
-                    <a href="page_ready_400.html">400</a>
-                  </li>
-                  <li>
-                    <a href="page_ready_401.html">401</a>
-                  </li>
-                  <li>
-                    <a href="page_ready_403.html">403</a>
-                  </li>
-                  <li>
-                    <a href="page_ready_404.html">404</a>
-                  </li>
-                  <li>
-                    <a href="page_ready_500.html">500</a>
-                  </li>
-                  <li>
-                    <a href="page_ready_503.html">503</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#" class="sidebar-nav-submenu"><i class="fa fa-angle-left sidebar-nav-indicator"></i>Get Started</a>
-                <ul>
-                  <li>
-                    <a href="page_ready_blank.html">Blank</a>
-                  </li>
-                  <li>
-                    <a href="page_ready_blank_alt.html">Blank Alternative</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="page_ready_search_results.html">Search Results (4)</a>
-              </li>
-              <li>
-                <a href="page_ready_article.html">Article</a>
-              </li>
-              <li>
-                <a href="page_ready_user_profile.html">User Profile</a>
-              </li>
-              <li>
-                <a href="page_ready_contacts.html">Contacts</a>
-              </li>
-              <li>
-                <a href="#" class="sidebar-nav-submenu"><i class="fa fa-angle-left sidebar-nav-indicator"></i>e-Learning</a>
-                <ul>
-                  <li>
-                    <a href="page_ready_elearning_courses.html">Courses</a>
-                  </li>
-                  <li>
-                    <a href="page_ready_elearning_course_lessons.html">Course - Lessons</a>
-                  </li>
-                  <li>
-                    <a href="page_ready_elearning_course_lesson.html">Course - Lesson Page</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="#" class="sidebar-nav-submenu"><i class="fa fa-angle-left sidebar-nav-indicator"></i>Message Center</a>
-                <ul>
-                  <li>
-                    <a href="page_ready_inbox.html">Inbox</a>
-                  </li>
-                  <li>
-                    <a href="page_ready_inbox_compose.html">Compose Message</a>
-                  </li>
-                  <li>
-                    <a href="page_ready_inbox_message.html">View Message</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="page_ready_chat.html">Chat</a>
-              </li>
-              <li>
-                <a href="page_ready_timeline.html">Timeline</a>
-              </li>
-              <li>
-                <a href="page_ready_files.html">Files</a>
-              </li>
-              <li>
-                <a href="page_ready_tickets.html">Tickets</a>
-              </li>
-              <li>
-                <a href="page_ready_tasks.html">Tasks</a>
-              </li>
-              <li>
-                <a href="page_ready_faq.html">FAQ</a>
-              </li>
-              <li>
-                <a href="page_ready_pricing_tables.html">Pricing Tables</a>
-              </li>
-              <li>
-                <a href="page_ready_invoice.html">Invoice</a>
-              </li>
-              <li>
-                <a href="page_ready_forum.html">Forum (3)</a>
-              </li>
-              <li>
-                <a href="#" class="sidebar-nav-submenu"><i class="fa fa-angle-left sidebar-nav-indicator"></i>Login, Register &amp; Lock</a>
-                <ul>
-                  <li>
-                    <a href="login.html">Login</a>
-                  </li>
-                  <li>
-                    <a href="login_full.html">Login (Full Background)</a>
-                  </li>
-                  <li>
-                    <a href="login_alt.html">Login 2</a>
-                  </li>
-                  <li>
-                    <a href="login.html#reminder">Password Reminder</a>
-                  </li>
-                  <li>
-                    <a href="login_alt.html#reminder">Password Reminder 2</a>
-                  </li>
-                  <li>
-                    <a href="login.html#register">Register</a>
-                  </li>
-                  <li>
-                    <a href="login_alt.html#register">Register 2</a>
-                  </li>
-                  <li>
-                    <a href="page_ready_lock_screen.html">Lock Screen</a>
-                  </li>
-                  <li>
-                    <a href="page_ready_lock_screen_alt.html">Lock Screen 2</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-wrench sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Components</span></a>
-            <ul>
-              <li>
-                <a href="#" class="sidebar-nav-submenu"><i class="fa fa-angle-left sidebar-nav-indicator"></i>3 Level Menu</a>
-                <ul>
-                  <li>
-                    <a href="#">Link 1</a>
-                  </li>
-                  <li>
-                    <a href="#">Link 2</a>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <a href="page_comp_maps.html">Maps</a>
-              </li>
-              <li>
-                <a href="page_comp_charts.html">Charts</a>
-              </li>
-              <li>
-                <a href="page_comp_gallery.html">Gallery</a>
-              </li>
-              <li>
-                <a href="page_comp_carousel.html">Carousel</a>
-              </li>
-              <li>
-                <a href="page_comp_calendar.html">Calendar</a>
-              </li>
-              <li>
-                <a href="page_comp_animations.html">CSS3 Animations</a>
-              </li>
-              <li>
-                <a href="page_comp_syntax_highlighting.html">Syntax Highlighting</a>
-              </li>
-            </ul>
-          </li>
         </ul>
         <!-- END Sidebar Navigation -->
-
-        <!-- Sidebar Notifications -->
-        <div class="sidebar-header sidebar-nav-mini-hide">
-          <span class="sidebar-header-options clearfix">
-            <a href="javascript:void(0)" data-toggle="tooltip" title="Refresh"><i class="gi gi-refresh"></i></a>
-          </span>
-          <span class="sidebar-header-title">Activity</span>
-        </div>
-        <div class="sidebar-section sidebar-nav-mini-hide">
-          <div class="alert alert-success alert-alt">
-            <small>5 min ago</small><br>
-            <i class="fa fa-thumbs-up fa-fw"></i> You had a new sale ($10)
-          </div>
-          <div class="alert alert-info alert-alt">
-            <small>10 min ago</small><br>
-            <i class="fa fa-arrow-up fa-fw"></i> Upgraded to Pro plan
-          </div>
-          <div class="alert alert-warning alert-alt">
-            <small>3 hours ago</small><br>
-            <i class="fa fa-exclamation fa-fw"></i> Running low on space<br><strong>18GB in use</strong> 2GB left
-          </div>
-          <div class="alert alert-danger alert-alt">
-            <small>Yesterday</small><br>
-            <i class="fa fa-bug fa-fw"></i> <a href="javascript:void(0)"><strong>New bug submitted</strong></a>
-          </div>
-        </div>
-        <!-- END Sidebar Notifications -->
       </div>
       <!-- END Sidebar Content -->
     </div>

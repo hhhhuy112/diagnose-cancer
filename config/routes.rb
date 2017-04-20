@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :data_cancers
     resources :users
+    resources :fictions
+    resources :value_fictions
     resources :knowledges do
     collection do
       get :create_knowledge

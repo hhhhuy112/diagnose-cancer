@@ -22,8 +22,8 @@ class ApplicationController < ActionController::Base
 
   def logged_in_user
     unless user_signed_in?
-      flash[:danger] = t "please_log_in"
-      redirect_to root_path
+      flash[:alert] = t "please_log_in"
+      redirect_to new_user_session_url
     end
   end
 

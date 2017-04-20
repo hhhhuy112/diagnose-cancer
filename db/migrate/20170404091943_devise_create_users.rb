@@ -4,6 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       ## Database authenticatable
       t.string :name
       t.integer :gender, default: 0
+      t.string :patient_code
       t.date :birthday
       t.string :email,              null: false, default: ""
       t.string :avatar

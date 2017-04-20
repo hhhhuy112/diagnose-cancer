@@ -1,7 +1,6 @@
 <% provide :title, t("admin.users.add") %>
 <div class = "row">
   <div class = "block-title">
-
   </div>
   <div class = "block-content-full">
     <div class="panel panel-info">
@@ -27,7 +26,21 @@
           <div>
             <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
              <%= form_for [:admin, @user], multiple: true,
-             class: "form-horizontal form-bordered form-control-borderless" do |f| %>
+              class: "form-horizontal form-bordered form-control-borderless" do |f| %>
+             <div class="form-group">
+              <div class="col-xs-12">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="gi gi-user"></i></span>
+                  <%= f.text_field :patient_code, autofocus: true,
+                  class: "form-control input-lg", placeholder: t("admin.users.patient_code") %>
+                </div>
+                <ul class = "errors">
+                  <% @user.errors[:patient_code].each do |err|%>
+                  <li><span class="help-block"><%= t("admin.users.patient_code") + " #{err}" %></span></li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
              <div class="form-group">
               <div class="col-xs-12">
                 <div class="input-group">

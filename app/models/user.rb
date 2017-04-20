@@ -9,6 +9,10 @@ class User < ApplicationRecord
   validates :name, presence: true, length: {minimum: Settings.user.name_max}
   validates :gender, presence: true
   validates :birthday, presence: true
+  validates :patient_code, presence: true,
+    uniqueness: {case_sensitive: false}
+
+   validate :valid_patient_code, on: [:create, :update], if: ->{self.patient_code.present?}
 
   enum role: {user_normal: 0, admin: 1}
   enum gender: {male: 0, female: 1}
@@ -18,6 +22,13 @@ class User < ApplicationRecord
   end
 
   private
+
+  def valid_patient_code
+    str_code = self.admin? ? Settings.user.code_admin : Settings.user.code_patient
+    if ConvertString.get_prefix_code(self.patient_code) != str_code
+      errors.add :patient_code, I18n.t("admin.users.errors.patient_code")
+    end
+  end
 
   def avatar_size
     if avatar.size > 5.megabytes
