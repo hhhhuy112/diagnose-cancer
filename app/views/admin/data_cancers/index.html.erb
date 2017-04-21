@@ -12,11 +12,15 @@
       <div class="panel-body">
         <% if current_user.admin? %>
         <div class="row manage_user">
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="users_button_group">
             <%= link_to create_knowledge_admin_knowledges_path,
               class: "btn btn-md btn-success float_right" do %>
               <i class="gi gi-plus"></i> <%= t "admin.knowledges.create_knowledges" %>
+              <% end %>
+              <%= link_to admin_rules_path, method: :Post,
+                class: "btn btn-md btn-success float_right" do %>
+                <i class="gi gi-plus"></i> <%= t "admin.rules.create_rules" %>
               <% end %>
             </div>
           </div>

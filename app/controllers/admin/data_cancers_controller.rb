@@ -29,7 +29,7 @@ class Admin::DataCancersController < Admin::BaseController
 
   def update
     if @data_cancer.update_attributes data_cancer_params
-      flash[:notice] = t "admin.data_cancers.updated_success"
+      flash[:success] = t "admin.data_cancers.updated_success"
       redirect_to [:admin, @data_cancer]
     else
       render :edit
@@ -38,7 +38,7 @@ class Admin::DataCancersController < Admin::BaseController
 
   def destroy
     if @data_cancer.destroy
-      flash[:notice] = t("delete") + t("success")
+      flash[:success] = t("delete") + t("success")
       redirect_to admin_data_cancers_path
     else
       flash[:error] = t("delete") + t("fail")
@@ -51,7 +51,7 @@ class Admin::DataCancersController < Admin::BaseController
   def load_data_cancer
     @data_cancer = DataCancer.find_by id: params[:id]
     return if @data_cancer.present?
-    flash[:error] = t "not_found_item"
+    flash[:warning] = t "not_found_item"
     redirect_to :back
   end
 

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user
   before_action :load_user, only: [:update, :edit, :show]
+  before_action :load_diagnoses, only: :show
 
   def show
     @title = t "users.information_user"
@@ -31,5 +32,11 @@ class UsersController < ApplicationController
     return if @user
     flash[:error] = t "not_found_item"
     redirect_to :back
+  end
+
+  def load_diagnoses
+    @search = @user.diagnose.ransack(params[:q])
+    @diagnoses = @search.result
+    @diagnoses = @diagnoses.page(params[:page]).per Settings.per_page.admin.diagnose
   end
 end

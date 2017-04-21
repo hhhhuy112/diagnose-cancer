@@ -22,3 +22,7 @@
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+.submit-button{
+  margin-top: 10px;
+}

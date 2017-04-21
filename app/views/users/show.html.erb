@@ -1,6 +1,27 @@
 <% provide :title, t("admin.users.information_user") %>
 <div class = "row">
   <div class = "block-content-full">
-    <%= render "shared/show" %>
+    <div class="panel panel-info">
+      <% if current_user.admin? %>
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <%= t"users.information_user" %>
+          </h3>
+        </div>
+      <% end %>
+      <div class="panel-body">
+        <%= render "shared/show" %>
+        <%= render "diagnoses_user"%>
+      </div>
   </div>
 </div>
+
+<div class="row">
+      <div class="col-md-3">
+        <% if current_user.admin?%>
+          <%= link_to admin_users_path, class: "btn btn-default" do %>
+            <i class="fa fa-chevron-left"></i> <%= t "dashboard.users.list_user" %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>

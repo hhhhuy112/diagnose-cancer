@@ -28,7 +28,7 @@ class Admin::UsersController < Admin::BaseController
     if @user.destroy
       flash[:success] = t "devise.registrations.destroyed"
     else
-      flash[:warning] = t "delete_not_success"
+      flash[:error] = t "delete_not_success"
     end
     redirect_to admin_users_path
   end

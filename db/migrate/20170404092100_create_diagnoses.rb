@@ -4,6 +4,7 @@ class CreateDiagnoses < ActiveRecord::Migration[5.0]
       t.references :user, foreign_key: true
       t.references :classification, foreign_key: true
       t.float :result
+      t.integer :type_diagnose
       t.datetime :deleted_at
 
       t.timestamps

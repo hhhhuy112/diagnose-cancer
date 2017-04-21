@@ -1,0 +1,9 @@
+en:
+  diagnose:
+    created_at: "Created at"
+    user: "Patient"
+    classification: "Result diagnose"
+    result: "Probability"
+    list_diagnoses: "List diagnoses"
+  naive_bayes: "Naive Bayes"
+  desicion_tree: "Desicion Tree"

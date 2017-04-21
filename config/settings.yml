@@ -3,7 +3,7 @@ per_page:
     data_cancer: 10
     knowledge: 10
     user: 10
-    diagnose: 10
+    diagnose: 4
 image_format_accept: "image/jpeg,image/gif,image/png"
 image_default: "group_default.gif"
 user:

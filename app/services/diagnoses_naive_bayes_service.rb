@@ -1,4 +1,4 @@
-class DiagnosesService
+class DiagnosesNaiveBayesService
   def initialize classifications, fictions, data_users, diagnose, user
     @data_users = data_users
     @classifications = classifications
@@ -18,7 +18,7 @@ class DiagnosesService
         classification_max = classification
       end
     end
-    @diagnose.update(classification_id: classification_max.id, user_id: @user.id, result: max_probability)
+    @diagnose.update(classification_id: classification_max.id, result: max_probability)
   end
 
   def math_probability_model_by_classification classification

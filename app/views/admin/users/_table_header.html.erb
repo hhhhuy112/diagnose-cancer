@@ -1,5 +1,6 @@
 <tr class = "name-colum" >
     <th>STT</th>
+    <th><%= sort_link @search, :patient_code, t("patient_code") %></th>
     <th><%= sort_link @search, :name, t("name") %></th>
     <th><%= sort_link @search, :email, t("email") %></th>
     <th><%= sort_link @search, :gender, t("gender") %></th>

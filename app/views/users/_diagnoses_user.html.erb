@@ -1,0 +1,43 @@
+<div class="table-responsive diagnoses-user">
+  <table class="table table-bordered table-hover">
+    <thead class = "header-table-diagnoses">
+    <tr>
+        <th>STT</th>
+        <th><%= sort_link @search, :created_at, t("diagnose.created_at") %></th>
+        <th><%= sort_link @search, :user_id, t("diagnose.user") %></th>
+        <th><%= sort_link @search, :classification_id, t("diagnose.classification") %></th>
+        <th><%= sort_link @search, :result, t("diagnose.result") %></th>
+        <th><%= t("action")%></th>
+    </tr>
+
+    </thead>
+    <tbody class = "diagnoses-content">
+      <% @diagnoses.each_with_index do |diagnose, index| %>
+        <tr id="diagnose-#{diagnose.id}">
+          <td>
+            <%= current_index @diagnoses.current_page, Settings.per_page.admin.diagnose, index %>
+          </td>
+          <td><%= l diagnose.created_at, format: :format_datetime_picker_rb %></td>
+          <td><%= diagnose.user_name %></td>
+          <td><%= diagnose.classification_name %></td>
+          <td><%= diagnose.result %></td>
+          <td class="text-center">
+              <div class="btn-group btn-group-xs">
+                <%= link_to diagnose, class: "btn btn-default" do %>
+                  <i class="fa fa-eye"></i>
+                <% end %>
+                <% if current_user.admin? %>
+                  <%= link_to [:admin, diagnose],
+                    method: :delete, class: "btn btn-danger", data: {confirm: t("are_you_sure")} do %>
+                    <i class="fa fa-trash"></i>
+                  <% end %>
+                <% end %>
+              </div>
+            </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<center><%= paginate @diagnoses %></center>
+</div>

@@ -1,4 +1,4 @@
 class Classification < ApplicationRecord
-  has_many :data_cancers
-  has_many :diagnose
+  has_many :data_cancers, dependent: :destroy
+  has_many :diagnose, dependent: :destroy
 end

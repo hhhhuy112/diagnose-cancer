@@ -1,1 +1,8 @@
-_table_header.html.erb
+<tr class = "name-colum" >
+    <th>STT</th>
+    <th><%= sort_link @search, :created_at, t("diagnose.created_at") %></th>
+    <th><%= sort_link @search, :user_id, t("diagnose.user") %></th>
+    <th><%= sort_link @search, :classification_id, t("diagnose.classification") %></th>
+    <th><%= sort_link @search, :result, t("diagnose.result") %></th>
+    <th><%= t("action")%></th>
+</tr>
