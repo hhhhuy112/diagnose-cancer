@@ -7,23 +7,28 @@ class CreateRulesDecisionTreeService
     @array_special_fictions = []
     @abc = ""
     @count = 0
+    @list =[]
+    current_node = ""
   end
 
   def id3_algorithm data_cancers, fictions
     arr_classification = get_classification data_cancers
     if arr_classification.count == 1
       #tao nut root cua cay quyet dinh
+      #node[:classification] = arr_classification.first
       @abc +=   "lop:" + "#{arr_classification.first}"  + "\n"
-      @abc += "-------------------------------------end-node1------------------------------------ \n"
+      @abc += "-------------------------------------end-node------------------------------------ \n"
+      #@list.push(["classification", arr_classification.first])
       return
     elsif fictions.blank?
+
       classification_max = @classifications.max_by do |classification|
         data_cancers.count{|data_cancer| data_cancer.classification_id ==  classification.id}
       end
-
+      #node[:classification] = classification_max.name
       @abc +=  "lop_nhieu: #{classification_max.name} " + "\n"
-      @abc += "-------------------------------------end-node1------------------------------------ \n"
-
+      @abc += "-------------------------------------end-node------------------------------------ \n"
+      #@list.push(["classification", classification_max.id])
       return
     else
       # lay best attribute
@@ -34,14 +39,14 @@ class CreateRulesDecisionTreeService
       #voi moi v thuoc best_attribute
       @abc += "-------------------------------------start-node------------------------------------ \n"
       @abc += "-------------------------------------nhanh"+ "#{best_attribute.name}" + "------------------------------------\n"
-
       best_attribute.value_fictions.each do |value_fiction|
-        @abc +=  "value" + "#{value_fiction.value}----- \n"
+        @abc +=  "\n \n value of #{best_attribute.name}" + "#{value_fiction.value}----- \n"
+        #@list.push([best_attribute.name, value_fiction.value])
         data_cancers_v =  get_data_cancers_for_fictions best_attribute, value_fiction.value
         id3_algorithm(data_cancers_v, fictions_v)
       end
     end
-    @abc
+    @list
   end
 
   def write_file text
