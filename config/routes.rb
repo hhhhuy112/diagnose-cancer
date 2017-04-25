@@ -5,6 +5,16 @@ Rails.application.routes.draw do
 
   resources :users
   resources :diagnoses
+  resources :groups do
+      member do
+        post :delete_member
+      end
+
+      member do
+        post :add_member
+      end
+    end
+  resources :user_groups
   namespace :admin do
     resources :data_cancers
     resources :users
@@ -12,10 +22,12 @@ Rails.application.routes.draw do
     resources :value_fictions
     resources :diagnoses
     resources :rules
+    resources :groups
+    resources :user_groups
     resources :knowledges do
-    collection do
-      get :create_knowledge
+      collection do
+        get :create_knowledge
+      end
     end
-  end
   end
 end

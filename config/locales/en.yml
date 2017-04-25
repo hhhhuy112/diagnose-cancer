@@ -20,7 +20,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  submit: "submit"
   patient: "Patient"
+  admin: "Admin"
+  owner: "Owner"
   diagnostic_title: "Diagnose "
   cancer_title: "Cancer"
   please_log_in: "Please login"
@@ -44,8 +47,8 @@ en:
         patient_code: "Admin will has code start by A and patient is P"
     knowledges:
       title: "Knowledges"
-      create_knowledges: "Create knowledges"
-      create_knowledges_success: "Create knowledges from data cancers success"
+      create_knowledges: "Create knowledge"
+      create_knowledges_success: "Create knowledge from data cancers success"
       information_knowledge: "Information knowledge"
     diagnoses:
       title: "Diagnoses"
@@ -60,8 +63,25 @@ en:
       delete_fail: "You deleted a diagnose fail"
       patient: "Patient"
       type: "Type diagnose"
+      select_value: "Select value"
     rules:
       create_rules: "Create Rules"
+    groups:
+      title: "Groups"
+      create_groups: "Create groups"
+      create_group_success: "Create group success"
+      create_group_fail: "Create group fail"
+      information_group: "Information group"
+      list_members: "List members"
+      delete: "Delete"
+      delete_group_success: "Delete group success"
+      delete_group_fail: "Delete group fail"
+      owner: "Owner"
+      name: "Name"
+      image: "Image"
+      update_group: "Update group"
+      update_group_success: "Update group success"
+      update_group_fail: "Update group fail"
   users:
     update: "Update profile"
     information_user: "Information user"

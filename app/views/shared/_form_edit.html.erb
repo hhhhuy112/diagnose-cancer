@@ -11,7 +11,7 @@
       <div class="col-md-5">
         <div class="input-group">
           <div class="input-group-addon">
-            <i class="fa fa-address-card-o"></i>
+            <i class="gi gi-barcode"></i>
           </div>
           <%= f.text_field :patient_code, class: "form-control input-md",
             placeholder: t("admin.users.patient_code"), disabled: !current_user.admin? %>
@@ -41,6 +41,25 @@
       </ul>
     </div>
   </div>
+  <% if !@user.admin? %>
+  <div class="form-group">
+    <%= f.label :role, t("admin.users.role"),
+    class: "col-md-3 control-label field-compulsory-before" %>
+    <div class="col-md-5">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-user"></i>
+        </div>
+        <%= f.select :role, User.roles.collect { |key, value| [t("#{key}"), key] }, {}, {class: "form-control col-md-9"} %>
+      </div>
+      <ul class = "errors">
+        <% @user.errors[:role].each do |err|%>
+          <li><span class="help-block"><%= t("name") + " #{err}" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <% end %>
   <div class="fix-clear form-group">
     <%= f.label :email, t("email"), class: "col-md-3 control-label" %>
     <div class="col-md-5">

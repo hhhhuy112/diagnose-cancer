@@ -1,0 +1,4 @@
+en:
+  user_groups:
+    remove_member: "Delete"
+    add_member: "Add"
