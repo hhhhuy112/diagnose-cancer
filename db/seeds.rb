@@ -37,7 +37,8 @@ putc "create fiction"
 
 fiction_file = File.open("/home/ubuntu/datn/data/data_fiction.txt", "r")
 fiction_file.each_line do |line|
-  Fiction.create(name: line, description: "")
+  name = line[0, line.length - 1]
+  Fiction.create(name: name, description: "")
 end
 fiction_file.close
 

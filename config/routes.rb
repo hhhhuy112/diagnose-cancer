@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :users
     resources :fictions
     resources :value_fictions
+    resources :diagnoses
+    resources :rules
     resources :knowledges do
     collection do
       get :create_knowledge

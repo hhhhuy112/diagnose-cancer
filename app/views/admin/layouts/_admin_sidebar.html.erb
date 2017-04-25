@@ -76,7 +76,10 @@
             <span class="sidebar-header-title">Widget Kit</span>
           </li>
           <li>
-            <a href="page_widgets_stats.html"><i class="gi gi-charts sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Statistics</span></a>
+            <%= link_to admin_diagnoses_path do %>
+                  <i class="gi gi-charts sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide"><%= t("sidebar.diagnoses")%></span>
+                <% end %>
           </li>
           <li>
             <a href="page_widgets_social.html"><i class="gi gi-share_alt sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Social</span></a>

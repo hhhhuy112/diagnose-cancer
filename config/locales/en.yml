@@ -47,6 +47,21 @@ en:
       create_knowledges: "Create knowledges"
       create_knowledges_success: "Create knowledges from data cancers success"
       information_knowledge: "Information knowledge"
+    diagnoses:
+      title: "Diagnoses"
+      create_diagnose: "Add diagnose"
+      information_diagnoses: "Detail diagnose"
+      update_diagnose: "Update diagnose"
+      update_success: "You updated a diagnose success"
+      update_fail: "You updated a diagnose fail"
+      create_success: "You created new diagnose success"
+      create_fail: "You created new diagnose fail"
+      delete_success: "You deleted a diagnose success"
+      delete_fail: "You deleted a diagnose fail"
+      patient: "Patient"
+      type: "Type diagnose"
+    rules:
+      create_rules: "Create Rules"
   users:
     update: "Update profile"
     information_user: "Information user"
@@ -60,5 +75,4 @@ en:
     fiction_value: "Fiction values"
     fictions: "Fictions"
     knowledges: "Knowledges"
-
-
+    diagnoses: "Diagnoses"

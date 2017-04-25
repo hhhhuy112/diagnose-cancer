@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170409074818) do
+ActiveRecord::Schema.define(version: 20170422141340) do
 
   create_table "classifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20170409074818) do
     t.integer  "user_id"
     t.integer  "classification_id"
     t.float    "result",            limit: 24
+    t.integer  "type_diagnose"
     t.datetime "deleted_at"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
@@ -78,6 +79,24 @@ ActiveRecord::Schema.define(version: 20170409074818) do
     t.datetime "updated_at",                               null: false
     t.index ["classification_id"], name: "index_knowledges_on_classification_id", using: :btree
     t.index ["fiction_id"], name: "index_knowledges_on_fiction_id", using: :btree
+  end
+
+  create_table "rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "sample_code_number"
+    t.integer  "clump_thickness"
+    t.integer  "uniformity_of_cell_size"
+    t.integer  "uniformity_of_cell_shape"
+    t.integer  "marginal_adhesion"
+    t.integer  "single_epithelial_cell_size"
+    t.integer  "bare_nuclei"
+    t.integer  "band_romatin"
+    t.integer  "nomal_nucleoli"
+    t.integer  "mitoses"
+    t.integer  "classification_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["classification_id"], name: "index_rules_on_classification_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -120,5 +139,6 @@ ActiveRecord::Schema.define(version: 20170409074818) do
   add_foreign_key "diagnoses", "users"
   add_foreign_key "knowledges", "classifications"
   add_foreign_key "knowledges", "fictions"
+  add_foreign_key "rules", "classifications"
   add_foreign_key "value_fictions", "fictions"
 end

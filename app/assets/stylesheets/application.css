@@ -19,6 +19,7 @@
  *= require bootstrap-datepicker3
  *= require users
  *= require register
+ *= require custom
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
@@ -28,4 +29,8 @@
 
 .content-user{
   min-height: 400px;
+}
+
+.submit-button{
+  margin-top: 10px;
 }

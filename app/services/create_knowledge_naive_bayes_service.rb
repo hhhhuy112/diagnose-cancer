@@ -1,4 +1,4 @@
-class CreateKnowledgeService
+class CreateKnowledgeNaiveBayesService
   def initialize data_cancers, classifications, fictions
     @data_cancers = data_cancers
     @classifications = classifications

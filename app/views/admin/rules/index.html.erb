@@ -1,12 +1,14 @@
-<% provide :title, t("admin.diagnoses.title") %>
-
-
+<% provide :title, t("admin.knowledges.title") %>
 <div class = "row">
+  <div class = "block-title">
+
+  </div>
   <div class = "block-content-full">
+
     <div class="panel panel-info">
       <div class="panel-heading">
         <h3 class="panel-title">
-          <%= t"admin.diagnoses.list_diagnoses"%>
+          <%= t"dashboard.users.title_profile" %>
         </h3>
       </div>
       <div class="panel-body">
@@ -14,9 +16,9 @@
         <div class="row manage_user">
           <div class="col-md-12">
             <div class="users_button_group">
-            <%= link_to new_admin_diagnosis_path,
+            <%= link_to new_admin_knowledge_path,
               class: "btn btn-md btn-success float_right" do %>
-              <i class="gi gi-plus"></i> <%= t "admin.diagnoses.create_diagnose" %>
+              <i class="glyphicon glyphicon-plus"></i> <%= t "new_user" %>
               <% end %>
             </div>
           </div>
@@ -24,15 +26,15 @@
         <% end %>
         <div class="table-responsive">
           <table class="table table-bordered table-hover">
-            <thead class = "header-table-diagnoses">
+            <thead class = "header-table-rules">
               <%= render "table_header" %>
             </thead>
-            <tbody class = "diagnoses-content">
-              <%= render(@diagnoses) || t(".data_not_find") %>
+            <tbody class = "rules-content">
+              <%= render(@rules) || t(".data_not_find") %>
             </tbody>
           </table>
         </div>
-        <center class = "paginate-items"><%= paginate @diagnoses %></center>
+        <center class = "paginate-items"><%= paginate @rules %></center>
       </div>
     </div>
   </div>

@@ -4,7 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader
-  has_many :diagnose
+
+  has_many :diagnose, dependent: :destroy
+
   validate  :avatar_size
   validates :name, presence: true, length: {minimum: Settings.user.name_max}
   validates :gender, presence: true
