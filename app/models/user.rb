@@ -6,6 +6,7 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   has_many :diagnose, dependent: :destroy
+  has_many :groups, dependent: :destroy
 
   validate  :avatar_size
   validates :name, presence: true, length: {minimum: Settings.user.name_max}
@@ -16,11 +17,19 @@ class User < ApplicationRecord
 
    validate :valid_patient_code, on: [:create, :update], if: ->{self.patient_code.present?}
 
-  enum role: {user_normal: 0, admin: 1}
+  enum role: {user_normal: 0, admin: 1, owner: 2}
   enum gender: {male: 0, female: 1}
+
+  scope :not_in_group, ->group_id do
+    where "id NOT IN (select user_id from user_groups where group_id = ?)", group_id
+  end
 
   def is_user? user
     user.id == self.id
+  end
+
+  def is_owner?
+    true
   end
 
   private

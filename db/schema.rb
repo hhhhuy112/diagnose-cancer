@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170422141340) do
+ActiveRecord::Schema.define(version: 20170425063647) do
 
   create_table "classifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -70,6 +70,17 @@ ActiveRecord::Schema.define(version: 20170422141340) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text     "name",        limit: 65535
+    t.integer  "user_id"
+    t.text     "description", limit: 65535
+    t.string   "image"
+    t.datetime "deleted_at"
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.index ["user_id"], name: "index_groups_on_user_id", using: :btree
+  end
+
   create_table "knowledges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "classification_id"
     t.integer  "fiction_id"
@@ -97,6 +108,15 @@ ActiveRecord::Schema.define(version: 20170422141340) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["classification_id"], name: "index_rules_on_classification_id", using: :btree
+  end
+
+  create_table "user_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_user_groups_on_group_id", using: :btree
+    t.index ["user_id"], name: "index_user_groups_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -137,8 +157,11 @@ ActiveRecord::Schema.define(version: 20170422141340) do
   add_foreign_key "data_users", "fictions"
   add_foreign_key "diagnoses", "classifications"
   add_foreign_key "diagnoses", "users"
+  add_foreign_key "groups", "users"
   add_foreign_key "knowledges", "classifications"
   add_foreign_key "knowledges", "fictions"
   add_foreign_key "rules", "classifications"
+  add_foreign_key "user_groups", "groups"
+  add_foreign_key "user_groups", "users"
   add_foreign_key "value_fictions", "fictions"
 end
