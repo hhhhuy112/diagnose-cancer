@@ -1,0 +1,108 @@
+<%= javascript_include_tag "groups", "data-turbolinks-track" => true  %>
+<div class="toppad col-md-12" id="group-body">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title text-center">
+        <%= t "dashboard.user_groups.information_group" %>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-3">
+          <%= image_tag @group.image.url,  class: "image-register" %>
+        </div>
+        <div class="col-md-8 row">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td class="col-md-3"><%= t "groups.name" %></td>
+                <td><span><%= @group.name %></span></td>
+              </tr>
+              <tr>
+                <td class="col-md-3"><%= t "groups.owner" %></td>
+                <td><span><%= @group.owner.name %></span></td>
+              </tr>
+              <tr>
+                <td><%= t "dashboard.groups.description" %></td>
+                <td><span><%= @group.description %></span></td>
+              </tr>
+              <tr>
+                <td><%= t "dashboard.user_groups.number_member" %></td>
+                <td><span id="count"><%= @group.users.count %></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title text-center">
+        <%= t "dashboard.user_groups.list_member" %>
+      </h3>
+    </div>
+    <div class="row">
+      <br>
+      <div class="col-md-12 row">
+        <% if current_user.is_owner? @group %>
+          <div class="col-md-offset-1 col-md-2">
+            <input type="checkbox" id="select-all-user-inside" class="col-md-1"
+              value="">
+            <span class="col-md-9">
+              <%= t "dashboard.user_groups.select_all" %>
+            </span>
+          </div>
+        <% end %>
+        <div class="col-md-5 pull-right">
+          <%= form_tag @group, remote: true, method: :get,
+              id: "group_members_search" do %>
+            <div class="form-group col-md-10">
+              <%= text_field_tag :search, params[:search],
+                class: "form-control", placeholder: t("user_groups.search") %>
+            </div>
+          <% end %>
+
+        </div>
+          <div class="col-md-2">
+            <%= form_for :group, url: delete_member_group_path(@group) do |f| %>
+              <%=  hidden_field_tag :user_ids %>
+              <%=  hidden_field_tag :user_ids_tmp %>
+              <% if current_user.is_owner? @group %>
+                <%= f.submit t("user_groups.remove_member"),
+                  id: "btn-delete-user-into-group",
+                  class: "btn btn-danger btn-sm" %>
+              <% end %>
+            <% end %>
+
+          </div>
+          <% if current_user.is_owner? @group %>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-primary col-md-12 btn-sm"
+                data-toggle="modal" data-target="#add-users-into-group">
+                <%= t "user_groups.add_member" %>
+              </button>
+            </div>
+          <% end %>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="row overflow-list-user" id="list-users-group">
+              <%= render "table_member" %>
+            </div>
+        </div>
+      </div>
+    </div>
+      <%= render "assign_user" %>
+  </div>
+</div>
+<div class="loader hide hide-load-modal"></div>
+
+
+<script type="text/javascript">
+
+
+</script>

@@ -1,0 +1,9 @@
+$('#list-users-group')
+  .html('<%= escape_javascript(render "dashboard/user_groups/table_member") %>');
+$('#user_ids_temp').val(<%= @arr_user_id %>);
+is_select('#select-all-user-inside', '.member-group');
+$.each(checkedValuesUserIntoGroup, function(i, val) {
+  $('#' + val).prop('checked', true);
+});
+set_select_all(checkedValuesUserIntoGroup, '#select-all-user-inside');
+disable_checkbox_all('#select-all-user-inside');

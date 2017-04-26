@@ -1,0 +1,22 @@
+<input type="checkbox" id="select-all-user-outside">
+<%= t "dashboard.user_groups.select_all" %>
+<div id="check-box-all-checked">
+  <%= collection_check_boxes :user_groups, :user_ids, users, :id, :name do |f| %>
+    <li class="list-group-item hide-user-group-search">
+      <div class="col-xs-12 col-sm-8">
+        <div class="checkbox col-md-8 checkbox-user-group search-checkbox">
+          <%= f.label {f.check_box + f.text} %>
+        </div>
+        <div class="col-xs-12 col-md-4">
+          <%= image_tag f.object.avatar.url, class: "img-scale img-circle" %>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <% f.object.groups.each do |group| %>
+          <label class="label-info label-custom"><%= group.name %></label>
+        <% end %>
+      </div>
+      <div class="clearfix"></div>
+    </li>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<tr>
+  <td class="width-5-percent">
+    <% if current_user.is_manager? %>
+      <%= check_box_tag user_group.user_id, user_group.user_id, false,
+        class: "member-group" %>
+    <% end %>
+  </td>
+  <td class="width-10-percent">
+    <%= image_tag user_group.user_avatar.url, class: "img-scale img-circle" %>
+  </td>
+  <td class="width-35-percent"><%= user_group.user_name %></td>
+  <td class="width-20-percent"><%= user_group.user_employee_code %></td>
+  <td class="width-20-percent"><%= user_group.user_gender %></td>
+</tr>

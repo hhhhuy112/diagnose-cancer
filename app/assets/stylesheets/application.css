@@ -20,17 +20,19 @@
  *= require users
  *= require register
  *= require custom
+ *= require admin/groups
+
+
  */
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
 
-
-
 .content-user{
-  min-height: 400px;
+  overflow: auto;
 }
 
 .submit-button{
   margin-top: 10px;
 }
+

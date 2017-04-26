@@ -6,16 +6,16 @@ Rails.application.routes.draw do
   resources :users
   resources :diagnoses
   resources :groups do
-      member do
-        post :delete_member
-      end
-
-      member do
-        post :add_member
-      end
+    member do
+      post :delete_member
     end
+    member do
+      post :add_member
+    end
+  end
   resources :user_groups
   namespace :admin do
+    root "users#index"
     resources :data_cancers
     resources :users
     resources :fictions

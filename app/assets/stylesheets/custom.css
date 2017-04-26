@@ -5,3 +5,7 @@ th {
 .diagnoses-user{
   margin-top: 10px;
 }
+
+.modal-search-content{
+  overflow: auto;
+}

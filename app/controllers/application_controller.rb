@@ -39,6 +39,21 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def permission_user
+    if !current_user.is_user?(@user) && !current_user.is_owner_of?(@user)
+      flash[:alert] = t "you_do_not_have_access"
+      redirect_to admin_root_path if current_user.admin?
+      redirect_to root_path
+    end
+  end
+
+  def is_owner
+    if !current_user.admin? && !current_user.owner?
+      flash[:alert] = t "you_do_not_have_access"
+      redirect_to root_path
+    end
+  end
+
   def layout
     if current_user.present?
       if current_user.admin?

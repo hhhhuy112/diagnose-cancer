@@ -32,7 +32,7 @@
                 <div class="input-group">
                   <span class="input-group-addon"><i class="gi gi-barcode"></i></span>
                   <%= f.text_field :patient_code, autofocus: true,
-                  class: "form-control input-lg", placeholder: t("admin.users.patient_code") %>
+                  class: "form-control", placeholder: t("admin.users.patient_code") %>
                 </div>
                 <ul class = "errors">
                   <% @user.errors[:patient_code].each do |err|%>
@@ -46,7 +46,7 @@
                 <div class="input-group">
                   <span class="input-group-addon"><i class="gi gi-user"></i></span>
                   <%= f.text_field :name, autofocus: true,
-                  class: "form-control input-lg", placeholder: t("name") %>
+                  class: "form-control ", placeholder: t("name") %>
                 </div>
                 <ul class = "errors">
                   <% @user.errors[:name].each do |err|%>
@@ -73,7 +73,7 @@
                 <div class="input-group">
                   <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
                   <%= f.email_field :email, autofocus: true,
-                  class: "form-control input-lg", placeholder: t("email") %>
+                  class: "form-control", placeholder: t("email") %>
                 </div>
                 <ul class = "errors">
                   <% @user.errors[:email].each do |err|%>
@@ -86,7 +86,7 @@
               <div class="col-xs-12">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="gi gi-parents"></i></span>
-                  <div class = "form-control input-lg">
+                  <div class = "form-control">
                     <%= label :male, t("male"), class: "radio-inline"  do %>
                     <%= f.radio_button :gender, t("admin.users.value_male") %><%= t("male") %>
                     <% end %>
@@ -122,7 +122,7 @@
                   <div class="input-group">
                     <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
                     <%= f.password_field :password, autocomplete: "off",
-                    class: "form-control input-lg", placeholder: t("password") %>
+                    class: "form-control", placeholder: t("password") %>
                   </div>
                   <ul class = "errors">
                     <% @user.errors[:password].each do |err|%>
@@ -136,7 +136,7 @@
                   <div class="input-group">
                     <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
                     <%= f.password_field :password_confirmation, autocomplete: "off",
-                    class: "form-control input-lg", placeholder: t("retype_password") %>
+                    class: "form-control", placeholder: t("retype_password") %>
                   </div>
                   <ul class = "errors">
                     <% @user.errors[:password_confirmation].each do |err|%>

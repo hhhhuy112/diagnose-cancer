@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  you_do_not_have_access: "You don't have access"
+  groups: "Groups"
+  home: "Home"
   submit: "submit"
   patient: "Patient"
   admin: "Admin"
@@ -36,20 +39,21 @@ en:
     data_cancers:
       title: "Data Cancers"
       update_data_cancer: "Update data cancer"
-      list_data_cancers: "List data cancers"
+      list_data_cancers: "List Data cancers"
       information_data_cancer: "Information data cancer"
       updated_success: "Update data cancer success"
     users:
       title: "Users"
       add: "Add User"
-      list_users: "List users"
+      list_users: "List Users"
       errors:
-        patient_code: "Admin will has code start by A and patient is P"
+        patient_code: "Admin will has code start by A, owner is D and patient is P"
     knowledges:
       title: "Knowledges"
       create_knowledges: "Create knowledge"
       create_knowledges_success: "Create knowledge from data cancers success"
       information_knowledge: "Information knowledge"
+      list_knowledges: "List Knowledges"
     diagnoses:
       title: "Diagnoses"
       create_diagnose: "Add diagnose"
@@ -68,6 +72,7 @@ en:
       create_rules: "Create Rules"
     groups:
       title: "Groups"
+      list_groups: "List Groups"
       create_groups: "Create groups"
       create_group_success: "Create group success"
       create_group_fail: "Create group fail"
@@ -96,3 +101,6 @@ en:
     fictions: "Fictions"
     knowledges: "Knowledges"
     diagnoses: "Diagnoses"
+    manage_users: "Manage Users"
+    groups: "Groups"
+    action: "Action"

@@ -3,3 +3,20 @@
   max-width: 200px;
   min-height: 200px;
 }
+
+.avatar-user-group {
+  height: 30px;
+  width: 30px;
+}
+
+.avatar-member-group{
+  height: 50px;
+  width: 50px;
+}
+
+.label-custom{
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+

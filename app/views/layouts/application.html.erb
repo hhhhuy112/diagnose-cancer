@@ -10,16 +10,18 @@
 </head>
 <body>
   <% if user_signed_in? %>
-    <div id="page-container">
-      <%= render "layouts/header" %>
-      <%= render "layouts/media_container" %>
-      <div class = "row content-user">
-        <div class = "col-md-offset-1 col-md-10">
-          <%= render "shared/flash" %>
-          <%= yield %>
-        </div>
+    <div id = "content-application">
+      <div id="page-container">
+        <%= render "layouts/header" %>
+        <%= render "layouts/media_container" %>
+          <div class = "content-user">
+            <div class = "col-md-offset-1 col-md-10">
+              <%= render "shared/flash" %>
+              <%= yield %>
+            </div>
+          </div>
       </div>
-      <%= render "layouts/footer" %>
+    <%= render "layouts/footer" %>
     </div>
   <% else %>
   <section>

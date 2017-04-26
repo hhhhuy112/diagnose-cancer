@@ -41,10 +41,10 @@
         <!-- Sidebar Navigation -->
         <ul class="sidebar-nav">
           <li>
-            <%= link_to admin_users_path do %>
-              <i class="gi gi-stopwatch sidebar-nav-icon"></i>
-              <span class="sidebar-nav-mini-hide"><%= t("sidebar.users")%></span>
-            <% end %>
+            <%= link_to admin_diagnoses_path do %>
+                  <i class="gi gi-charts sidebar-nav-icon"></i>
+                  <span class="sidebar-nav-mini-hide"><%= t("sidebar.diagnoses")%></span>
+                <% end %>
           </li>
           <li class="active">
             <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-notes_2 sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide"><%= t "data" %></span></a>
@@ -72,146 +72,21 @@
             </ul>
           </li>
           <li class="sidebar-header">
-            <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a><a href="javascript:void(0)" data-toggle="tooltip" title="Create the most amazing pages with the widget kit!"><i class="gi gi-lightbulb"></i></a></span>
-            <span class="sidebar-header-title">Widget Kit</span>
-          </li>
-          <li>
-            <%= link_to admin_diagnoses_path do %>
-                  <i class="gi gi-charts sidebar-nav-icon"></i>
-                  <span class="sidebar-nav-mini-hide"><%= t("sidebar.diagnoses")%></span>
-                <% end %>
-          </li>
-          <li>
-            <a href="page_widgets_social.html"><i class="gi gi-share_alt sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Social</span></a>
-          </li>
-          <li>
-            <a href="page_widgets_media.html"><i class="gi gi-film sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Media</span></a>
-          </li>
-          <li>
-            <a href="page_widgets_links.html"><i class="gi gi-link sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Links</span></a>
-          </li>
-          <li class="sidebar-header">
             <span class="sidebar-header-options clearfix"><a href="javascript:void(0)" data-toggle="tooltip" title="Quick Settings"><i class="gi gi-settings"></i></a></span>
-            <span class="sidebar-header-title">Design Kit</span>
+            <span class="sidebar-header-title"><%= t("sidebar.action")%></span>
           </li>
           <li>
-            <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-certificate sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">User Interface</span></a>
+            <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-certificate sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide"><%= t("sidebar.manage_users")%></span></a>
             <ul>
               <li>
-                <a href="page_ui_grid_blocks.html">Grid &amp; Blocks</a>
+                <%= link_to admin_users_path do %>
+                  <span class="sidebar-nav-mini-hide"><%= t("sidebar.users")%></span>
+                <% end %>
               </li>
               <li>
-                <a href="page_ui_draggable_blocks.html">Draggable Blocks</a>
-              </li>
-              <li>
-                <a href="page_ui_typography.html">Typography</a>
-              </li>
-              <li>
-                <a href="page_ui_buttons_dropdowns.html">Buttons &amp; Dropdowns</a>
-              </li>
-              <li>
-                <a href="page_ui_navigation_more.html">Navigation &amp; More</a>
-              </li>
-              <li>
-                <a href="page_ui_horizontal_menu.html">Horizontal Menu</a>
-              </li>
-              <li>
-                <a href="page_ui_progress_loading.html">Progress &amp; Loading</a>
-              </li>
-              <li>
-                <a href="page_ui_preloader.html">Page Preloader</a>
-              </li>
-              <li>
-                <a href="page_ui_color_themes.html">Color Themes</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-notes_2 sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Forms</span></a>
-            <ul>
-              <li>
-                <a href="page_forms_general.html">General</a>
-              </li>
-              <li>
-                <a href="page_forms_components.html">Components</a>
-              </li>
-              <li>
-                <a href="page_forms_validation.html">Validation</a>
-              </li>
-              <li>
-                <a href="page_forms_wizard.html">Wizard</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-table sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Tables</span></a>
-            <ul>
-              <li>
-                <a href="page_tables_general.html">General</a>
-              </li>
-              <li>
-                <a href="page_tables_responsive.html">Responsive</a>
-              </li>
-              <li>
-                <a href="page_tables_datatables.html">Datatables</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-cup sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Icon Sets</span></a>
-            <ul>
-              <li>
-                <a href="page_icons_fontawesome.html">Font Awesome</a>
-              </li>
-              <li>
-                <a href="page_icons_glyphicons_pro.html">Glyphicons Pro</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-show_big_thumbnails sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide">Page Layouts</span></a>
-            <ul>
-              <li>
-                <a href="page_layout_static.html">Static</a>
-              </li>
-              <li>
-                <a href="page_layout_static_fixed_footer.html">Static + Fixed Footer</a>
-              </li>
-              <li>
-                <a href="page_layout_fixed_top.html">Fixed Top Header</a>
-              </li>
-              <li>
-                <a href="page_layout_fixed_top_footer.html">Fixed Top Header + Footer</a>
-              </li>
-              <li>
-                <a href="page_layout_fixed_bottom.html">Fixed Bottom Header</a>
-              </li>
-              <li>
-                <a href="page_layout_fixed_bottom_footer.html">Fixed Bottom Header + Footer</a>
-              </li>
-              <li>
-                <a href="page_layout_static_main_sidebar_mini.html">Mini Main Sidebar</a>
-              </li>
-              <li>
-                <a href="page_layout_static_main_sidebar_partial.html">Partial Main Sidebar</a>
-              </li>
-              <li>
-                <a href="page_layout_static_main_sidebar_visible.html">Visible Main Sidebar</a>
-              </li>
-              <li>
-                <a href="page_layout_static_alternative_sidebar_partial.html">Partial Alternative Sidebar</a>
-              </li>
-              <li>
-                <a href="page_layout_static_alternative_sidebar_visible.html">Visible Alternative Sidebar</a>
-              </li>
-              <li>
-                <a href="page_layout_static_no_sidebars.html">No Sidebars</a>
-              </li>
-              <li>
-                <a href="page_layout_static_both_partial.html">Both Sidebars Partial</a>
-              </li>
-              <li>
-                <a href="page_layout_static_animated.html">Animated Sidebar Transitions</a>
+                <%= link_to groups_path do %>
+                  <span class="sidebar-nav-mini-hide"><%= t("sidebar.groups")%></span>
+                <% end %>
               </li>
             </ul>
           </li>
