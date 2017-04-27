@@ -1,0 +1,15 @@
+<div class="col-md-12 personal-info">
+  <%= data_user.hidden_field :fiction_id, class: "form-control" %>
+  <%= data_user.hidden_field :name_fiction, class: "form-control" %>
+  <div class="form-group">
+    <%= data_user.label data_user.object.name_fiction, class: "col-md-4 control-label field-compulsory-before" %>
+    <div class="col-md-8">
+      <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-star"></i>
+        </div>
+        <%= data_user.select :value, get_value_by_fiction(data_user.object.fiction).collect { |value_fiction| [value_fiction.name, value_fiction.value] }, {include_blank: t("admin.diagnoses.select_value")}, {class: "form-control col-md-9"} %>
+      </div>
+    </div>
+  </div>
+</div>

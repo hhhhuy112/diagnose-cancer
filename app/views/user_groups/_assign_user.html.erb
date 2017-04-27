@@ -1,0 +1,33 @@
+<div id="add-users-into-group" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;
+        </button>
+        <h4 class="modal-title"><%= t "list_user" %></h4>
+        <div class="col-md-12">
+          <div class="input-group c-search">
+            <input type="text" class="form-control"
+              id="assign-list-user-group-search">
+            <span class="input-group-btn">
+              <button class="btn btn-default" type="button">
+                <span class="glyphicon glyphicon-search text-muted"></span>
+              </button>
+            </span>
+          </div>
+        </div>
+      </div>
+      <%= form_for [:dashboard, @group, @user_group] do |f| %>
+        <div class="modal-body user-group-modal-body">
+          <ul class="list-group" id="assign-list-user">
+            <%= render "collection_check_boxes", users: @users_outside %>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit t("user_groups.add_member"),
+            class: "btn btn-primary btn-add-member-into-group" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

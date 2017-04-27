@@ -1,0 +1,6 @@
+en:
+  groups:
+    name: "Name"
+    owner: "Owner"
+    list_groups: "List Groups"
+    information_group: "Information Group"

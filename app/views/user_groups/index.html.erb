@@ -1,0 +1,97 @@
+<%= javascript_include_tag "dashboard/user_groups",
+  "data-turbolinks-track": true %>
+<div class="toppad col-md-12" id="group-body">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title text-center">
+        <%= t "dashboard.user_groups.information_group" %>
+      </h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-3">
+          <%= image_tag @group.image.url %>
+        </div>
+        <div class="col-md-8 row">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td class="col-md-3"><%= t "dashboard.groups.name" %></td>
+                <td><span><%= @group.name %></span></td>
+              </tr>
+              <tr>
+                <td><%= t "dashboard.groups.description" %></td>
+                <td><span><%= @group.description %></span></td>
+              </tr>
+              <tr>
+                <td><%= t "dashboard.user_groups.number_member" %></td>
+                <td><span id="count"><%= @group.users.count %></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      <h3 class="panel-title text-center">
+        <%= t "dashboard.user_groups.list_member" %>
+      </h3>
+    </div>
+    <div class="row">
+      <br>
+      <div class="col-md-12 row">
+        <% if current_user.is_manager? %>
+          <div class="col-md-offset-1 col-md-2">
+            <input type="checkbox" id="select-all-user-inside" class="col-md-1"
+              value="">
+            <span class="col-md-9">
+              <%= t "dashboard.user_groups.select_all" %>
+            </span>
+          </div>
+        <% end %>
+        <div class="col-md-5 pull-right">
+          <%= search_form_for [:dashboard, @group, @search] do |f| %>
+            <div class="form-group col-md-10">
+              <%= f.text_field :user_name_cont,
+                placeholder: t("dashboard.user_groups.enter_name"),
+                class: "form-control" %>
+            </div>
+          <% end %>
+        </div>
+          <div class="col-md-2">
+            <%= form_for [:dashboard, @group, @user_group], method: :delete do |f| %>
+              <% if current_user.is_manager? %>
+                <%= f.submit t("dashboard.user_groups.remove_member"),
+                  id: "btn-delete-user-into-group",
+                  class: "btn btn-danger btn-sm" %>
+              <% end %>
+          </div>
+          <% if current_user.is_manager? %>
+            <div class="col-md-2">
+              <button type="button" class="btn btn-primary col-md-12 btn-sm"
+                data-toggle="modal" data-target="#add-users-into-group">
+                <%= t "dashboard.user_groups.add_member" %>
+              </button>
+            </div>
+          <% end %>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-12">
+            <%= hidden_field_tag :user_ids %>
+            <%= hidden_field_tag :user_ids_temp %>
+            <div class="row overflow-list-user" id="list-users-group">
+              <%= render "table_member" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+      <%= render "dashboard/user_groups/assign_user" %>
+  </div>
+</div>
+<div class="loader hide hide-load-modal"></div>

@@ -1,0 +1,39 @@
+<%=  form_for [:admin, @diagnose] do |f| %>
+  <div class="col-md-12 personal-info">
+    <%= f.label :user_id, t("admin.diagnoses.patient"), class: "col-md-4 control-label field-compulsory-before" %>
+    <div class="form-group">
+      <div class="col-md-8">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-user"></i>
+          </div>
+          <%= f.select :user_id, User.all.collect { |user| [user.name, user.id] }, {}, {class: "form-control col-md-9"} %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 personal-info">
+    <%= f.label :type_diagnose, t("admin.diagnoses.type"), class: "col-md-4 control-label field-compulsory-before" %>
+    <div class="form-group">
+      <div class="col-md-8">
+        <div class="input-group">
+          <div class="input-group-addon">
+            <i class="fa fa-user"></i>
+          </div>
+          <%= f.select :type_diagnose, Diagnose.type_diagnoses.collect { |key, value| [t("#{key}"), key] }, {}, {class: "form-control col-md-9"} %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%= f.fields_for :data_users do |data_user| %>
+  <%=render "data_user_field", data_user: data_user %>
+  <%end%>
+  <div class="fix-clear form-group">
+    <div class="submit-button col-md-8 col-md-offset-3">
+      <%= f.submit t("register_account"),
+      class: "btn btn-primary col-md-12" %>
+    </div>
+  </div>
+<% end %>

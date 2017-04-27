@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user
   before_action :load_user, only: [:update, :edit, :show]
   before_action :load_diagnoses, only: :show
+  before_action :permission_user, only: [:show, :edit, :update]
 
   def show
     @title = t "users.information_user"

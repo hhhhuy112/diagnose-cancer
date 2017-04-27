@@ -4,13 +4,14 @@ per_page:
     knowledge: 10
     user: 10
     diagnose: 4
-    group: 8
+    group: 6
 image_format_accept: "image/jpeg,image/gif,image/png"
 image_default: "group_default.gif"
 user:
   name_max: 5
   code_admin: "A"
   code_patient: "P"
+  code_owner: "D"
 
 fiction:
   clump_thickness: "Clump Thickness"

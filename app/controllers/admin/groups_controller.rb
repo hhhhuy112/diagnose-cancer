@@ -29,9 +29,9 @@ class Admin::GroupsController < ApplicationController
 
   def update
     if @group.update_attributes group_params
-      flash[:notice] = t "admin.groups.update_group_success"
+      flash[:success] = t "admin.groups.update_group_success"
     else
-      flash[:notice] = t "admin.groups.update_group_fail"
+      flash[:error] = t "admin.groups.update_group_fail"
     end
     redirect_to groups_path
   end

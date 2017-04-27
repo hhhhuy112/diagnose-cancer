@@ -1,4 +1,4 @@
-<div class="col-sm-3 col-md-3">
+<div class="col-xs-3 col-sm-6 col-md-4 col-md-4">
   <div class="thumbnail product">
     <div class="caption">
       <div class="img-caption text-center">
@@ -10,7 +10,7 @@
       </h5>
 
       <div class="btn-group btn-group-xs">
-        <% if current_user.is_owner? %>
+        <% if current_user.is_owner?(group) %>
           <button type="button" class="btn btn-success" data-toggle="modal" data-target=<%= "#"+ "group-" + "#{group.id}" %>>
             <i class="gi gi-pencil"></i> <%= t "admin.groups.update_group" %>
           </button>
@@ -18,6 +18,8 @@
             <i class="fa fa-cog"></i>
             <span><%= t "admin.groups.list_members" %></span>
           <% end %>
+        <% end %>
+        <% if current_user.admin? %>
           <%= link_to [:admin, group],
             method: :delete, class: "btn btn-danger", data: {confirm: t("are_you_sure")} do %>
             <i class="fa fa-trash"></i>

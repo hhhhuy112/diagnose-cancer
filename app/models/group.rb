@@ -8,4 +8,12 @@ class Group < ApplicationRecord
 
   validates :name, presence: true
   validates :user_id, presence: true
+
+  scope :recent, ->{order created_at: :desc}
+
+  def add_list_user_group user_groups
+    user_groups.each do |user_group|
+      user_group.save
+    end
+  end
 end

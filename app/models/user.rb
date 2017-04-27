@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :diagnose, dependent: :destroy
   has_many :groups, dependent: :destroy
+  has_many :user_groups, through: :groups,dependent: :destroy
 
   validate  :avatar_size
   validates :name, presence: true, length: {minimum: Settings.user.name_max}
@@ -23,19 +24,28 @@ class User < ApplicationRecord
   scope :not_in_group, ->group_id do
     where "id NOT IN (select user_id from user_groups where group_id = ?)", group_id
   end
+  scope :is_normal_user, ->{where role: :user_normal}
+  scope :recent, ->{order created_at: :desc}
+  scope :search_by, -> name_or_code {where "users.name LIKE ? OR users.patient_code LIKE ?", "%#{name_or_code}%", "%#{name_or_code}%"}
 
   def is_user? user
     user.id == self.id
   end
 
-  def is_owner?
-    true
+  def is_owner? group
+    admin? || group.user_id == id
+  end
+
+  def is_owner_of? user
+    member_ids = self.user_groups.pluck(:user_id)
+    return false unless member_ids.present?
+    member_ids.include?  user.id
   end
 
   private
 
   def valid_patient_code
-    str_code = self.admin? ? Settings.user.code_admin : Settings.user.code_patient
+    str_code = self.admin? ? Settings.user.code_admin : (self.owner? ? Settings.user.code_owner : Settings.user.code_patient)
     if ConvertString.get_prefix_code(self.patient_code) != str_code
       errors.add :patient_code, I18n.t("admin.users.errors.patient_code")
     end

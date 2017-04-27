@@ -1,4 +1,14 @@
 en:
   user_groups:
-    remove_member: "Delete"
-    add_member: "Add"
+    remove_member: "Delete member"
+    add_member: "Add member"
+    enter_name: "Enter name"
+    create_not_successfully: "Add member fail"
+    create_successfully: "Add member success"
+    delete_not_successfully: "Delete member fail"
+    delete_successfully: "Delete member success"
+    patient_code: "Patient code"
+    image: "Image"
+    name: "Name"
+    gender: "Gender"
+    search: "Search"
