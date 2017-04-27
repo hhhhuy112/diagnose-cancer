@@ -24,7 +24,7 @@ th {
     tr {
       display: flex;
     }
-  }
+}
 
   tbody {
     display: block;
@@ -34,3 +34,6 @@ th {
   }
 }
 
+.overflow-list-user-workspace {
+  max-height: 400px;
+}

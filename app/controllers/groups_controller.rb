@@ -16,7 +16,7 @@ class GroupsController < ApplicationController
 
   def show
     @title = t "groups.information_group"
-    user_ids = @group.users.search_by(params[:search]).pluck(:id)
+    user_ids = @group.users.is_normal_user.search_by(params[:search]).pluck(:id)
     @users_inside = @group.user_groups.of_user_ids(user_ids).includes(:user)
     init_variables
     respond_to do |format|
@@ -39,45 +39,41 @@ class GroupsController < ApplicationController
   private
 
   def assign_user user_ids, group
-   assign_user = AssignUserService.new
-   .create user_ids, group, t("user_groups.create_not_successfully")
-   message_notice t("user_groups.create_successfully"), assign_user
- end
+    assign_user = AssignUserService.new
+    .create user_ids, group, t("user_groups.create_not_successfully")
+    message_notice t("user_groups.create_successfully"), assign_user
+  end
 
- def unassign_user user_ids, group
-  unassign_user = AssignUserService.new
-  .destroy user_ids, group, t("user_groups.delete_not_successfully")
-  message_notice t("user_groups.delete_successfully"), unassign_user
-end
+  def unassign_user user_ids, group
+    unassign_user = AssignUserService.new
+    .destroy user_ids, group, t("user_groups.delete_not_successfully")
+    message_notice t("user_groups.delete_successfully"), unassign_user
+  end
 
- def group_params
-  params.require(:group).permit :name, :user_id, :image
-end
+  def group_params
+    params.require(:group).permit :name, :user_id, :image
+  end
 
-def load_group
-  @group = Group.find_by id: params[:id]
-  return if @group
-  flash[:error] = t "not_found_item"
-  redirect_to :back
-end
+  def load_group
+    @group = Group.find_by id: params[:id]
+    return if @group
+    flash[:error] = t "not_found_item"
+    redirect_to :back
+  end
 
-def new_group
-  @group = Group.new
-end
+  def new_group
+    @group = Group.new
+  end
 
 
 
-def message_notice message_success, type
-  return flash[:error] = type[:error] unless type[:success]
-  flash[:success] = message_success
-end
+  def message_notice message_success, type
+    return flash[:error] = type[:error] unless type[:success]
+    flash[:success] = message_success
+  end
 
-def init_variables
-  @user_group = UserGroup.new
-  @users_outside = User.not_in_group(@group.id).is_normal_user.includes(:groups)
-end
-
-def load_list_members users
-
-end
+  def init_variables
+    @user_group = UserGroup.new
+    @users_outside = User.not_in_group(@group.id).is_normal_user.includes(:groups)
+  end
 end

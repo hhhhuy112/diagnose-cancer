@@ -1,13 +1,18 @@
-<table id="general-table" class="table table-striped table-vcenter">
-    <tr>
-      <td></td>
-      <td><%= t "dashboard.user_groups.image" %></td>
-      <td><%= t "dashboard.user_groups.name" %></td>
-      <td><%= t "dashboard.user_groups.employee_code" %></td>
-      <td><%= t "dashboard.user_groups.gender" %></td>
-    </tr>
-  <tbody id = "group-members-content">
+<div class="table-responsive">
+  <table id="general-table" class="table fixed_headers">
+    <thead>
+      <tr>
+        <td></td>
+        <td><%= t "dashboard.user_groups.image" %></td>
+        <td><%= t "dashboard.user_groups.name" %></td>
+        <td><%= t "dashboard.user_groups.employee_code" %></td>
+        <td><%= t "dashboard.user_groups.gender" %></td>
+      </tr>
+    </thead>
+  <tbody>
     <%= render partial: "list_member", collection: @users_inside,
       as: :user_group %>
   </tbody>
 </table>
+</div>
+
