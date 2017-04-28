@@ -21,7 +21,7 @@ class GroupsController < ApplicationController
     init_variables
     respond_to do |format|
       format.html
-      format.js{@arr_user_id = @users_inside.pluck :user_id}
+      format.js
     end
   end
 

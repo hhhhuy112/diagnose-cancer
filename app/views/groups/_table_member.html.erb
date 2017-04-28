@@ -9,7 +9,7 @@
         <td><%= t "dashboard.user_groups.gender" %></td>
       </tr>
     </thead>
-  <tbody>
+  <tbody id = "group-members-content">
     <%= render partial: "list_member", collection: @users_inside,
       as: :user_group %>
   </tbody>

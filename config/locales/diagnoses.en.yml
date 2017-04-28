@@ -5,5 +5,7 @@ en:
     classification: "Result diagnose"
     result: "Probability"
     list_diagnoses: "List diagnoses"
+    patient_code: "Patient code"
+    owner: "Owner"
   naive_bayes: "Naive Bayes"
   desicion_tree: "Desicion Tree"

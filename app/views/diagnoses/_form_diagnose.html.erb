@@ -1,13 +1,13 @@
 <%=  form_for [:admin, @diagnose] do |f| %>
   <div class="col-md-12 personal-info">
-    <%= f.label :user_id, t("admin.diagnoses.patient"), class: "col-md-4 control-label field-compulsory-before" %>
+    <%= f.label :patient_id, t("admin.diagnoses.patient"), class: "col-md-4 control-label field-compulsory-before" %>
     <div class="form-group">
       <div class="col-md-8">
         <div class="input-group">
           <div class="input-group-addon">
             <i class="fa fa-user"></i>
           </div>
-          <%= f.select :user_id, User.is_normal_user.collect { |user| [user.name, user.id] }, {}, {class: "form-control col-md-9"} %>
+          <%= f.select :patient_id, get_patients.collect { |user| [user.name, user.id] }, {}, {class: "form-control col-md-9"} %>
         </div>
       </div>
     </div>

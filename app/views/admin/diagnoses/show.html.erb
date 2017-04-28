@@ -43,7 +43,7 @@
                   <i class="fa fa-star"></i> <%= t("diagnose.value") %>
                 </strong>
               </td>
-              <td><%= @diagnose.user_name %></td>
+              <td><%= @diagnose.patient_name %></td>
             </tr>
             <tr>
               <td>
@@ -62,6 +62,14 @@
               <td>
                 <%= @diagnose.result %>
               </td>
+            </tr>
+            <tr>
+              <td>
+                <strong>
+                  <i class="fa fa-star"></i> <%= t("diagnose.value") %>
+                </strong>
+              </td>
+              <td><%= @diagnose.owner_name %></td>
             </tr>
           </tbody>
         </table>

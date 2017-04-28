@@ -3,9 +3,12 @@
     <%= current_index @diagnoses.current_page, Settings.per_page.admin.diagnose, diagnose_counter %>
   </td>
   <td><%= l diagnose.created_at, format: :format_datetime_picker_rb %></td>
-  <td><%= diagnose.user_name %></td>
+  <td><%= diagnose.patient_patient_code %></td>
+  <td><%= diagnose.patient_name %></td>
   <td><%= diagnose.classification_name %></td>
   <td><%= diagnose.result %></td>
+  <td><%= diagnose.owner_name %></td>
+
   <td class="text-center">
       <div class="btn-group btn-group-xs">
         <%= link_to diagnose, class: "btn btn-default" do %>

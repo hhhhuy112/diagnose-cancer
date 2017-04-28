@@ -51,7 +51,8 @@ ActiveRecord::Schema.define(version: 20170425063647) do
   end
 
   create_table "diagnoses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
+    t.integer  "owner_id"
+    t.integer  "patient_id"
     t.integer  "classification_id"
     t.float    "result",            limit: 24
     t.integer  "type_diagnose"
@@ -59,7 +60,8 @@ ActiveRecord::Schema.define(version: 20170425063647) do
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
     t.index ["classification_id"], name: "index_diagnoses_on_classification_id", using: :btree
-    t.index ["user_id"], name: "index_diagnoses_on_user_id", using: :btree
+    t.index ["owner_id"], name: "index_diagnoses_on_owner_id", using: :btree
+    t.index ["patient_id"], name: "index_diagnoses_on_patient_id", using: :btree
   end
 
   create_table "fictions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -156,7 +158,6 @@ ActiveRecord::Schema.define(version: 20170425063647) do
   add_foreign_key "data_users", "diagnoses", column: "diagnose_id"
   add_foreign_key "data_users", "fictions"
   add_foreign_key "diagnoses", "classifications"
-  add_foreign_key "diagnoses", "users"
   add_foreign_key "groups", "users"
   add_foreign_key "knowledges", "classifications"
   add_foreign_key "knowledges", "fictions"

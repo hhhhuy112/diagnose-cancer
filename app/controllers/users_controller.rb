@@ -42,7 +42,11 @@ class UsersController < ApplicationController
   end
 
   def load_diagnoses
-    @search = @user.diagnose.ransack(params[:q])
+    if current_user.admin? || current_user.owner?
+      @search = current_user.active_diagnoses.ransack(params[:q])
+    else
+      @search = @user.passive_diagnoses.ransack(params[:q])
+    end
     @diagnoses = @search.result
     @diagnoses = @diagnoses.page(params[:page]).per Settings.per_page.admin.diagnose
   end

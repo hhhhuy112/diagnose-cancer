@@ -1,26 +1,81 @@
 class DiagnosesController < ApplicationController
   before_action :logged_in_user
-  before_action :load_fictions, only: :create
-  before_action :load_classifications, only: :create
-  before_action :load_diagnose, only: [:edit, :show, :update]
+  before_action :load_fictions, only: [:create, :update]
+  before_action :load_classifications, only: [:create, :update]
+  before_action :load_diagnose, only: [:edit, :show, :update, :destroy]
+
+  def index
+    @search = Diagnose.ransack(params[:q])
+    @diagnoses = @search.result
+    @diagnoses = @diagnoses.page(params[:page]).per Settings.per_page.admin.diagnose
+     respond_to do |format|
+      format.html
+      format.js
+     end
+  end
+
+  def new
+    @diagnose = Diagnose.new
+    create_data_users
+  end
+
+  def create
+    @diagnose = Diagnose.new(params_diagnose)
+    ActiveRecord::Base.transaction do
+      if @diagnose.save
+        if @diagnose.naise_bayes?
+          diagose_service = DiagnosesNaiveBayesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
+          diagose_service.diagnose
+        else
+          diagose_service = DiagnosesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
+          diagose_service.diagnose
+        end
+        @diagnose
+        flash[:success] = t("admin.diagnoses.create_success")
+        redirect_to @diagnose
+      else
+        flash[:error] = t("admin.diagnoses.create_fail")
+        render :new
+      end
+    end
+  end
+
 
   def show
     @data_users = @diagnose.data_users
+  end
+
+  def update
+    if @diagnose.update_attributes params_diagnose
+      diagose_service = DiagnosesNaiveBayesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
+      diagose_service.diagnose
+      flash[:success] = t("admin.diagnoses.update_success")
+      redirect_to @diagnose
+    else
+      flash[:error] = t("admin.diagnoses.update_fail")
+      render :show
+    end
   end
 
   def edit
 
   end
 
+
   def destroy
-
-  end
-
-  def params_diagnose
-    params.require(:diagnose).permit( :user_id ,data_users_attributes: [:id, :fiction_id, :name_fiction,:value])
+    if @diagnose.destroy
+      flash[:success] = t "admin.diagnoses.delete_success"
+    else
+      flash[:error] = t "admin.diagnoses.delete_fail"
+    end
+    redirect_to admin_diagnoses_path
   end
 
   private
+
+  def params_diagnose
+    params.require(:diagnose).permit( :patient_id , :type_diagnose, data_users_attributes: [:id, :fiction_id, :name_fiction, :value]).merge!(owner_id: "#{current_user.id}")
+  end
 
   def create_data_users
     Fiction.all.each do |fiction|
@@ -31,8 +86,14 @@ class DiagnosesController < ApplicationController
   def load_diagnose
     @diagnose = Diagnose.find_by id: params[:id]
     return if @diagnose
-    flash[:error] = t "not_found_item"
+    flash[:warning] = t "not_found_item"
     redirect_to :back
+  end
+
+  def create_data_users
+    Fiction.all.each do |fiction|
+      @diagnose.data_users.build(fiction_id: fiction.id, name_fiction: fiction.name)
+    end
   end
 
   def load_fictions

@@ -48,7 +48,7 @@ class Admin::DiagnosesController < ApplicationController
 
   def update
     if @diagnose.update_attributes params_diagnose
-      diagose_service = DiagnosesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
+      diagose_service = DiagnosesNaiveBayesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
       diagose_service.diagnose
       flash[:success] = t("admin.diagnoses.update_success")
       redirect_to @diagnose
@@ -68,7 +68,7 @@ class Admin::DiagnosesController < ApplicationController
   end
 
   def params_diagnose
-    params.require(:diagnose).permit( :user_id , :type_diagnose, data_users_attributes: [:id, :fiction_id, :name_fiction, :value])
+    params.require(:diagnose).permit( :patient_id , :type_diagnose, data_users_attributes: [:id, :fiction_id, :name_fiction, :value]).merge!(owner_id: "#{current_user.id}")
   end
 
   private

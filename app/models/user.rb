@@ -5,7 +5,13 @@ class User < ApplicationRecord
   :recoverable, :rememberable, :trackable, :validatable
   mount_uploader :avatar, AvatarUploader
 
-  has_many :diagnose, dependent: :destroy
+  has_many :active_diagnoses, class_name: Diagnose.name,
+    foreign_key: "owner_id", dependent: :destroy
+  has_many :passive_diagnoses, class_name: Diagnose.name,
+    foreign_key: "patient_id", dependent: :destroy
+  has_many :owners, through: :active_diagnoses, source: :owner
+  has_many :patients, through: :passive_diagnoses, source: :patient
+
   has_many :groups, dependent: :destroy
   has_many :user_groups, through: :groups,dependent: :destroy
 
