@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  signin: "Sign in"
   you_do_not_have_access: "You don't have access"
   groups: "Groups"
   home: "Home"
@@ -87,6 +88,7 @@ en:
       update_group: "Update group"
       update_group_success: "Update group success"
       update_group_fail: "Update group fail"
+      description: "Description"
   users:
     update: "Update profile"
     information_user: "Information user"

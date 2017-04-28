@@ -51,7 +51,7 @@
           <div class="form-group">
             <%= f.label :user_id, t("admin.groups.owner"), class: "field-compulsory-before" %>
             <div>
-              <%= f.select :user_id, User.all.collect { |user| [user.name, user.id] }, {}, {class: "form-control col-md-9"}%>
+              <%= f.select :user_id, get_owners.collect { |user| [user.name, user.id] }, {}, {class: "form-control col-md-9"}%>
             </div>
           </div>
 

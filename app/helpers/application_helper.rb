@@ -32,4 +32,12 @@ module ApplicationHelper
     return [] unless fiction.present?
     fiction.value_fictions
   end
+
+  def get_owners
+    User.is_not_normal_user
+  end
+
+  def get_patients
+    User.is_normal_user
+  end
 end

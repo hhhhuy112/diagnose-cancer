@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update_attributes user_params
+    user_update_params = current_user.admin? ? is_admin_user__params : user_params
+    if @user.update_attributes user_update_params
       flash[:notice] = t "devise.registrations.updated"
       redirect_to @user
     else
@@ -23,9 +24,14 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
+  def is_admin_user__params
     params.require(:user).permit :name, :patient_code, :gender, :birthday, :avatar, :email,
       :password, :password_confirmation, :role
+  end
+
+  def user_params
+    params.require(:user).permit :name, :patient_code, :gender, :birthday, :avatar, :email,
+      :password, :password_confirmation
   end
 
   def load_user
