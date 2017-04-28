@@ -25,6 +25,7 @@ class User < ApplicationRecord
     where "id NOT IN (select user_id from user_groups where group_id = ?)", group_id
   end
   scope :is_normal_user, ->{where role: :user_normal}
+  scope :is_not_normal_user, ->{where(role: [:admin, :owner])}
   scope :recent, ->{order created_at: :desc}
   scope :search_by, -> name_or_code {where "users.name LIKE ? OR users.patient_code LIKE ?", "%#{name_or_code}%", "%#{name_or_code}%"}
 

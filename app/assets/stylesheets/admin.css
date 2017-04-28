@@ -27,3 +27,7 @@
 .submit-button{
   margin-top: 10px;
 }
+
+#page-content{
+  overflow: auto;
+}

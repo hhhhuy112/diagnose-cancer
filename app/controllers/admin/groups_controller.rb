@@ -48,7 +48,7 @@ class Admin::GroupsController < ApplicationController
   private
 
   def group_params
-    params.require(:group).permit :name, :user_id, :image
+    params.require(:group).permit :name, :user_id, :image, :description
   end
 
   def load_group

@@ -25,6 +25,8 @@
     </div>
   <% else %>
   <section>
+    <%= render "layouts/header" %>
+    <%= render "layouts/media_container" %>
     <%= render "shared/flash"%>
     <%= yield %>
   </section>
