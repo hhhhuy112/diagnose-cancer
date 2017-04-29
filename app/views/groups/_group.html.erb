@@ -10,7 +10,7 @@
       </h5>
 
       <div class="btn-group btn-group-xs">
-        <% if current_user.is_owner?(group) %>
+        <% if current_user.is_owner_of_group?(group) %>
           <button type="button" class="btn btn-success" data-toggle="modal" data-target=<%= "#"+ "group-" + "#{group.id}" %>>
             <i class="gi gi-pencil"></i> <%= t "admin.groups.update_group" %>
           </button>

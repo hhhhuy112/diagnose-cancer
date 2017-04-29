@@ -45,7 +45,7 @@
     <div class="row">
       <br>
       <div class="col-md-12 row">
-        <% if current_user.is_owner? @group %>
+        <% if current_user.is_owner_of_group? @group %>
           <div class="col-md-offset-1 col-md-2">
             <input type="checkbox" id="select-all-user-inside" class="col-md-1"
               value="">
@@ -68,7 +68,7 @@
             <%= form_for :group, url: delete_member_group_path(@group) do |f| %>
               <%=  hidden_field_tag :user_ids %>
               <%=  hidden_field_tag :user_ids_tmp %>
-              <% if current_user.is_owner? @group %>
+              <% if current_user.is_owner_of_group? @group %>
                 <%= f.submit t("user_groups.remove_member"),
                   id: "btn-delete-user-into-group",
                   class: "btn btn-danger btn-sm" %>
@@ -76,7 +76,7 @@
             <% end %>
 
           </div>
-          <% if current_user.is_owner? @group %>
+          <% if current_user.is_owner_of_group? @group %>
             <div class="col-md-2">
               <button type="button" class="btn btn-primary col-md-12 btn-sm"
                 data-toggle="modal" data-target="#add-users-into-group">

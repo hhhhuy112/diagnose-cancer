@@ -1,6 +1,6 @@
 <tr>
   <td class="width-5-percent">
-    <% if current_user.is_owner? @group %>
+    <% if current_user.is_owner_of_group? @group %>
       <%= check_box_tag user_group.user_id, user_group.user_id, false,
         class: "member-group" %>
     <% end %>

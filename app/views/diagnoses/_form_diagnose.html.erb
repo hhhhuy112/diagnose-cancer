@@ -7,7 +7,7 @@
           <div class="input-group-addon">
             <i class="fa fa-user"></i>
           </div>
-          <%= f.select :patient_id, get_patients.collect { |user| [user.name, user.id] }, {}, {class: "form-control col-md-9"} %>
+          <%= f.select :patient_id, @user_insides.collect { |user| [user.name, user.id] }, {}, {class: "form-control col-md-9"} %>
         </div>
       </div>
     </div>

@@ -106,3 +106,6 @@ en:
     manage_users: "Manage Users"
     groups: "Groups"
     action: "Action"
+  header:
+    diagnose: "Diagnoses"
+    groups: "Groups"

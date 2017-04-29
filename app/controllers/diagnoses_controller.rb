@@ -1,11 +1,15 @@
 class DiagnosesController < ApplicationController
   before_action :logged_in_user
   before_action :load_fictions, only: [:create, :update]
-  before_action :load_classifications, only: [:create, :update]
+  before_action :load_classifications, :load_user_groups, only: [:create, :update, :new]
   before_action :load_diagnose, only: [:edit, :show, :update, :destroy]
 
   def index
-    @search = Diagnose.ransack(params[:q])
+    if current_user.is_owner?
+      @search = current_user.active_diagnoses.ransack(params[:q])
+    else
+      @search = current_user.passive_diagnoses.ransack(params[:q])
+    end
     @diagnoses = @search.result
     @diagnoses = @diagnoses.page(params[:page]).per Settings.per_page.admin.diagnose
      respond_to do |format|
@@ -39,7 +43,6 @@ class DiagnosesController < ApplicationController
       end
     end
   end
-
 
   def show
     @data_users = @diagnose.data_users
@@ -90,9 +93,11 @@ class DiagnosesController < ApplicationController
     redirect_to :back
   end
 
-  def create_data_users
-    Fiction.all.each do |fiction|
-      @diagnose.data_users.build(fiction_id: fiction.id, name_fiction: fiction.name)
+  def load_user_groups
+    @user_insides = if current_user.admin?
+      User.is_user_normal
+    else
+      current_user.groups.map(&:users).sum
     end
   end
 

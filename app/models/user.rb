@@ -34,12 +34,17 @@ class User < ApplicationRecord
   scope :is_not_normal_user, ->{where(role: [:admin, :owner])}
   scope :recent, ->{order created_at: :desc}
   scope :search_by, -> name_or_code {where "users.name LIKE ? OR users.patient_code LIKE ?", "%#{name_or_code}%", "%#{name_or_code}%"}
+  scope :into_groups, ->user_ids {where(id: user_ids)}
 
   def is_user? user
     user.id == self.id
   end
 
-  def is_owner? group
+  def is_owner?
+    !self.user_normal?
+  end
+
+  def is_owner_of_group? group
     admin? || group.user_id == id
   end
 

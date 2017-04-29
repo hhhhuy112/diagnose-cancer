@@ -65,8 +65,6 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
-
-
   def message_notice message_success, type
     return flash[:error] = type[:error] unless type[:success]
     flash[:success] = message_success
