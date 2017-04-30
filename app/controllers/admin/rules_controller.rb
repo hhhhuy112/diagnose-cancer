@@ -16,11 +16,11 @@ class Admin::RulesController < ApplicationController
   end
 
   def create
-    create_know_service = CreateRulesDecisionTreeService.new(@data_cancers, @classifications, @fictions)
-    abc = create_know_service.id3_algorithm(@data_cancers, @fictions)
+    create_know_service = CreateRulesDecisionTreeService.new(@classifications, DataCancer.all)
+    abc = create_know_service.c45_algorithm(@data_cancers, @fictions)
      binding.pry
      f = File.open("/home/ubuntu/datn/data/tree.txt", "w")
-     f.write(abc[:abc])
+     f.write(abc)
      f.close
     flash[:success] = t("admin.knowledges.create_knowledges_success")
     redirect_to admin_knowledges_path

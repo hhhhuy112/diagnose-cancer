@@ -5,6 +5,7 @@ class CreateDataUsers < ActiveRecord::Migration[5.0]
       t.string :name_fiction
       t.references :fiction, foreign_key: true
       t.references :diagnose, foreign_key: true
+
       t.datetime :deleted_at
       t.timestamps
     end

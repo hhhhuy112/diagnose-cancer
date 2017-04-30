@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425063647) do
+ActiveRecord::Schema.define(version: 20170429171842) do
 
   create_table "classifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -83,6 +83,11 @@ ActiveRecord::Schema.define(version: 20170425063647) do
     t.index ["user_id"], name: "index_groups_on_user_id", using: :btree
   end
 
+  create_table "infor_fictions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "knowledges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "classification_id"
     t.integer  "fiction_id"
@@ -92,6 +97,18 @@ ActiveRecord::Schema.define(version: 20170425063647) do
     t.datetime "updated_at",                               null: false
     t.index ["classification_id"], name: "index_knowledges_on_classification_id", using: :btree
     t.index ["fiction_id"], name: "index_knowledges_on_fiction_id", using: :btree
+  end
+
+  create_table "nodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "owner_id"
+    t.integer  "patient_id"
+    t.integer  "classification_id"
+    t.float    "result",            limit: 24
+    t.integer  "type_diagnose"
+    t.datetime "deleted_at"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.index ["classification_id"], name: "index_nodes_on_classification_id", using: :btree
   end
 
   create_table "rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -161,6 +178,7 @@ ActiveRecord::Schema.define(version: 20170425063647) do
   add_foreign_key "groups", "users"
   add_foreign_key "knowledges", "classifications"
   add_foreign_key "knowledges", "fictions"
+  add_foreign_key "nodes", "classifications"
   add_foreign_key "rules", "classifications"
   add_foreign_key "user_groups", "groups"
   add_foreign_key "user_groups", "users"
