@@ -1,0 +1,2 @@
+class InforFiction < ApplicationRecord
+end

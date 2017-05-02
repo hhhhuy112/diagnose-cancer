@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170425063647) do
+ActiveRecord::Schema.define(version: 20170429171842) do
 
   create_table "classifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -83,6 +83,17 @@ ActiveRecord::Schema.define(version: 20170425063647) do
     t.index ["user_id"], name: "index_groups_on_user_id", using: :btree
   end
 
+  create_table "infor_fictions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "fiction_id"
+    t.float    "gain_infor",      limit: 24
+    t.float    "potential_infor", limit: 24
+    t.float    "gain_ratio",      limit: 24
+    t.datetime "deleted_at"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["fiction_id"], name: "index_infor_fictions_on_fiction_id", using: :btree
+  end
+
   create_table "knowledges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "classification_id"
     t.integer  "fiction_id"
@@ -92,6 +103,19 @@ ActiveRecord::Schema.define(version: 20170425063647) do
     t.datetime "updated_at",                               null: false
     t.index ["classification_id"], name: "index_knowledges_on_classification_id", using: :btree
     t.index ["fiction_id"], name: "index_knowledges_on_fiction_id", using: :btree
+  end
+
+  create_table "nodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "type_node"
+    t.integer  "attr_id"
+    t.integer  "value_id"
+    t.string   "parent_path"
+    t.integer  "closest_parent_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["attr_id"], name: "index_nodes_on_attr_id", using: :btree
+    t.index ["value_id"], name: "index_nodes_on_value_id", using: :btree
   end
 
   create_table "rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -159,6 +183,7 @@ ActiveRecord::Schema.define(version: 20170425063647) do
   add_foreign_key "data_users", "fictions"
   add_foreign_key "diagnoses", "classifications"
   add_foreign_key "groups", "users"
+  add_foreign_key "infor_fictions", "fictions"
   add_foreign_key "knowledges", "classifications"
   add_foreign_key "knowledges", "fictions"
   add_foreign_key "rules", "classifications"
