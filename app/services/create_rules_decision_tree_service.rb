@@ -5,25 +5,23 @@ class CreateRulesDecisionTreeService
     @array_special_fictions = []
   end
 
-  def c45_algorithm data_cancers, fictions
+  def c45_algorithm data_cancers, fictions, node
     arr_classification = get_classification data_cancers
     putc "asdsas" + "#{data_cancers.count}"
     if arr_classification.count == 1
-
       #tao nut root cua cay quyet dinh
-      #node[:classification] = arr_classification.first
       @abc +=   "node-la:" + "#{arr_classification.first}"  + "\n"
       @abc += "-------------------------------------end-node------------------------------------ \n"
+
+      create_node_leaf node, arr_classification.first
       return
-
     elsif fictions.blank?
-
       classification_max = get_classification_max data_cancers
-      #node[:classification] = classification_max.name
       @abc +=  "node_la: #{classification_max.name} " + "\n"
       @abc += "-------------------------------------end-node------------------------------------ \n"
-      return
 
+      create_node_leaf node, classification_max.id
+      return
     else
       infor_fiction_service = MathInforFictionService.new data_cancers, @classifications, fictions
       # lay best attribute
@@ -40,22 +38,37 @@ class CreateRulesDecisionTreeService
         if data_cancers_v.blank?
           return
         else
-          c45_algorithm(data_cancers_v, fictions_v)
+          if node.present?
+            node_child = Node.create(type_node: :internal, attr_id:  best_attribute.id, value_id: value_fiction.id, parent_path: parent_path(node), closest_parent_id: node.id)
+          else
+            node_child = Node.create(type_node: :root, attr_id:  best_attribute.id, value_id: value_fiction.id)
+          end
+          c45_algorithm(data_cancers_v, fictions_v, node_child)
         end
       end
     end
     @abc
   end
 
+  def create_node_leaf node, classification_id
+    if node.present?
+      node_child = Node.create(type_node: :leaf, attr_id: classification_id, parent_path: parent_path(node), closest_parent_id: node.id)
+    end
+  end
 
   def get_classification_max data_cancers
     @classifications.max_by do |classification|
-        data_cancers.count{|data_cancer| data_cancer.classification_id ==  classification.id}
-      end
+      data_cancers.count{|data_cancer| data_cancer.classification_id ==  classification.id}
+    end
   end
 
   def get_classification data_cancers
     data_cancers.pluck(:classification_id).uniq
+  end
+
+  def parent_path node
+    parent_path = node.parent_path
+    (parent_path << node.id).uniq
   end
 
 

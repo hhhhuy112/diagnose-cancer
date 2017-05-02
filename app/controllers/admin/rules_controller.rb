@@ -16,12 +16,13 @@ class Admin::RulesController < ApplicationController
   end
 
   def create
+    destroy_rules
     create_know_service = CreateRulesDecisionTreeService.new(@classifications, DataCancer.all)
-    abc = create_know_service.c45_algorithm(@data_cancers, @fictions)
-     binding.pry
+    abc = create_know_service.c45_algorithm(@data_cancers, @fictions, nil)
      f = File.open("/home/ubuntu/datn/data/tree.txt", "w")
      f.write(abc)
      f.close
+    convert_node_to_rule
     flash[:success] = t("admin.knowledges.create_knowledges_success")
     redirect_to admin_knowledges_path
   end
@@ -40,7 +41,13 @@ class Admin::RulesController < ApplicationController
 
   private
 
+  def convert_node_to_rule
+    convert_rule = ConvertDecisionTreeToRulesService.new
+    convert_rule.convert
+  end
+
   def destroy_rules
+    Node.delete_all
     Rule.delete_all
   end
 
