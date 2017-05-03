@@ -6,6 +6,16 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def check_root_page
+    if is_root_page?
+      redirect_to admin_root_path
+    end
+  end
+
+  def is_root_page?
+    current_page?(controller: 'static_pages', action: 'home')
+  end
+
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up) do |user_params|
       user_params.permit(:name, :email, :gender,:birthday, :password, :password_confirmation, :avatar)

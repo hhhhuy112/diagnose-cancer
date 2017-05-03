@@ -1,32 +1,29 @@
 class ConvertDecisionTreeToRulesService
-  def inittialize
+  def initialize nodes
+    @nodes = nodes
+    @list = []
   end
 
-  def convert
-    @node_roots = Node.load_root
-    @node_roots.each do |node_root|
-      node_childs = Node.load_node_childs_of_node(node_root.id)
-      rule = Rule.new
-      rule =  set_value_fiction node_root, rule
-      create_rules node_root, node_childs, rule
+  def convert nodes, rule
+    rule_internal = rule.dup
+    nodes.each do |node|
+      if node.leaf?
+        rule_leaf = rule.dup
+        rule_leaf.classification_id = node.attr_id
+        rule_leaf.save
+      else
+        rule_internal = set_value_fiction node, rule_internal
+        node_childs = Node.load_node_childs_of_node(node.id)
+        if node_childs.present?
+          convert node_childs, rule_internal
+        end
+      end
     end
+    @list
   end
 
   def create_rules node_root, node_childs, rule
-    rule_instance = rule
-    node_childs.each_with_index do |node_child, index|
-      if node_child.leaf?
-        rule_instance.classification_id = node_child.attr_id
-        rule_instance.save
-        node_childs.delete(node_child)
-      elsif node_child.internal?
-        rule_instance = set_value_fiction node_child, rule
-        node_childs.delete(node_child)
-      end
-    end
-    if node_childs.present?
-      create_rules node_root, node_childs, rule
-    end
+
   end
 
   def set_value_fiction node, rule
@@ -46,9 +43,9 @@ class ConvertDecisionTreeToRulesService
     when Settings.fiction.bare_nuclei
       rule.bare_nuclei = value_fiction.value
     when Settings.fiction.bland_chromatin
-      rule.band_romatin = value_fiction.value
+      rule.bland_chromatin = value_fiction.value
     when Settings.fiction.normal_nucleoli
-      rule.nomal_nucleoli = value_fiction.value
+      rule.normal_nucleoli = value_fiction.value
     when Settings.fiction.mitoses
       rule.mitoses = value_fiction.value
     else
@@ -56,5 +53,25 @@ class ConvertDecisionTreeToRulesService
     end
     rule
   end
+
+
+  # def convert nodes, rule
+  #   nodes.each do |node_parent|
+  #     node_childs = Node.load_node_childs_of_node(node_parent.id)
+  #     rule = Rule.new if rule.nil?
+  #     rule =  set_value_fiction node_parent, rule
+  #     node_childs.each do |node_child|
+  #       rule_instance = rule
+  #       if node_child.leaf?
+  #         rule_instance.classification_id = node_child.attr_id
+  #         rule_instance.save
+  #       elsif node_child.internal?
+  #         rule_instance = set_value_fiction node_child, rule
+  #         node_childs = Node.load_node_childs_of_node(node_parent.id)
+  #         convert node_childs, rule_instance
+  #       end
+  #     end
+  #   end
+  # end
 
 end

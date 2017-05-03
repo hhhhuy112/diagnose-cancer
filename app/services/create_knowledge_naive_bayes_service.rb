@@ -40,10 +40,10 @@ class CreateKnowledgeNaiveBayesService
       num_fiction_of_class = DataCancer.is_classification(classification_id).is_bare_nuclei(value).count
       (num_fiction_of_class + @num_class).to_f / (classificate_number + value_fiction_number)
     when Settings.fiction.bland_chromatin
-      num_fiction_of_class = DataCancer.is_classification(classification_id).is_band_romatin(value).count
+      num_fiction_of_class = DataCancer.is_classification(classification_id).is_bland_chromatin(value).count
       (num_fiction_of_class + @num_class).to_f / (classificate_number + value_fiction_number)
     when Settings.fiction.normal_nucleoli
-      num_fiction_of_class = DataCancer.is_classification(classification_id).is_nomal_nucleoli(value).count
+      num_fiction_of_class = DataCancer.is_classification(classification_id).is_normal_nucleoli(value).count
       (num_fiction_of_class + @num_class).to_f / (classificate_number + value_fiction_number)
     when Settings.fiction.mitoses
       num_fiction_of_class = DataCancer.is_classification(classification_id).is_mitoses(value).count

@@ -1,6 +1,4 @@
 <% provide :title, t("admin.data_cancers.title") %>
-
-
 <div class = "row">
   <div class = "block-content-full">
     <div class="panel panel-info">
@@ -14,13 +12,17 @@
         <div class="row manage_user">
           <div class="col-md-6">
             <div class="users_button_group">
-            <%= link_to create_knowledge_admin_knowledges_path,
-              class: "btn btn-md btn-success float_right" do %>
-              <i class="gi gi-plus"></i> <%= t "admin.knowledges.create_knowledges" %>
+              <%= link_to create_knowledge_admin_knowledges_path,
+                class: "btn btn-md btn-success float_right create_rule" do %>
+                <i class="gi gi-plus"></i> <%= t "admin.knowledges.create_knowledges" %>
               <% end %>
               <%= link_to admin_rules_path, method: :Post,
-                class: "btn btn-md btn-success float_right" do %>
-                <i class="gi gi-plus"></i> <%= t "admin.rules.create_rules" %>
+                class: "btn btn-md btn-success float_right create_rule" do %>
+                <i class="gi gi-plus"></i> <%= t "admin.rules.create_rules_c45" %>
+              <% end %>
+              <%= link_to admin_rule_id3s_path, method: :Post,
+                class: "btn btn-md btn-success float_right create_rule" do %>
+                <i class="gi gi-plus"></i> <%= t "admin.rules.create_rules_id3" %>
               <% end %>
             </div>
           </div>
@@ -41,4 +43,4 @@
     </div>
   </div>
 </div>
-
+<div class = "loader"></div>
