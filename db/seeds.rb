@@ -5,6 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.delete_all
+Classification.delete_all
+Fiction.delete_all
+ValueFiction.delete_all
+
 User.create(patient_code: "A0001" ,name: "Admin", email: "admin@gmail.com", birthday: "20/11/1994", gender: "male", password: "123456", role: "admin")
 Classification.create(name: "benign")
 Classification.create(name: "malignant")
@@ -25,8 +30,8 @@ f.each_line do |line|
       marginal_adhesion: data[4].to_i,
       single_epithelial_cell_size: data[5].to_i,
       bare_nuclei: data[6].to_i,
-      band_romatin: data[7].to_i,
-      nomal_nucleoli: data[8].to_i,
+      bland_chromatin: data[7].to_i,
+      normal_nucleoli: data[8].to_i,
       mitoses: data[9].to_i,
       classification_id: result.to_i)
   end
@@ -45,6 +50,30 @@ fiction_file.close
 Fiction.all.each do |f|
   putc "create fiction"
   value.each do |v|
-    ValueFiction.create(name: ("#{f.name}" +"#{v}").to_s, value: v, description: "", fiction_id: f.id)
+
+    name_value = case f.name
+    when Settings.fiction.clump_thickness
+      "A" +"#{v}"
+    when Settings.fiction.uniformity_of_cell_size
+      "B" +"#{v}"
+    when Settings.fiction.uniformity_of_cell_shape
+      "C" +"#{v}"
+    when Settings.fiction.marginal_adhesion
+      "D" +"#{v}"
+    when Settings.fiction.single_epithelial_cell_size
+      "E" +"#{v}"
+    when Settings.fiction.bare_nuclei
+      "F" +"#{v}"
+    when Settings.fiction.bland_chromatin
+      "G" +"#{v}"
+    when Settings.fiction.normal_nucleoli
+      "H" +"#{v}"
+    when Settings.fiction.mitoses
+      "I" +"#{v}"
+    else
+      "#{v}"
+    end
+
+    ValueFiction.create(name: name_value , value: v, description: "", fiction_id: f.id)
   end
 end

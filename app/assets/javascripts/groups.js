@@ -1,3 +1,4 @@
+//group.js
 $(document).ready(function() {
   $("#select-all-user-outside").click(function(e) {
     if($(this).is(':checked')){
@@ -112,3 +113,48 @@ function remove_delete_value(value){
   }
   return values_delete.valueOf();
 }
+
+//end group.js
+
+
+//add member group
+
+$(document).ready(function(){
+});
+
+$(document).on('keyup', '#assign-list-user-group-search', function (event) {
+  $(".hide-user-group-search").hide();
+  search_user_outside($("#assign-list-user-group-search").val());
+});
+
+ $(document).on('click', '.search-checkbox input[type = checkbox]', function(e) {
+    is_all_checked_member_outside();
+  });
+
+ function is_all_checked_member_outside(){
+  if($('.search-checkbox input[type = checkbox]').not(':checked').length == 0){
+    $("#select-all-user-outside").prop('checked', true);
+  }else{
+    $("#select-all-user-outside").prop('checked', false);
+  }
+}
+
+function search_user_outside(text_search){
+  if(text_search === ""){
+    $(".hide-user-group-search").show();
+  }else{
+    search(text_search);
+  }
+}
+
+function search(text_search){
+  value_member_outsides = $(".hide-user-group-search .search-checkbox > label");
+  for(i=1; i <= value_member_outsides.length; i++) {
+    value_user_outside = $(".hide-user-group-search:nth-of-type(" + i + ") .search-checkbox > label").text();
+    if(value_user_outside.toLowerCase().indexOf(text_search.toLowerCase()) > -1){
+      $(".hide-user-group-search:nth-of-type(" + i + ")").show();
+    }
+  }
+}
+
+// end member group

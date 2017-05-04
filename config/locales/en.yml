@@ -51,7 +51,7 @@ en:
         patient_code: "Admin will has code start by A, owner is D and patient is P"
     knowledges:
       title: "Knowledges"
-      create_knowledges: "Create knowledge"
+      create_knowledges: "Naive Bayes algorithm"
       create_knowledges_success: "Create knowledge from data cancers success"
       information_knowledge: "Information knowledge"
       list_knowledges: "List Knowledges"
@@ -70,7 +70,11 @@ en:
       type: "Type diagnose"
       select_value: "Select value"
     rules:
-      create_rules: "Create Rules"
+      create_rules_c45: "C45 algorithm"
+      create_rules_id3: "ID3 algorithm"
+      title_c45: "Rules C45"
+      title_id3: "Rules ID3"
+      create_rules_success: "Create rules from data cancers success"
     groups:
       title: "Groups"
       list_groups: "List Groups"

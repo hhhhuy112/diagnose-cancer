@@ -99,32 +99,32 @@
     </div>
   </div>
   <div class="fix-clear form-group">
-    <%= f.label :band_romatin, t("band_romatin"), class: "col-md-3 control-label" %>
+    <%= f.label :bland_chromatin, t("band_romatin"), class: "col-md-3 control-label" %>
     <div class="col-md-5">
       <div class="input-group">
         <div class="input-group-addon">
           <i class="fa fa-star"></i>
         </div>
-        <%= f.select :band_romatin, get_fiction_by_name(Settings.fiction.bland_chromatin).collect {|value_fiction| [value_fiction.name, value_fiction.value]}, {}, {class: "form-control input-md"} %>
+        <%= f.select :bland_chromatin, get_fiction_by_name(Settings.fiction.bland_chromatin).collect {|value_fiction| [value_fiction.name, value_fiction.value]}, {}, {class: "form-control input-md"} %>
       </div>
       <ul class = "errors">
-        <% @data_cancer.errors[:band_romatin].each do |err|%>
+        <% @data_cancer.errors[:bland_chromatin].each do |err|%>
         <li><span class="help-block"><%= t("band_romatin") + " #{err}" %></span></li>
         <% end %>
       </ul>
     </div>
   </div>
   <div class="fix-clear form-group">
-    <%= f.label :nomal_nucleoli, t("nomal_nucleoli"), class: "col-md-3 control-label" %>
+    <%= f.label :normal_nucleoli, t("nomal_nucleoli"), class: "col-md-3 control-label" %>
     <div class="col-md-5">
       <div class="input-group">
         <div class="input-group-addon">
           <i class="fa fa-star"></i>
         </div>
-        <%= f.select :nomal_nucleoli, get_fiction_by_name(Settings.fiction.normal_nucleoli).collect {|value_fiction| [value_fiction.name, value_fiction.value]}, {}, {class: "form-control input-md"} %>
+        <%= f.select :normal_nucleoli, get_fiction_by_name(Settings.fiction.normal_nucleoli).collect {|value_fiction| [value_fiction.name, value_fiction.value]}, {}, {class: "form-control input-md"} %>
       </div>
       <ul class = "errors">
-        <% @data_cancer.errors[:nomal_nucleoli].each do |err|%>
+        <% @data_cancer.errors[:normal_nucleoli].each do |err|%>
         <li><span class="help-block"><%= t("nomal_nucleoli") + " #{err}" %></span></li>
         <% end %>
       </ul>

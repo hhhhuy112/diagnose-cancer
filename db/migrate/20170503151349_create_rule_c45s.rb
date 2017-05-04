@@ -1,7 +1,6 @@
-class CreateDataCancers < ActiveRecord::Migration[5.0]
+class CreateRuleC45s < ActiveRecord::Migration[5.0]
   def change
-    create_table :data_cancers do |t|
-      t.integer :sample_code_number
+    create_table :rule_c45s do |t|
       t.integer :clump_thickness
       t.integer :uniformity_of_cell_size
       t.integer :uniformity_of_cell_shape

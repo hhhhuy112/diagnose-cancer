@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429171842) do
+ActiveRecord::Schema.define(version: 20170503151349) do
 
   create_table "classifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -28,8 +28,8 @@ ActiveRecord::Schema.define(version: 20170429171842) do
     t.integer  "marginal_adhesion"
     t.integer  "single_epithelial_cell_size"
     t.integer  "bare_nuclei"
-    t.integer  "band_romatin"
-    t.integer  "nomal_nucleoli"
+    t.integer  "bland_chromatin"
+    t.integer  "normal_nucleoli"
     t.integer  "mitoses"
     t.integer  "classification_id"
     t.datetime "deleted_at"
@@ -118,16 +118,49 @@ ActiveRecord::Schema.define(version: 20170429171842) do
     t.index ["value_id"], name: "index_nodes_on_value_id", using: :btree
   end
 
-  create_table "rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "sample_code_number"
+  create_table "rule_c45s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "clump_thickness"
     t.integer  "uniformity_of_cell_size"
     t.integer  "uniformity_of_cell_shape"
     t.integer  "marginal_adhesion"
     t.integer  "single_epithelial_cell_size"
     t.integer  "bare_nuclei"
-    t.integer  "band_romatin"
-    t.integer  "nomal_nucleoli"
+    t.integer  "bland_chromatin"
+    t.integer  "normal_nucleoli"
+    t.integer  "mitoses"
+    t.integer  "classification_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["classification_id"], name: "index_rule_c45s_on_classification_id", using: :btree
+  end
+
+  create_table "rule_id3s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "clump_thickness"
+    t.integer  "uniformity_of_cell_size"
+    t.integer  "uniformity_of_cell_shape"
+    t.integer  "marginal_adhesion"
+    t.integer  "single_epithelial_cell_size"
+    t.integer  "bare_nuclei"
+    t.integer  "bland_chromatin"
+    t.integer  "normal_nucleoli"
+    t.integer  "mitoses"
+    t.integer  "classification_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.index ["classification_id"], name: "index_rule_id3s_on_classification_id", using: :btree
+  end
+
+  create_table "rules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "clump_thickness"
+    t.integer  "uniformity_of_cell_size"
+    t.integer  "uniformity_of_cell_shape"
+    t.integer  "marginal_adhesion"
+    t.integer  "single_epithelial_cell_size"
+    t.integer  "bare_nuclei"
+    t.integer  "bland_chromatin"
+    t.integer  "normal_nucleoli"
     t.integer  "mitoses"
     t.integer  "classification_id"
     t.datetime "deleted_at"
@@ -186,6 +219,8 @@ ActiveRecord::Schema.define(version: 20170429171842) do
   add_foreign_key "infor_fictions", "fictions"
   add_foreign_key "knowledges", "classifications"
   add_foreign_key "knowledges", "fictions"
+  add_foreign_key "rule_c45s", "classifications"
+  add_foreign_key "rule_id3s", "classifications"
   add_foreign_key "rules", "classifications"
   add_foreign_key "user_groups", "groups"
   add_foreign_key "user_groups", "users"

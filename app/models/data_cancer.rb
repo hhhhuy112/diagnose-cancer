@@ -9,8 +9,8 @@ class DataCancer < ApplicationRecord
     :marginal_adhesion,
     :single_epithelial_cell_size,
     :bare_nuclei,
-    :band_romatin,
-    :nomal_nucleoli,
+    :bland_chromatin,
+    :normal_nucleoli,
     :mitoses,
     :classification_id,
   ].freeze
@@ -41,12 +41,12 @@ class DataCancer < ApplicationRecord
     where bare_nuclei: value
   end
 
-  scope :is_band_romatin, -> value do
-    where band_romatin: value
+  scope :is_bland_chromatin, -> value do
+    where bland_chromatin: value
   end
 
-  scope :is_nomal_nucleoli, -> value do
-    where nomal_nucleoli: value
+  scope :is_normal_nucleoli, -> value do
+    where normal_nucleoli: value
   end
 
   scope :is_mitoses, -> value do

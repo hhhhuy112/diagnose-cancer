@@ -5,6 +5,7 @@ per_page:
     user: 10
     diagnose: 4
     group: 6
+    rules: 10
 image_format_accept: "image/jpeg,image/gif,image/png"
 image_default: "group_default.gif"
 user:
@@ -23,6 +24,7 @@ fiction:
   bland_chromatin: "Bland Chromatin"
   normal_nucleoli: "Normal Nucleoli"
   mitoses: "Mitoses"
+
 image_types:
   jpg: "jpg"
   jpeg: "jpeg"

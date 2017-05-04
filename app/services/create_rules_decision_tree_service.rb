@@ -16,10 +16,9 @@ class CreateRulesDecisionTreeService
       create_node_leaf node, arr_classification.first
       return
     elsif fictions.blank?
-      classification_max = get_classification_max data_cancers
       @abc +=  "node_la: #{classification_max.name} " + "\n"
       @abc += "-------------------------------------end-node------------------------------------ \n"
-
+      classification_max = get_classification_max data_cancers
       create_node_leaf node, classification_max.id
       return
     else

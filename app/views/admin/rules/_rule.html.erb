@@ -1,0 +1,8 @@
+<tr id="rule-#{rule.id}">
+  <td>
+    <%= current_index @rules.current_page, Settings.per_page.admin.rules, rule_counter %>
+  </td>
+  <td><%= convert_rule_to_string(rule) %></td>
+  <td><%= rule.classification_name %></td>
+</tr>
+
