@@ -37,6 +37,14 @@ $(document).ready(function(){
     });
 });
 
+$(document).on('click', '.create_rule', function (event){
+  $(".loader").show();
+});
+
+$(document).on('click', '.show_loader', function (event){
+  $(".loader").show();
+});
+
 function readURL(input) {
   if (input.files && input.files[0]) {
     var reader = new FileReader();

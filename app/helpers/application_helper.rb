@@ -43,15 +43,15 @@ module ApplicationHelper
 
    def convert_rule_to_string rule
     arr_attr = []
-    arr_attr.push("A = A#{rule.clump_thickness}") if rule.clump_thickness.present?
-    arr_attr.push("B = B#{rule.uniformity_of_cell_size}") if rule.uniformity_of_cell_size.present?
-    arr_attr.push("C = C#{rule.uniformity_of_cell_shape}") if rule.uniformity_of_cell_shape.present?
-    arr_attr.push("D = A#{rule.marginal_adhesion}") if rule.marginal_adhesion.present?
-    arr_attr.push("E = E#{rule.single_epithelial_cell_size}") if rule.single_epithelial_cell_size.present?
-    arr_attr.push("F = F#{rule.bare_nuclei}") if rule.bare_nuclei.present?
-    arr_attr.push("G = G#{rule.bland_chromatin}") if rule.bland_chromatin.present?
-    arr_attr.push("H = H#{rule.normal_nucleoli}") if rule.normal_nucleoli.present?
-    arr_attr.push("I = I#{rule.mitoses}") if rule.mitoses.present?
+    arr_attr.push("(A = A#{rule.clump_thickness})") if rule.clump_thickness.present?
+    arr_attr.push("(B = B#{rule.uniformity_of_cell_size})") if rule.uniformity_of_cell_size.present?
+    arr_attr.push("(C = C#{rule.uniformity_of_cell_shape})") if rule.uniformity_of_cell_shape.present?
+    arr_attr.push("(D = A#{rule.marginal_adhesion})") if rule.marginal_adhesion.present?
+    arr_attr.push("(E = E#{rule.single_epithelial_cell_size})") if rule.single_epithelial_cell_size.present?
+    arr_attr.push("(F = F#{rule.bare_nuclei})") if rule.bare_nuclei.present?
+    arr_attr.push("(G = G#{rule.bland_chromatin})") if rule.bland_chromatin.present?
+    arr_attr.push("(H = H#{rule.normal_nucleoli})") if rule.normal_nucleoli.present?
+    arr_attr.push("(I = I#{rule.mitoses})") if rule.mitoses.present?
     arr_attr.join(" And ")
   end
 end

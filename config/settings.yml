@@ -6,6 +6,8 @@ per_page:
     diagnose: 4
     group: 6
     rules: 10
+    fictions: 5
+    value_fictions: 10
 image_format_accept: "image/jpeg,image/gif,image/png"
 image_default: "group_default.gif"
 user:

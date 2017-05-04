@@ -1,0 +1,26 @@
+<% provide :title, t("admin.fictions.title") %>
+<div class = "row">
+  <div class = "block-content-full">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= t"admin.fictions.list_fictions" %>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead class = "header-table-fictions">
+              <%= render "table_header" %>
+            </thead>
+            <tbody class = "fictions-content">
+              <%= render(@fictions) || t(".data_not_find") %>
+            </tbody>
+          </table>
+        </div>
+        <center class = "paginate-items"><%= paginate @fictions %></center>
+      </div>
+    </div>
+  </div>
+</div>
+

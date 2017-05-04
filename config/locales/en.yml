@@ -75,6 +75,22 @@ en:
       title_c45: "Rules C45"
       title_id3: "Rules ID3"
       create_rules_success: "Create rules from data cancers success"
+    fictions:
+      title: "Fictions"
+      list_fictions: "List Fictions"
+      name: "Name"
+      description: "Description"
+      updated_success: "Update fiction success"
+      updated_fail: "Update fiction fail"
+    value_fictions:
+      title: "Value Fictions"
+      list_value_fictions: "List Value Fictions"
+      name: "Name"
+      value: "Value"
+      fiction: "Fiction"
+      description: "Description"
+      updated_success: "Update fiction success"
+      updated_fail: "Update fiction fail"
     groups:
       title: "Groups"
       list_groups: "List Groups"
@@ -110,6 +126,11 @@ en:
     manage_users: "Manage Users"
     groups: "Groups"
     action: "Action"
+    manage_knowledges:
+      title: "Manage knowledges"
+      naive_bayes: "Naive Bayes"
+      c45_algorithm: "C45 algorithm"
+      id3_algorithm: "ID3 algorithm"
   header:
     diagnose: "Diagnoses"
     groups: "Groups"

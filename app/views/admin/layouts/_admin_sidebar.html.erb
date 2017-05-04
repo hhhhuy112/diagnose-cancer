@@ -55,11 +55,6 @@
                 <% end %>
               </li>
               <li>
-                <%= link_to admin_knowledges_path do %>
-                  <span class="sidebar-nav-mini-hide"><%= t("sidebar.knowledges")%></span>
-                <% end %>
-              </li>
-              <li>
                 <%= link_to admin_fictions_path do %>
                   <span class="sidebar-nav-mini-hide"><%= t("sidebar.fictions")%></span>
                 <% end %>
@@ -86,6 +81,26 @@
               <li>
                 <%= link_to groups_path do %>
                   <span class="sidebar-nav-mini-hide"><%= t("sidebar.groups")%></span>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-show_big_thumbnails sidebar-nav-icon"></i> <span class="sidebar-nav-mini-hide"><%= t("sidebar.manage_knowledges.title")%></span></a>
+            <ul>
+              <li>
+                <%= link_to admin_knowledges_path do %>
+                  <span class="sidebar-nav-mini-hide"><%= t("sidebar.manage_knowledges.naive_bayes")%></span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_rules_path do %>
+                  <span class="sidebar-nav-mini-hide"><%= t("sidebar.manage_knowledges.c45_algorithm")%></span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to admin_rule_id3s_path do %>
+                  <span class="sidebar-nav-mini-hide"><%= t("sidebar.manage_knowledges.id3_algorithm")%></span>
                 <% end %>
               </li>
             </ul>
