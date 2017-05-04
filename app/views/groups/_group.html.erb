@@ -1,9 +1,18 @@
 <div class="col-xs-3 col-sm-6 col-md-4 col-md-4">
   <div class="thumbnail product">
     <div class="caption">
-      <div class="img-caption text-center">
-        <%= image_tag group.image_url, class: "image-group" %>
-      </div>
+      <% if current_user.is_owner_of_group?(group) %>
+        <%= link_to group, class: "widget widget-hover-effect3" do %>
+          <div class="img-caption text-center">
+            <%= image_tag group.image_url, class: "image-group" %>
+          </div>
+        <% end %>
+      <% else %>
+        <div class="img-caption text-center">
+          <%= image_tag group.image_url, class: "image-group" %>
+        </div>
+      <% end %>
+
       <h5>
         <%= t ".name" %>:
         <strong class="text-info"><%= group.name %></strong>

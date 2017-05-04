@@ -1,0 +1,56 @@
+<tr id="fiction-#{fiction.id}">
+  <td>
+    <%= current_index @fictions.current_page, Settings.per_page.admin.fictions, fiction_counter %>
+  </td>
+  <td><%= fiction.name %></td>
+  <td><%= fiction.description%></td>
+  <td class="text-center">
+    <div class="btn-group btn-group-xs">
+      <% if current_user.admin?%>
+        <button type="button" class="btn btn-warning" data-toggle="modal" data-target=<%= "#"+ "fiction-" + "#{fiction.id}" %>>
+          <i class="gi gi-pencil"></i>
+        </button>
+      <% end %>
+    </div>
+  </td>
+</tr>
+
+<div id=<%= "fiction-" + "#{fiction.id}"%> class="modal fade" role="dialog">
+  <div class="modal-dialog  modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= t "admin.fictions.update_fiction" %></h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [:admin, fiction] do |f| %>
+          <div class="form-group">
+            <%= f.label :name, t("admin.fictions.name"), class: "field-compulsory-before" %>
+            <div>
+              <%= f.text_field :name, required: true, class: "form-control", disabled: true %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :description, t("admin.fictions.description"), class: "field-compulsory-before" %>
+            <div>
+              <%= f.text_area :description, class: "form-control" %>
+            </div>
+          </div>
+
+          <div class = "form-group">
+            <div class="text-center row">
+              <%= f.button :submit, t("submit"), class: "col-md-offset-2 col-md-8 btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

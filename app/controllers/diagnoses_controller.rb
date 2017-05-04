@@ -1,8 +1,10 @@
 class DiagnosesController < ApplicationController
   before_action :logged_in_user
   before_action :load_fictions, only: [:create, :update]
-  before_action :load_classifications, :load_user_groups, only: [:create, :update, :new]
+  before_action :load_classifications, :load_user_groups, only: [:create, :update, :new, :edit]
   before_action :load_diagnose, only: [:edit, :show, :update, :destroy]
+  before_action :is_owner, except: :show
+
 
   def index
     if current_user.is_owner?
@@ -95,7 +97,7 @@ class DiagnosesController < ApplicationController
 
   def load_user_groups
     @user_insides = if current_user.admin?
-      User.is_user_normal
+      User.is_normal_user
     else
       current_user.groups.map(&:users).sum
     end
