@@ -45,7 +45,9 @@
                   <i class="fa fa-star"></i> <%= t("diagnose.value") %>
                 </strong>
               </td>
-              <td><%= @diagnose.patient_name %></td>
+              <td>
+                <a href="javascript:void(0)" class="label label-info animation-pulse"><%= @diagnose.patient_name %></a>
+              </td>
             </tr>
             <tr>
               <td>
@@ -53,7 +55,13 @@
                   <i class="fa fa-star"></i> <%= t("diagnose.classification") %>
                 </strong>
               </td>
-              <td><%= @diagnose.classification_name %></td>
+              <td>
+                <% if @diagnose.classification_id == 1 %>
+                  <a href="javascript:void(0)" class="label label-success animation-pulse"><%= @diagnose.classification_name %></a>
+                <% else %>
+                  <a href="javascript:void(0)" class="label label-danger animation-pulse"><%= @diagnose.classification_name %></a>
+                <% end %>
+              </td>
             </tr>
             <tr>
               <td>
