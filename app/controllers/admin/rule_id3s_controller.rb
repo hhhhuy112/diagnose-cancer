@@ -15,7 +15,7 @@ class Admin::RuleId3sController < ApplicationController
   end
 
   def create
-    create_know_service = DecisionTreeService.new(@classifications, DataCancer.all)
+    create_know_service = DecisionTreeService.new(@classifications, @data_cancers)
     rule = RuleId3.new
     create_know_service.id3_algorithm(@data_cancers, @fictions, rule)
     flash[:success] = t("admin.rules.create_rules_success")
@@ -41,7 +41,7 @@ class Admin::RuleId3sController < ApplicationController
   end
 
   def load_data
-    @data_cancers = DataCancer.all
+    @data_cancers = DataCancer.get_training_data
     @classifications = Classification.all
     @fictions = Fiction.all
   end

@@ -2,7 +2,7 @@ class Admin::ValueFictionsController < ApplicationController
    before_action :load_value_fiction, only: :update
 
   def index
-    @search = ValueFiction.ransack(params[:q])
+    @search = ValueFiction.includes(:fiction).ransack(params[:q])
     @value_fictions = @search.result.page(params[:page]).per Settings.per_page.admin.value_fictions
     respond_to do |format|
       format.html

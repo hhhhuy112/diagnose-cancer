@@ -1,0 +1,5 @@
+<%= search_form_for [:admin, @search], class: "search_form_data_cancer" do |f| %>
+  <%= f.text_field :clump_thickness_or_uniformity_of_cell_size_or_uniformity_of_cell_shape_or_marginal_adhesion_or_single_epithelial_cell_size_or_bare_nuclei_or_bland_chromatin_or_normal_nucleoli_or_mitoses_cont,
+    placeholder: t("search.name_or_employee_code_or_email"),
+    class: "form-control search_text" %>
+<% end %>

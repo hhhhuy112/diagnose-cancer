@@ -20,33 +20,34 @@ class CreateKnowledgeNaiveBayesService
   end
 
   def get_probability classification_id, fiction, value, classificate_number, value_fiction_number
+    data_cancers_training = DataCancer.get_training_data
     case fiction.name
     when Settings.fiction.clump_thickness
-      num_fiction_of_class = DataCancer.is_classification(classification_id).is_clump_thickness(value).count
+      num_fiction_of_class = data_cancers_training.is_classification(classification_id).is_clump_thickness(value).count
       (num_fiction_of_class + @num_class).to_f / (classificate_number + value_fiction_number)
     when Settings.fiction.uniformity_of_cell_size
-      num_fiction_of_class = DataCancer.is_classification(classification_id).is_uniformity_of_cell_size(value).count
+      num_fiction_of_class = data_cancers_training.is_classification(classification_id).is_uniformity_of_cell_size(value).count
       (num_fiction_of_class + @num_class).to_f / (classificate_number + value_fiction_number)
     when Settings.fiction.uniformity_of_cell_shape
-      num_fiction_of_class = DataCancer.is_classification(classification_id).is_uniformity_of_cell_shape(value).count
+      num_fiction_of_class = data_cancers_training.is_classification(classification_id).is_uniformity_of_cell_shape(value).count
       (num_fiction_of_class + @num_class).to_f / (classificate_number + value_fiction_number)
     when Settings.fiction.marginal_adhesion
-      num_fiction_of_class = DataCancer.is_classification(classification_id).is_marginal_adhesion(value).count
+      num_fiction_of_class = data_cancers_training.is_classification(classification_id).is_marginal_adhesion(value).count
       (num_fiction_of_class + @num_class).to_f / (classificate_number + value_fiction_number)
     when Settings.fiction.single_epithelial_cell_size
-      num_fiction_of_class = DataCancer.is_classification(classification_id).is_single_epithelial_cell_size(value).count
+      num_fiction_of_class = data_cancers_training.is_classification(classification_id).is_single_epithelial_cell_size(value).count
       (num_fiction_of_class + @num_class).to_f / (classificate_number + value_fiction_number)
     when Settings.fiction.bare_nuclei
-      num_fiction_of_class = DataCancer.is_classification(classification_id).is_bare_nuclei(value).count
+      num_fiction_of_class = data_cancers_training.is_classification(classification_id).is_bare_nuclei(value).count
       (num_fiction_of_class + @num_class).to_f / (classificate_number + value_fiction_number)
     when Settings.fiction.bland_chromatin
-      num_fiction_of_class = DataCancer.is_classification(classification_id).is_bland_chromatin(value).count
+      num_fiction_of_class = data_cancers_training.is_classification(classification_id).is_bland_chromatin(value).count
       (num_fiction_of_class + @num_class).to_f / (classificate_number + value_fiction_number)
     when Settings.fiction.normal_nucleoli
-      num_fiction_of_class = DataCancer.is_classification(classification_id).is_normal_nucleoli(value).count
+      num_fiction_of_class = data_cancers_training.is_classification(classification_id).is_normal_nucleoli(value).count
       (num_fiction_of_class + @num_class).to_f / (classificate_number + value_fiction_number)
     when Settings.fiction.mitoses
-      num_fiction_of_class = DataCancer.is_classification(classification_id).is_mitoses(value).count
+      num_fiction_of_class = data_cancers_training.is_classification(classification_id).is_mitoses(value).count
       (num_fiction_of_class + @num_class).to_f / (classificate_number + value_fiction_number)
     else
       0

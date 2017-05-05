@@ -47,6 +47,7 @@ en:
       title: "Users"
       add: "Add User"
       list_users: "List Users"
+      role: "Role"
       errors:
         patient_code: "Admin will has code start by A, owner is D and patient is P"
     knowledges:
@@ -69,6 +70,9 @@ en:
       patient: "Patient"
       type: "Type diagnose"
       select_value: "Select value"
+      naise_bayes: "Naive Bayes"
+      desicion_tree_c45: "c45 Algorithm"
+      desicion_tree_id3: "id3 Algorithm"
     rules:
       create_rules_c45: "C45 algorithm"
       create_rules_id3: "ID3 algorithm"
@@ -134,3 +138,13 @@ en:
   header:
     diagnose: "Diagnoses"
     groups: "Groups"
+
+  error: "Error"
+  errors:
+    diagnose:
+      invalid_data_user: "Please selected value attribute"
+  search:
+    name_or_employee_code_or_email: "Search"
+    naise_bayes: "Naive Bayes"
+    desicion_tree_c45: "C45 Algorithm"
+    desicion_tree_id3: "ID3 Algorithm"

@@ -4,11 +4,13 @@ class DiagnosesController < ApplicationController
   before_action :load_classifications, :load_user_groups, only: [:create, :update, :new, :edit]
   before_action :load_diagnose, only: [:edit, :show, :update, :destroy]
   before_action :is_owner, except: :show
-
+  before_action :set_params_search, only: :index
 
   def index
-    if current_user.is_owner?
+    if current_user.owner?
       @search = current_user.active_diagnoses.ransack(params[:q])
+    elsif current_user.admin?
+      @search = Diagnose.all.ransack(params[:q])
     else
       @search = current_user.passive_diagnoses.ransack(params[:q])
     end
@@ -77,6 +79,14 @@ class DiagnosesController < ApplicationController
   end
 
   private
+
+
+  def set_params_search
+    params[:q] ||= {}
+    if params[:q][:created_at_lteq].present?
+      params[:q][:created_at_lteq] = params[:q][:created_at_lteq].to_date.end_of_day
+    end
+  end
 
   def params_diagnose
     params.require(:diagnose).permit( :patient_id , :type_diagnose, data_users_attributes: [:id, :fiction_id, :name_fiction, :value]).merge!(owner_id: "#{current_user.id}")

@@ -61,7 +61,7 @@ header {
 header.header-scroll {
     padding: 10px 0;
     background: url('../img/template/ie8_opacity_dark_60.png');
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(125, 8, 8, 0.6);
 }
 
 header.header-scroll:hover {

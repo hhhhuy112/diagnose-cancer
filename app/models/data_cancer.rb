@@ -17,6 +17,11 @@ class DataCancer < ApplicationRecord
 
   delegate :name, to: :classification, prefix: true, allow_nil: true
 
+  scope :get_training_data, -> do
+    max_limit = (DataCancer.all.count * Settings.number_percent_training).round
+    limit(max_limit)
+  end
+
   scope :is_clump_thickness, -> value do
     where clump_thickness: value
   end

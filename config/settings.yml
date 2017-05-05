@@ -1,3 +1,4 @@
+number_percent_training: 0.7
 per_page:
   admin:
     data_cancer: 10
