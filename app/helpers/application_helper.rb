@@ -28,7 +28,7 @@ module ApplicationHelper
   end
 
   def get_fiction_by_name name_fiction
-    fiction = Fiction.find_by name: name_fiction
+    fiction = Fiction.find_by code_data: name_fiction
     return [] unless fiction.present?
     fiction.value_fictions
   end
@@ -59,5 +59,9 @@ module ApplicationHelper
     return I18n.t("admin.diagnoses.naise_bayes") if diagnose.naise_bayes?
     return I18n.t("admin.diagnoses.c45_algorithm") if diagnose.c45_algorithm?
     return I18n.t("admin.diagnoses.id3_algorithm") if diagnose.id3_algorithm?
+  end
+
+  def get_result diagnose
+    diagnose.classification_id.present? ? diagnose.classification_name : I18n.t("admin.diagnoses.not_condition")
   end
 end

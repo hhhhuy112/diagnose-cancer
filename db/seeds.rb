@@ -14,6 +14,7 @@ User.create(patient_code: "A0001" ,name: "Admin", email: "admin@gmail.com", birt
 Classification.create(name: "benign")
 Classification.create(name: "malignant")
 value = [1,2,3,4,5,6,7,8,9,10]
+code = ["A","B", "C", "D","E","F","G","H","I"]
 f = File.open("/home/ubuntu/datn/data/data.txt", "r")
 count = 1
 c =1
@@ -47,33 +48,36 @@ fiction_file.each_line do |line|
 end
 fiction_file.close
 
+Fiction.all.each_with_index do |f,index|
+   code_data = case f.name
+    when Settings.fiction.code.clump_thickness
+      "clump_thickness"
+    when Settings.fiction.code.uniformity_of_cell_size
+      "uniformity_of_cell_size"
+    when Settings.fiction.code.uniformity_of_cell_shape
+      "uniformity_of_cell_shape"
+    when Settings.fiction.code.marginal_adhesion
+      "marginal_adhesion"
+    when Settings.fiction.code.single_epithelial_cell_size
+      "single_epithelial_cell_size"
+    when Settings.fiction.code.bare_nuclei
+      "bare_nuclei"
+    when Settings.fiction.code.bland_chromatin
+      "bland_chromatin"
+    when Settings.fiction.code.normal_nucleoli
+      "normal_nucleoli"
+    when Settings.fiction.code.mitoses
+      "mitoses"
+    else
+      ""
+    end
+  f.update(code: code[index], code_data: code_data )
+end
+
 Fiction.all.each do |f|
   putc "create fiction"
   value.each do |v|
-
-    name_value = case f.name
-    when Settings.fiction.clump_thickness
-      "A" +"#{v}"
-    when Settings.fiction.uniformity_of_cell_size
-      "B" +"#{v}"
-    when Settings.fiction.uniformity_of_cell_shape
-      "C" +"#{v}"
-    when Settings.fiction.marginal_adhesion
-      "D" +"#{v}"
-    when Settings.fiction.single_epithelial_cell_size
-      "E" +"#{v}"
-    when Settings.fiction.bare_nuclei
-      "F" +"#{v}"
-    when Settings.fiction.bland_chromatin
-      "G" +"#{v}"
-    when Settings.fiction.normal_nucleoli
-      "H" +"#{v}"
-    when Settings.fiction.mitoses
-      "I" +"#{v}"
-    else
-      "#{v}"
-    end
-
+    name_value = "#{f.code}#{v}"
     ValueFiction.create(name: name_value , value: v, description: "", fiction_id: f.id)
   end
 end

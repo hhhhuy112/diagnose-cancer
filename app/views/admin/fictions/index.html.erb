@@ -21,7 +21,14 @@
               <%= render "table_header" %>
             </thead>
             <tbody class = "fictions-content">
-              <%= render(@fictions) || t(".data_not_find") %>
+              <% if @fictions.present? %>
+                <%= render(@fictions) %>
+              <% else %>
+                <div class = "col-md-4 text-danger">
+                  <i class="fa fa-fw fa-exclamation-triangle"></i>
+                  <strong><%= t(".data_not_find") %></strong>
+                </div>
+              <% end %>
             </tbody>
           </table>
         </div>

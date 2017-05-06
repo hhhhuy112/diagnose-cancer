@@ -21,7 +21,7 @@ class CreateKnowledgeNaiveBayesService
 
   def get_probability classification_id, fiction, value, classificate_number, value_fiction_number
     data_cancers_training = DataCancer.get_training_data
-    case fiction.name
+    case fiction.code_data
     when Settings.fiction.clump_thickness
       num_fiction_of_class = data_cancers_training.is_classification(classification_id).is_clump_thickness(value).count
       (num_fiction_of_class + @num_class).to_f / (classificate_number + value_fiction_number)

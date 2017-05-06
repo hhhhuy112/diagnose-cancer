@@ -34,7 +34,14 @@
               <%= render "table_header" %>
             </thead>
             <tbody class = "data-cancers-content">
-              <%= render(@data_cancers) || t(".data_not_find") %>
+              <% if @data_cancers.present? %>
+                <%= render(@data_cancers) %>
+              <% else %>
+                <div class = "col-md-4 text-danger">
+                  <i class="fa fa-fw fa-exclamation-triangle"></i>
+                  <strong><%= t(".data_not_find") %></strong>
+                </div>
+              <% end %>
             </tbody>
           </table>
         </div>

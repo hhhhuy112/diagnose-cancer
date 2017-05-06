@@ -50,7 +50,7 @@ class MathInforFictionService
   end
 
   def condition_data_cancer? fiction, value_fiction, data_cancer
-    case fiction.name
+    case fiction.code_data
     when Settings.fiction.clump_thickness
       data_cancer.clump_thickness == value_fiction.value
     when Settings.fiction.uniformity_of_cell_size
