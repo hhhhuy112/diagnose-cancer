@@ -22,6 +22,8 @@
 //= require ./admin/data_cancers
 //= require groups.js
 //= require search.js
+//= require ckeditor/init
+//= ckeditor_custom.js
 
 $(document).ready(function(){
     $('.datepicker').datepicker({

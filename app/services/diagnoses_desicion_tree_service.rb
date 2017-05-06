@@ -7,4 +7,8 @@ class DiagnosesNaiveBayesService
     @diagnose = diagnose
     @user = user
   end
+
+  def diagnose
+
+  end
 end

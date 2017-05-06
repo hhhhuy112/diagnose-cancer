@@ -39,6 +39,7 @@ gem "axlsx", "2.1.0.pre"
 gem "axlsx_rails"
 gem "axlsx_styler"
 gem "chartkick"
+gem 'ckeditor'
 
 gem "delayed_job"
 gem "delayed_job_active_record"

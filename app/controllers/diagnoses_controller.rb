@@ -36,7 +36,7 @@ class DiagnosesController < ApplicationController
           diagose_service = DiagnosesNaiveBayesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
           diagose_service.diagnose
         else
-          diagose_service = DiagnosesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
+          diagose_service = DiagnosesNaiveBayesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
           diagose_service.diagnose
         end
         @diagnose
