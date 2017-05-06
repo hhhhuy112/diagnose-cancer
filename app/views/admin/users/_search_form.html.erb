@@ -1,0 +1,10 @@
+<%= search_form_for [:admin, @search], class: "search_form_user row" do |f| %>
+  <div class = "col-md-6">
+    <%= f.text_field :name_or_patient_code_or_email_cont,
+      placeholder: t("search.name_or_employee_code_or_email"),
+      class: "form-control search_text" %>
+  </div>
+  <div class = "col-md-6">
+    <%= f.select :role_cont, User.roles.collect { |key, value| [t("#{key}"), value] }, {include_blank: t("admin.users.role")}, {class: "form-control roles_search"} %>
+  </div>
+<% end %>

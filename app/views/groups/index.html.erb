@@ -8,17 +8,24 @@
        </h3>
      </div>
      <div class="panel-body">
-      <% if current_user.admin? %>
       <div class="row manage_user">
-        <div class="col-md-12">
-          <div class="users_button_group">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
-              <i class="gi gi-plus"></i> <%= t "admin.groups.create_group" %>
-            </button>
+        <% if current_user.admin? %>
+          <div class="col-md-4">
+            <div class="users_button_group">
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+                <i class="gi gi-plus"></i> <%= t "admin.groups.create_group" %>
+              </button>
+            </div>
           </div>
-        </div>
+          <div class="col-md-offset-4 col-md-4">
+            <%= render "search_form" %>
+          </div>
+        <% elsif current_user.owner? %>
+          <div class="col-md-offset-8 col-md-4">
+            <%= render "search_form" %>
+          </div>
+        <% end %>
       </div>
-      <% end %>
       <div class="row">
         <div id="groups-content">
           <%= render(@groups)  || t(".data_not_find") %>

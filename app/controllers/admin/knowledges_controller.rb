@@ -50,7 +50,7 @@ class Admin::KnowledgesController < Admin::BaseController
   end
 
   def load_data
-    @data_cancers = DataCancer.all
+    @data_cancers = DataCancer.get_training_data
     @classifications = Classification.all
     @fictions = Fiction.all
   end

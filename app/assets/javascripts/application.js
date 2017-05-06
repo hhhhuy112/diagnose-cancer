@@ -22,10 +22,12 @@
 //= require bootstrap-datepicker
 //= require register
 //= require groups.js
+//= require search.js
+
 
 $(document).ready(function(){
     $('.datepicker').datepicker({
-      format: "dd-mm-yyyy"
+      format: "dd/mm/yyyy"
     });
 
     $('.avatar-register').change(function(){

@@ -1,0 +1,5 @@
+<%= search_form_for @search, class: "search_form_group" do |f| %>
+  <%= f.text_field :name_cont,
+    placeholder: t("search.name_or_employee_code_or_email"),
+    class: "form-control search_text" %>
+<% end %>

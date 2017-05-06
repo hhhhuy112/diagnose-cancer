@@ -17,7 +17,7 @@
           <td>
             <%= current_index @diagnoses.current_page, Settings.per_page.admin.diagnose, index %>
           </td>
-          <td><%= l diagnose.created_at, format: :format_datetime_picker_rb %></td>
+          <td><%= l diagnose.created_at, format: :long %></td>
           <td><%= diagnose.patient_name %></td>
           <td><%= diagnose.classification_name %></td>
           <td><%= diagnose.result %></td>

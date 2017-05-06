@@ -6,11 +6,31 @@ class Diagnose < ApplicationRecord
   has_many :data_users, dependent: :destroy
   accepts_nested_attributes_for :data_users, allow_destroy: true
 
+  validate :check_valid_attribute
+
   delegate :name, :patient_code, to: :owner, prefix: true, allow_nil: true
   delegate :name, :patient_code, to: :patient, prefix: true, allow_nil: true
 
 
   delegate :name, to: :classification, prefix: true, allow_nil: true
 
-  enum type_diagnose: {naise_bayes: 1, desicion_tree: 2}
+  enum type_diagnose: {naise_bayes: 0, desicion_tree_c45: 1, desicion_tree_id3: 2}
+
+
+
+  private
+
+  def check_valid_attribute
+    if self.naise_bayes?
+      arr_valid = self.data_users.select do |data_user|
+        data_user.value.present?
+      end
+      if arr_valid.blank?
+        errors.add :errors, I18n.t("errors.diagnose.invalid_data_user")
+      end
+      arr_valid.blank?
+    else
+      true
+    end
+  end
 end

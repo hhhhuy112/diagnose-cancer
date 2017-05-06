@@ -10,13 +10,16 @@
       <div class="panel-body">
         <% if current_user.admin? %>
         <div class="row manage_user">
-          <div class="col-md-12">
+          <div class="col-md-2">
             <div class="users_button_group">
-            <%= link_to new_admin_diagnosis_path,
+            <%= link_to new_diagnosis_path,
               class: "btn btn-md btn-success float_right" do %>
               <i class="gi gi-plus"></i> <%= t "admin.diagnoses.create_diagnose" %>
               <% end %>
             </div>
+          </div>
+          <div class="col-md-offset-2 col-md-10">
+              <%= render "search_form" %>
           </div>
         </div>
         <% end %>
