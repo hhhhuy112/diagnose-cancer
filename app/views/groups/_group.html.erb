@@ -66,17 +66,17 @@
           </div>
 
           <div class="form-group">
-            <%= f.label :description, t("admin.groups.description"), class: "field-compulsory-before" %>
-            <div>
-              <%= f.text_area :description, class: "form-control" %>
-            </div>
-          </div>
-
-          <div class="form-group">
             <%= f.label :image, t("image") %>
             <div class="text-center col-md-12">
               <%= image_tag group.image.url, class: "height-250 image-register", id: "img_prev" %>
               <%= f.file_field :image, accept: Settings.image_format_accept, class: "avatar-register" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :description, t("admin.groups.description"), class: "field-compulsory-before" %>
+            <div>
+              <%= f.text_area :description, class: "form-control ckeditor" %>
             </div>
           </div>
 
