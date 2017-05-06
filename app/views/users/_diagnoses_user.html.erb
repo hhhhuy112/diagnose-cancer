@@ -1,41 +1,13 @@
-<div class="table-responsive diagnoses-user">
+<div class = "col-md-12">
+<%= render "search_form" %>
+</div>
+<div class="table-responsive diagnoses-user col-md-12">
   <table class="table table-bordered table-hover">
     <thead class = "header-table-diagnoses">
-    <tr>
-        <th>STT</th>
-        <th><%= sort_link @search, :created_at, t("diagnose.created_at") %></th>
-        <th><%= sort_link @search, :user_id, t("diagnose.user") %></th>
-        <th><%= sort_link @search, :classification_id, t("diagnose.classification") %></th>
-        <th><%= sort_link @search, :result, t("diagnose.result") %></th>
-        <th><%= t("action")%></th>
-    </tr>
-
+      <%= render "table_header" %>
     </thead>
     <tbody class = "diagnoses-content">
-      <% @diagnoses.each_with_index do |diagnose, index| %>
-        <tr id="diagnose-#{diagnose.id}">
-          <td>
-            <%= current_index @diagnoses.current_page, Settings.per_page.admin.diagnose, index %>
-          </td>
-          <td><%= l diagnose.created_at, format: :long %></td>
-          <td><%= diagnose.patient_name %></td>
-          <td><%= diagnose.classification_name %></td>
-          <td><%= diagnose.result %></td>
-          <td class="text-center">
-              <div class="btn-group btn-group-xs">
-                <%= link_to diagnose, class: "btn btn-default" do %>
-                  <i class="fa fa-eye"></i>
-                <% end %>
-                <% if current_user.admin? %>
-                  <%= link_to [:admin, diagnose],
-                    method: :delete, class: "btn btn-danger", data: {confirm: t("are_you_sure")} do %>
-                    <i class="fa fa-trash"></i>
-                  <% end %>
-                <% end %>
-              </div>
-            </td>
-        </tr>
-      <% end %>
+    <%= render "diagnose"%>
     </tbody>
   </table>
 </div>

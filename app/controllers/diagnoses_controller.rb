@@ -5,6 +5,7 @@ class DiagnosesController < ApplicationController
   before_action :load_diagnose, only: [:edit, :show, :update, :destroy]
   before_action :is_owner, except: :show
   before_action :set_params_search, only: :index
+  before_action :load_data_users, only: [:edit, :show]
 
   def index
     if current_user.owner?
@@ -49,7 +50,6 @@ class DiagnosesController < ApplicationController
   end
 
   def show
-    @data_users = @diagnose.data_users
   end
 
   def update
@@ -59,13 +59,11 @@ class DiagnosesController < ApplicationController
       flash[:success] = t("admin.diagnoses.update_success")
       redirect_to @diagnose
     else
-      flash[:error] = t("admin.diagnoses.update_fail")
-      render :show
+      render :edit
     end
   end
 
   def edit
-
   end
 
 
@@ -103,6 +101,10 @@ class DiagnosesController < ApplicationController
     return if @diagnose
     flash[:warning] = t "not_found_item"
     redirect_to :back
+  end
+
+  def load_data_users
+    @data_users = @diagnose.data_users
   end
 
   def load_user_groups

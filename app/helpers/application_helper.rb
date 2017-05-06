@@ -57,7 +57,7 @@ module ApplicationHelper
 
   def get_str_type_diagnose diagnose
     return I18n.t("admin.diagnoses.naise_bayes") if diagnose.naise_bayes?
-    return I18n.t("admin.diagnoses.desicion_tree_c45") if diagnose.desicion_tree_c45?
-    return I18n.t("admin.diagnoses.desicion_tree_id3") if diagnose.desicion_tree_id3?
+    return I18n.t("admin.diagnoses.c45_algorithm") if diagnose.c45_algorithm?
+    return I18n.t("admin.diagnoses.id3_algorithm") if diagnose.id3_algorithm?
   end
 end

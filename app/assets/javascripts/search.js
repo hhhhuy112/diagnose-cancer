@@ -32,3 +32,8 @@ $(document).on('click', '.search_diagnose', function (event) {
   $.get($('.search_form_diagnose').attr('action'), $('.search_form_diagnose').serialize(), null, 'script')
   return false;
 });
+
+$(document).on('click', '.search_user_diagnose', function (event) {
+  $.get($('.search_form_user_diagnose').attr('action'), $('.search_form_user_diagnose').serialize(), null, 'script')
+  return false;
+});

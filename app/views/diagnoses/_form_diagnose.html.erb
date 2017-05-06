@@ -1,5 +1,5 @@
 <%= render "shared/error_messages", object: @diagnose %>
-<%=  form_for [:admin, @diagnose] do |f| %>
+<%=  form_for @diagnose do |f| %>
   <div class="col-md-12 personal-info">
     <%= f.label :patient_id, t("admin.diagnoses.patient"), class: "col-md-4 control-label field-compulsory-before" %>
     <div class="form-group">
@@ -22,7 +22,7 @@
           <div class="input-group-addon">
             <i class="fa fa-user"></i>
           </div>
-          <%= f.select :type_diagnose, Diagnose.type_diagnoses.collect { |key, value| [t("search.#{key}"), valua] }, {}, {class: "form-control col-md-9"} %>
+          <%= f.select :type_diagnose, Diagnose.type_diagnoses.collect { |key, value| [t("search.#{key}"), key] }, {}, {class: "form-control col-md-9"} %>
         </div>
       </div>
     </div>

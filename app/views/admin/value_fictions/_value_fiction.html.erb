@@ -1,22 +1,23 @@
-<tr id="value_fiction-#{value_fiction.id}">
-  <td>
-    <%= current_index @value_fictions.current_page, Settings.per_page.admin.value_fictions, value_fiction_counter %>
-  </td>
-  <td><%= value_fiction.fiction_name %></td>
-  <td><%= value_fiction.name %></td>
-  <td><%= value_fiction.value %></td>
-  <td><%= value_fiction.description%></td>
-  <td class="text-center">
-    <div class="btn-group btn-group-xs">
-      <% if current_user.admin?%>
-        <button type="button" class="btn btn-warning" data-toggle="modal" data-target=<%= "#"+ "value_fiction-" + "#{value_fiction.id}" %>>
-          <i class="gi gi-pencil"></i>
-        </button>
-      <% end %>
-    </div>
-  </td>
-</tr>
-
+<div>
+  <tr id="value_fiction-#{value_fiction.id}">
+    <td>
+      <%= current_index @value_fictions.current_page, Settings.per_page.admin.value_fictions, value_fiction_counter %>
+    </td>
+    <td><%= value_fiction.fiction_name %></td>
+    <td><%= value_fiction.name %></td>
+    <td><%= value_fiction.value %></td>
+    <td><%= value_fiction.description%></td>
+    <td class="text-center">
+      <div class="btn-group btn-group-xs">
+        <% if current_user.admin?%>
+          <button type="button" class="btn btn-warning" data-toggle="modal" data-target=<%= "#"+ "value_fiction-" + "#{value_fiction.id}" %>>
+            <i class="gi gi-pencil"></i>
+          </button>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+</div>
 <div id=<%= "value_fiction-" + "#{value_fiction.id}"%> class="modal fade" role="dialog">
   <div class="modal-dialog  modal-lg">
 

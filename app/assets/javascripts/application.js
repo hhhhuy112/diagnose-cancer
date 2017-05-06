@@ -30,6 +30,10 @@ $(document).ready(function(){
       format: "dd/mm/yyyy"
     });
 
+     $('.datepicker1').datepicker({
+      format: "dd/mm/yyyy"
+    });
+
     $('.avatar-register').change(function(){
       readURL(this);
     });
