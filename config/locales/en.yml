@@ -71,8 +71,8 @@ en:
       type: "Type diagnose"
       select_value: "Select value"
       naise_bayes: "Naive Bayes"
-      desicion_tree_c45: "c45 Algorithm"
-      desicion_tree_id3: "id3 Algorithm"
+      c45_algorithm: "c45 Algorithm"
+      id3_algorithm: "id3 Algorithm"
     rules:
       create_rules_c45: "C45 algorithm"
       create_rules_id3: "ID3 algorithm"
@@ -146,5 +146,5 @@ en:
   search:
     name_or_employee_code_or_email: "Search"
     naise_bayes: "Naive Bayes"
-    desicion_tree_c45: "C45 Algorithm"
-    desicion_tree_id3: "ID3 Algorithm"
+    c45_algorithm: "C45 Algorithm"
+    id3_algorithm: "ID3 Algorithm"

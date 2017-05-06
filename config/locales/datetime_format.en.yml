@@ -22,7 +22,7 @@ en:
       format_time: "%H:%M"
       hour_minutes: "HH:mm"
       format_date_picker: "YYYY-MM-DD"
-      date_month_year_v1: "%d-%m-%Y"
+      date_month_year_v1: "%d/%m/%Y"
   datetime:
     distance_in_words:
       x_minutes:

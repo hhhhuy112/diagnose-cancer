@@ -14,7 +14,7 @@ class Diagnose < ApplicationRecord
 
   delegate :name, to: :classification, prefix: true, allow_nil: true
 
-  enum type_diagnose: {naise_bayes: 0, desicion_tree_c45: 1, desicion_tree_id3: 2}
+  enum type_diagnose: {naise_bayes: 0, c45_algorithm: 1, id3_algorithm: 2}
 
 
 

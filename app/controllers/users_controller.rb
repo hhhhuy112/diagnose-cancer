@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :logged_in_user
   before_action :load_user, only: [:update, :edit, :show]
-  before_action :load_diagnoses, only: :show
   before_action :permission_user, only: [:show, :edit, :update]
+  before_action :load_diagnoses, only: :show
 
   def show
     @title = t "users.information_user"
@@ -24,6 +24,13 @@ class UsersController < ApplicationController
 
   private
 
+  def set_params_search
+    params[:q] ||= {}
+    if params[:q][:created_at_lteq].present?
+      params[:q][:created_at_lteq] = params[:q][:created_at_lteq].to_date.end_of_day
+    end
+  end
+
   def is_admin_user__params
     params.require(:user).permit :name, :patient_code, :gender, :birthday, :avatar, :email,
       :password, :password_confirmation, :role
@@ -42,12 +49,12 @@ class UsersController < ApplicationController
   end
 
   def load_diagnoses
-    if current_user.admin? || current_user.owner?
-      @search = current_user.active_diagnoses.ransack(params[:q])
+    set_params_search
+    if @user.admin? || @user.owner?
+      @search = @user.active_diagnoses.ransack(params[:q])
     else
       @search = @user.passive_diagnoses.ransack(params[:q])
     end
-    @diagnoses = @search.result
-    @diagnoses = @diagnoses.page(params[:page]).per Settings.per_page.admin.diagnose
+    @diagnoses = @search.result.page(params[:page]).per Settings.per_page.admin.diagnose
   end
 end
