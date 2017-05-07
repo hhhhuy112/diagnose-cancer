@@ -1,4 +1,14 @@
 number_percent_training: 0.7
+number_percent_test: 0.3
+is_true: 1
+is_fault: 2
+is_not_condidtion: 0
+type_data:
+  training_data: "training"
+  test_data: "test"
+type_diagnose:
+  c45_algorithm: "c45_algorithm"
+  id3_algorithm: "id3_algorithm"
 per_page:
   admin:
     data_cancer: 10

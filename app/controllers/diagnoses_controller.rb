@@ -33,10 +33,10 @@ class DiagnosesController < ApplicationController
     ActiveRecord::Base.transaction do
       if @diagnose.save
         if @diagnose.naise_bayes?
-          diagose_service = DiagnosesNaiveBayesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
+          diagose_service = DiagnosesNaiveBayesService.new(@classifications, @diagnose.data_users, @diagnose)
           diagose_service.diagnose
         else
-          diagose_service = DiagnosesDesicionTreeService.new(@classifications, @fictions, @diagnose, current_user)
+          diagose_service = DiagnosesDesicionTreeService.new(@diagnose)
           rules = load_rules
           diagose_service.diagnose rules
         end
@@ -57,10 +57,10 @@ class DiagnosesController < ApplicationController
     ActiveRecord::Base.transaction do
       if @diagnose.update_attributes params_diagnose
         if @diagnose.naise_bayes?
-          diagose_service = DiagnosesNaiveBayesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
+          diagose_service = DiagnosesNaiveBayesService.new(@classifications, @diagnose.data_users, @diagnose)
           diagose_service.diagnose
         else
-          diagose_service = DiagnosesDesicionTreeService.new(@classifications, @fictions, @diagnose, current_user)
+          diagose_service = DiagnosesDesicionTreeService.new(@diagnose)
           rules = load_rules
           diagose_service.diagnose rules
         end
