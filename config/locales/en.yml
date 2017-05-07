@@ -135,8 +135,9 @@ en:
     manage_knowledges:
       title: "Manage knowledges"
       naive_bayes: "Naive Bayes"
-      c45_algorithm: "C45 algorithm"
-      id3_algorithm: "ID3 algorithm"
+      c45_algorithm: "C45 Algorithm"
+      id3_algorithm: "ID3 Algorithm"
+      test: "Test Algorithm"
   header:
     diagnose: "Diagnoses"
     groups: "Groups"

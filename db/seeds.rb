@@ -5,12 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.delete_all
 Classification.delete_all
 Fiction.delete_all
 ValueFiction.delete_all
-
-User.create(patient_code: "A0001" ,name: "Admin", email: "admin@gmail.com", birthday: "20/11/1994", gender: "male", password: "123456", role: "admin")
 Classification.create(name: "benign")
 Classification.create(name: "malignant")
 value = [1,2,3,4,5,6,7,8,9,10]

@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :users
     resources :fictions
     resources :value_fictions
+    resources :test_algorithms
     resources :diagnoses
     resources :groups
     resources :user_groups

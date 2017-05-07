@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170506163614) do
+ActiveRecord::Schema.define(version: 20170507060629) do
 
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "data_file_name",               null: false
@@ -184,6 +184,16 @@ ActiveRecord::Schema.define(version: 20170506163614) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.index ["classification_id"], name: "index_rules_on_classification_id", using: :btree
+  end
+
+  create_table "test_algorithms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "type_diagnose"
+    t.integer  "type_data"
+    t.float    "true_probability",          limit: 24
+    t.float    "fault_probability",         limit: 24
+    t.float    "not_condition_probability", limit: 24
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
   create_table "user_groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
