@@ -21,16 +21,12 @@ class Diagnose < ApplicationRecord
   private
 
   def check_valid_attribute
-    if self.naise_bayes?
-      arr_valid = self.data_users.select do |data_user|
-        data_user.value.present?
-      end
-      if arr_valid.blank?
-        errors.add :errors, I18n.t("errors.diagnose.invalid_data_user")
-      end
-      arr_valid.blank?
-    else
-      true
+    arr_valid = self.data_users.select do |data_user|
+      data_user.value.present?
     end
+    if arr_valid.blank?
+      errors.add :errors, I18n.t("errors.diagnose.invalid_data_user")
+    end
+    arr_valid.blank?
   end
 end

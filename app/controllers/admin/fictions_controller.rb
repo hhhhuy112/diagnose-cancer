@@ -4,10 +4,6 @@ class Admin::FictionsController < ApplicationController
   def index
     @search = Fiction.ransack(params[:q])
     @fictions = @search.result.page(params[:page]).per Settings.per_page.admin.fictions
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def show

@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       post :add_member
     end
   end
+  resources :test_algorithms
   resources :user_groups
+  resources :fictions
   namespace :admin do
     root "users#index"
     resources :data_cancers

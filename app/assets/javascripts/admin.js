@@ -17,6 +17,8 @@
 //= require admin/modernizr-2.7.1-respond-1.4.2.min
 //= require admin/app
 //= require admin/bootstrap.min
+//= require highcharts
+//= require chartkick
 //= require admin/plugins
 //= require bootstrap-datepicker
 //= require ./admin/data_cancers

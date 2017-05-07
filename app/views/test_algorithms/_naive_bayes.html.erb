@@ -1,0 +1,19 @@
+<div class="panel panel-info">
+  <div class="panel-heading">
+    <h3 class="panel-title">
+      <%= t"admin.test_algorithms.naive_bayes" %>
+    </h3>
+  </div>
+  <div class="panel-body">
+    <div class = "col-md-6">
+      <%= pie_chart @naive_bayes[:training], colors: ["rgb(144, 237, 125)", "rgb(247, 163, 92)", "rgb(255, 117, 153)" ], library: {legend: {labelFormat: '{name} : {y} ({percentage:.1f}%)', layout: 'vertical',align: 'right'}, plotOptions: {
+        pie: { allowPointSelect: true, cursor: 'pointer', dataLabels: {enabled: false}, showInLegend: true}},} %>
+      <center class = "animation-hatch"><strong><%= t "admin.test_algorithms.title_training" %></strong></center>
+    </div>
+    <div class = "col-md-6">
+      <%= pie_chart @naive_bayes[:test],  colors: ["rgb(144, 237, 125)", "rgb(247, 163, 92)", "rgb(255, 117, 153)" ], library: {legend: {labelFormat: '{name} : {y} ({percentage:.1f}%)', layout: 'vertical',align: 'right'}, plotOptions: {
+        pie: { allowPointSelect: true, cursor: 'pointer', dataLabels: {enabled: false}, showInLegend: true}},} %>
+      <center class = "animation-hatch"><strong><%= t "admin.test_algorithms.title_test" %></strong></center>
+    </div>
+  </div>
+</div>

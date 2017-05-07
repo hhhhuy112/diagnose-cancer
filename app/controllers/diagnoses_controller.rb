@@ -8,6 +8,7 @@ class DiagnosesController < ApplicationController
   before_action :load_data_users, only: [:edit, :show]
 
   def index
+    @title = t "admin.diagnoses.title"
     if current_user.owner?
       @search = current_user.active_diagnoses.ransack(params[:q])
     elsif current_user.admin?
@@ -24,6 +25,7 @@ class DiagnosesController < ApplicationController
   end
 
   def new
+    @title = t "admin.diagnoses.title"
     @diagnose = Diagnose.new
     create_data_users
   end
@@ -44,7 +46,6 @@ class DiagnosesController < ApplicationController
         flash[:success] = t("admin.diagnoses.create_success")
         redirect_to @diagnose
       else
-        flash[:error] = t("admin.diagnoses.create_fail")
         render :new
       end
     end
@@ -73,6 +74,7 @@ class DiagnosesController < ApplicationController
   end
 
   def edit
+    @title = t "admin.diagnoses.update_diagnose"
   end
 
 

@@ -1,0 +1,18 @@
+<% provide :title, t("admin.test_algorithms.title") %>
+<div class = "row">
+  <div class = "block-content-full">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= t"admin.test_algorithms.title" %>
+        </h3>
+      </div>
+      <div class="panel-body">
+       <%= render "naive_bayes" %>
+       <%= render "c45_algorithm" %>
+       <%= render "id3_algorithm" %>
+      </div>
+    </div>
+  </div>
+</div>
+
