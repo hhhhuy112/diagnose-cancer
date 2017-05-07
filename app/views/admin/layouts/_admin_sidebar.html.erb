@@ -5,10 +5,10 @@
       <!-- Sidebar Content -->
       <div class="sidebar-content">
         <!-- Brand -->
-        <a href="index.html" class="sidebar-brand">
+        <%= link_to admin_root_path, class: "sidebar-brand" do %>
           <i class="gi gi-flash"></i>
           <span class="sidebar-nav-mini-hide"><strong><%= t "diagnostic_title" %></strong><%= t "cancer_title" %></span>
-        </a>
+        <% end %>
         <!-- END Brand -->
 
         <!-- User Info -->

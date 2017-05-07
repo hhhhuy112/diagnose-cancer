@@ -8,8 +8,8 @@
         </h3>
       </div>
       <div class="panel-body">
-        <% if current_user.admin? %>
-        <div class="row manage_user">
+        <% if current_user.admin? || current_user.owner? %>
+        <div class="row manage_user custom_row">
           <div class="col-md-2">
             <div class="users_button_group">
             <%= link_to new_diagnosis_path,

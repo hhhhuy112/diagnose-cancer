@@ -62,9 +62,20 @@
                 class: "form-control", placeholder: t("user_groups.search") %>
             </div>
           <% end %>
-
         </div>
-          <div class="col-md-2">
+        <div class = "col-md-2">
+          <%= link_to new_diagnosis_path, class: "btn btn-sm btn-success" do %>
+            <i class="gi gi-plus"></i> <%= t "admin.diagnoses.create_diagnose" %>
+          <% end %>
+        </div>
+        <% if current_user.is_owner_of_group? @group %>
+          <div class="col-md-1">
+            <button type="button" class="btn btn-primary col-md-12 btn-sm"
+                data-toggle="modal" data-target="#add-users-into-group">
+                <%= t "user_groups.add_member" %>
+            </button>
+          </div>
+          <div class="col-md-1">
             <%= form_for :group, url: delete_member_group_path(@group) do |f| %>
               <%=  hidden_field_tag :user_ids %>
               <%=  hidden_field_tag :user_ids_tmp %>
@@ -74,16 +85,8 @@
                   class: "btn btn-danger btn-sm" %>
               <% end %>
             <% end %>
-
           </div>
-          <% if current_user.is_owner_of_group? @group %>
-            <div class="col-md-2">
-              <button type="button" class="btn btn-primary col-md-12 btn-sm"
-                data-toggle="modal" data-target="#add-users-into-group">
-                <%= t "user_groups.add_member" %>
-              </button>
-            </div>
-          <% end %>
+        <% end %>
       </div>
     </div>
     <div class="panel-body">

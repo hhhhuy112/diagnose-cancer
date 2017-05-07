@@ -14,7 +14,7 @@
         <%= link_to diagnose, class: "btn btn-default" do %>
         <i class="fa fa-eye"></i>
         <% end %>
-        <% if current_user.admin? || current_user.is_owner_of?(@user) %>
+        <% if current_user.admin? || (current_user.is_owner_of?(@user) && diagnose.owner_id == current_user.id) %>
         <%= link_to diagnose, class: "btn btn-warning" do %>
         <i class="fa fa-pencil"></i>
         <% end %>
