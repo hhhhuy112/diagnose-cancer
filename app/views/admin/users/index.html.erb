@@ -29,7 +29,14 @@
               <%= render "table_header" %>
             </thead>
             <tbody class = "users-content">
-              <%= render(@users) || t(".data_not_find") %>
+              <% if @users.present? %>
+                <%= render(@users) %>
+              <% else %>
+                <div class = "col-md-4 text-danger">
+                  <i class="fa fa-fw fa-exclamation-triangle"></i>
+                  <strong><%= t(".data_not_find") %></strong>
+                </div>
+              <% end %>
             </tbody>
           </table>
         </div>

@@ -81,6 +81,8 @@ ActiveRecord::Schema.define(version: 20170506163614) do
 
   create_table "fictions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
+    t.string   "code"
+    t.string   "code_data"
     t.string   "description"
     t.datetime "deleted_at"
     t.datetime "created_at",  null: false

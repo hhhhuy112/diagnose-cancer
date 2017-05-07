@@ -29,7 +29,7 @@ class ConvertDecisionTreeToRulesService
   def set_value_fiction node, rule
     fiction = Fiction.find_by id: node.attr_id
     value_fiction = ValueFiction.find_by id: node.value_id
-    case fiction.name
+    case fiction.code_data
     when Settings.fiction.clump_thickness
       rule.clump_thickness = value_fiction.value
     when Settings.fiction.uniformity_of_cell_size

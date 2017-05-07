@@ -59,7 +59,7 @@
               <div class="col-xs-12">
                 <div class="input-group">
                   <span class="input-group-addon"><i class="gi gi-table"></i></span>
-                  <%= f.select :role, User.roles.collect { |key, value| [t("#{key}"), key] }, {}, {class: "form-control col-md-9"} %>
+                  <%= f.select :role, User.roles.collect { |key, value| [t("role_#{key}"), key] }, {}, {class: "form-control col-md-9"} %>
                 </div>
                 <ul class = "errors">
                   <% @user.errors[:name].each do |err|%>

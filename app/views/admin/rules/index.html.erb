@@ -18,7 +18,14 @@
               <%= render "table_header" %>
             </thead>
             <tbody class = "rules-content">
-              <%= render(@rules) || t(".data_not_find") %>
+              <% if @rules.present? %>
+                <%= render(@rules) %>
+              <% else %>
+                <div class = "col-md-4 text-danger">
+                  <i class="fa fa-fw fa-exclamation-triangle"></i>
+                  <strong><%= t(".data_not_find") %></strong>
+                </div>
+              <% end %>
             </tbody>
           </table>
         </div>

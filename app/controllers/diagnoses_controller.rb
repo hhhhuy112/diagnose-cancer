@@ -36,8 +36,9 @@ class DiagnosesController < ApplicationController
           diagose_service = DiagnosesNaiveBayesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
           diagose_service.diagnose
         else
-          diagose_service = DiagnosesNaiveBayesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
-          diagose_service.diagnose
+          diagose_service = DiagnosesDesicionTreeService.new(@classifications, @fictions, @diagnose, current_user)
+          rules = load_rules
+          diagose_service.diagnose rules
         end
         @diagnose
         flash[:success] = t("admin.diagnoses.create_success")
@@ -53,13 +54,21 @@ class DiagnosesController < ApplicationController
   end
 
   def update
-    if @diagnose.update_attributes params_diagnose
-      diagose_service = DiagnosesNaiveBayesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
-      diagose_service.diagnose
-      flash[:success] = t("admin.diagnoses.update_success")
-      redirect_to @diagnose
-    else
-      render :edit
+    ActiveRecord::Base.transaction do
+      if @diagnose.update_attributes params_diagnose
+        if @diagnose.naise_bayes?
+          diagose_service = DiagnosesNaiveBayesService.new(@classifications, @fictions, @diagnose.data_users, @diagnose, current_user)
+          diagose_service.diagnose
+        else
+          diagose_service = DiagnosesDesicionTreeService.new(@classifications, @fictions, @diagnose, current_user)
+          rules = load_rules
+          diagose_service.diagnose rules
+        end
+        flash[:success] = t("admin.diagnoses.update_success")
+        redirect_to @diagnose
+      else
+        render :edit
+      end
     end
   end
 
@@ -78,6 +87,9 @@ class DiagnosesController < ApplicationController
 
   private
 
+  def load_rules
+    @diagnose.c45_algorithm? ? Rule.all : RuleId3.all
+  end
 
   def set_params_search
     params[:q] ||= {}

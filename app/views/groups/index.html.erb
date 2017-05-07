@@ -28,7 +28,14 @@
       </div>
       <div class="row">
         <div id="groups-content">
-          <%= render(@groups)  || t(".data_not_find") %>
+          <% if @groups.present? %>
+            <%= render(@groups) %>
+          <% else %>
+            <div class = "col-md-4 text-danger">
+              <i class="fa fa-fw fa-exclamation-triangle"></i>
+              <strong><%= t(".data_not_find") %></strong>
+            </div>
+          <% end %>
         </div>
       </div>
       <center class = "paginate-items"><%= paginate @groups %></center>

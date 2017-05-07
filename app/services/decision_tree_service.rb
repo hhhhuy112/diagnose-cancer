@@ -83,7 +83,7 @@ class DecisionTreeService
   end
 
   def set_value_fiction fiction, value_fiction, rule
-    case fiction.name
+    case fiction.code_data
     when Settings.fiction.clump_thickness
       rule.clump_thickness = value_fiction.value
     when Settings.fiction.uniformity_of_cell_size

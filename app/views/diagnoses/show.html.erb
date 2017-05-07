@@ -34,10 +34,10 @@
             <tr>
               <td>
                 <strong>
-                  <i class="fa fa-star"></i> <%= t("diagnose.fiction") %>
+                  <i class="fa fa-star"></i> <%= t("diagnose.created_at") %>
                 </strong>
               </td>
-              <td><%= @diagnose.created_at %></td>
+              <td><%= l @diagnose.created_at, format: :long if @diagnose.created_at %></td>
             </tr>
             <tr>
               <td>
@@ -56,22 +56,24 @@
                 </strong>
               </td>
               <td>
-                <% if @diagnose.classification_id == 1 %>
-                  <a href="javascript:void(0)" class="label label-success animation-pulse"><%= @diagnose.classification_name %></a>
+                <% if @diagnose.classification_id.present? %>
+                  <% if @diagnose.classification_id == 1 %>
+                    <a href="javascript:void(0)" class="label label-success animation-pulse"><%= @diagnose.classification_name %></a>
+                  <% else %>
+                    <a href="javascript:void(0)" class="label label-danger animation-pulse"><%= @diagnose.classification_name %></a>
+                  <% end %>
                 <% else %>
-                  <a href="javascript:void(0)" class="label label-danger animation-pulse"><%= @diagnose.classification_name %></a>
+                  <a href="javascript:void(0)" class="label label-warning animation-pulse"><%= t "admin.diagnoses.not_condition" %></a>
                 <% end %>
               </td>
             </tr>
             <tr>
               <td>
                 <strong>
-                  <i class="fa fa-star"></i> <%= t("diagnose.result") %>
+                  <i class="fa fa-star"></i> <%= t("diagnose.type_diagnose") %>
                 </strong>
               </td>
-              <td>
-                <%= @diagnose.result %>
-              </td>
+              <td><%= get_str_type_diagnose @diagnose %></td>
             </tr>
             <tr>
               <td>
