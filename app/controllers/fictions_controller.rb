@@ -1,8 +1,7 @@
 class FictionsController < ApplicationController
   before_action :load_fiction, only: :show
-
   def index
-    Fictions.all
+    @fictions = Fiction.all
   end
 
   def show

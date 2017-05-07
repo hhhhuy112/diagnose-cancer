@@ -4,10 +4,6 @@ class Admin::ValueFictionsController < ApplicationController
   def index
     @search = ValueFiction.includes(:fiction).ransack(params[:q])
     @value_fictions = @search.result.page(params[:page]).per Settings.per_page.admin.value_fictions
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def show
@@ -20,7 +16,7 @@ class Admin::ValueFictionsController < ApplicationController
     else
       flash[:error] = t "admin.value_fictions.updated_fail"
     end
-    redirect_to admin_fictions_path
+    redirect_to admin_value_fictions_path
   end
 
   def edit

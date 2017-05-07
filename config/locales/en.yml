@@ -24,6 +24,7 @@ en:
   you_do_not_have_access: "You don't have access"
   groups: "Groups"
   home: "Home"
+  tes_algorithms: "Test algorithms"
   submit: "submit"
   patient: "Patient"
   role_admin: "Admin"
@@ -115,6 +116,13 @@ en:
       update_group_success: "Update group success"
       update_group_fail: "Update group fail"
       description: "Description"
+    test_algorithms:
+      title: "Test Algorithms"
+      naive_bayes: "Naive Bayes"
+      c45_algorithm: "C45 Algorithm"
+      id3_algorithm: "ID3 Algorithm"
+      title_training: "Training Data Chart"
+      title_test: "Test Data Chart"
   users:
     update: "Update profile"
     information_user: "Information user"

@@ -17,6 +17,8 @@
 //= require modernizr-2.7.1-respond-1.4.2.min
 //= require app
 //= require bootstrap.min
+//= require highcharts
+//= require chartkick
 //= require portfolio
 //= require plugins
 //= require bootstrap-datepicker
@@ -25,6 +27,7 @@
 //= require search.js
 //= require ckeditor/init
 //= ckeditor_custom.js
+
 
 $(document).ready(function(){
     $('.datepicker').datepicker({
