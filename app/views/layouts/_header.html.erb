@@ -28,10 +28,10 @@
         <li>
           <%= link_to t("home"), root_path, class: "site-nav-sub" %>
         </li>
+        <% if user_signed_in? %>
         <li>
           <%= link_to t("tes_algorithms"), test_algorithms_path, class: "site-nav-sub" %>
         </li>
-        <% if user_signed_in? %>
           <li>
             <%= link_to groups_path do %>
               <span class="site-nav-sub"><%= t("header.groups")%></span>

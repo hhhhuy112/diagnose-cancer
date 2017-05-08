@@ -62,8 +62,10 @@
             <section class="site-content site-section">
                 <div class="container">
                     <div class="site-block text-center">
-                        <a href="http://goo.gl/TDOSuC" class="btn btn-lg btn-success"><i class="fa fa-shopping-cart"></i> Purchase ProUI ($21)</a>
-                        <a href="http://pixelcave.com/demo/proui" class="btn btn-lg btn-primary"><i class="fa fa-share"></i> Live Preview</a>
+                        <%= link_to  new_user_session_path, class: "btn btn-lg btn-primary" do %>
+                            <i class="fa fa-share"></i>
+                            <%= t "signin" %>
+                        <% end %>
                     </div>
                     <hr>
                 </div>
@@ -75,11 +77,14 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-180">
-                            <img src="img/placeholders/screenshots/promo_desktop_left.png" alt="Promo #1" class="img-responsive">
+                            <%= image_tag "home/t5.jpg", class: "img-responsive" %>
                         </div>
                         <div class="col-sm-6 col-md-5 col-md-offset-1 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-180">
-                            <h3 class="h2 site-heading site-heading-promo"><strong>Clean and Modern</strong> Design</h3>
-                            <p class="promo-content">ProUI is a professional, modern and solid foundation for your next awesome project. It comes packed with great features that you will love. <a href="features.html">Learn More..</a></p>
+                            <h3 class="h2 site-heading site-heading-promo"><strong><%= t("home_infor.quest_first") %></strong><%= t("home_infor.breast_cancer") %></h3>
+                            <p class="promo-content">
+                                <%= t "home_infor.summary1" %>
+                                <%= link_to t("home_infor.learn_more"), breast_cancer_path %>
+                            </p>
                         </div>
                     </div>
                     <hr>
@@ -92,51 +97,20 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6 col-md-5 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-180">
-                            <h3 class="h2 site-heading site-heading-promo"><strong>Powerful</strong> Admin Template</h3>
-                            <p class="promo-content">ProUI has a powerful and flexible layout to meet every need. It comes packed with 9 awesome and fresh color themes that you will love, too. <a href="features.html">Learn More..</a></p>
+                            <h3 class="h2 site-heading site-heading-promo"><strong><%= t("home_infor.quest_first") %></strong><%= t("home_infor.data_mining") %></h3>
+                            <p class="promo-content">
+                                <%= t "home_infor.summary2" %>
+                                <%= link_to t("home_infor.learn_more"), data_mining_path %>
+                            </p>
                         </div>
                         <div class="col-sm-6 col-md-offset-1 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-180">
-                            <img src="img/placeholders/screenshots/promo_desktop_right.png" alt="Promo #2" class="img-responsive">
+                            <%= image_tag "home/t3.jpg", class: "img-responsive" %>
                         </div>
                     </div>
                     <hr>
                 </div>
             </section>
             <!-- END Promo #2 -->
-
-            <!-- Promo #3 -->
-            <section class="site-content site-section site-slide-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-180">
-                            <img src="img/placeholders/screenshots/promo_tablet.png" alt="Promo #3" class="img-responsive">
-                        </div>
-                        <div class="col-sm-6 col-md-5 col-md-offset-1 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-180">
-                            <h3 class="h2 site-heading site-heading-promo"><strong>Fully</strong> Responsive</h3>
-                            <p class="promo-content">The User Interface will just work in mobile phones, tablets, laptops and desktops. You can focus on creating the project you want. <a href="features.html">Learn More..</a></p>
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-            </section>
-            <!-- END Promo #3 -->
-
-            <!-- Promo #4 -->
-            <section class="site-content site-section site-slide-content">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-6 col-md-5 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInRight" data-element-offset="-180">
-                            <h3 class="h2 site-heading site-heading-promo"><strong>Mobile</strong> First</h3>
-                            <p class="promo-content">The layout adjusts as we move up from mobile devices to large desktop screens and not the other way around. This speed things up a lot. <a href="features.html">Learn More..</a></p>
-                        </div>
-                        <div class="col-sm-6 col-md-offset-1 site-block visibility-none" data-toggle="animation-appear" data-animation-class="animation-fadeInLeft" data-element-offset="-180">
-                            <img src="img/placeholders/screenshots/promo_mobile.png" alt="Promo #4" class="img-responsive">
-                        </div>
-                    </div>
-                    <hr>
-                </div>
-            </section>
-            <!-- END Promo #4 -->
 
             <!-- Testimonials -->
             <section class="site-content site-section">
@@ -155,29 +129,29 @@
                         <div class="carousel-inner text-center">
                             <div class="active item">
                                 <p>
-                                    <img src="img/placeholders/avatars/avatar12.jpg" alt="Avatar" class="img-circle">
+                                    <%= image_tag "home/a1.jpg", class: "img-circle"%>
                                 </p>
                                 <blockquote class="no-symbol">
-                                    <p>An awesome team that brought our ideas to life! Highly recommended!</p>
-                                    <footer><strong>Sophie Illich</strong>, example.com</footer>
+                                    <p><%= t "home_infor.sen1" %></p>
+                                    <footer><strong><%= t "home_infor.author1" %></strong>, <%= t "home_infor.title1" %></footer>
                                 </blockquote>
                             </div>
                             <div class="item">
                                 <p>
-                                    <img src="img/placeholders/avatars/avatar7.jpg" alt="Avatar" class="img-circle">
+                                    <%= image_tag "home/a1.jpg", class: "img-circle"%>
                                 </p>
                                 <blockquote class="no-symbol">
-                                    <p>I have never imagined that our final product would look that good!</p>
-                                    <footer><strong>David Cull</strong>, example.com</footer>
+                                    <p><%= t "home_infor.sen2" %></p>
+                                    <footer><strong><%= t "home_infor.author1" %></strong>, <%= t "home_infor.title1" %></footer>
                                 </blockquote>
                             </div>
                             <div class="item">
                                 <p>
-                                    <img src="img/placeholders/avatars/avatar9.jpg" alt="Avatar" class="img-circle">
+                                    <%= image_tag "home/a1.jpg", class: "img-circle"%>
                                 </p>
                                 <blockquote class="no-symbol">
-                                    <p>An extraordinary service that helped us grow way too fast!</p>
-                                    <footer><strong>Nathan Brown</strong>, example.com</footer>
+                                    <p><%= t "home_infor.sen3" %></p>
+                                    <footer><strong><%= t "home_infor.author1" %></strong>, <%= t "home_infor.title1" %></footer>
                                 </blockquote>
                             </div>
                         </div>
@@ -191,16 +165,12 @@
             <!-- Sign Up Action -->
             <section class="site-content site-section site-section-light themed-background-dark-night">
                 <div class="container">
-                    <h3 class="site-heading text-center"><strong>Sign Up Today</strong> and receive <strong>30% discount</strong>!</h3>
                     <div class="site-block text-center">
                         <form action="features.html" method="post" class="form-horizontal" onsubmit="return false;">
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-3">
-                                    <label class="sr-only" for="register-email">Your Email</label>
                                     <div class="input-group input-group-lg">
-                                        <input type="email" id="register-email" name="register-email" class="form-control" placeholder="Your Email..">
                                         <div class="input-group-btn">
-                                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus"></i> Sign Up</button>
                                         </div>
                                     </div>
                                 </div>
@@ -219,20 +189,20 @@
                     <div class="row" id="counters">
                         <div class="col-sm-4">
                             <div class="counter site-block">
-                                <span data-toggle="countTo" data-to="6800" data-after="+"></span>
-                                <small>Projects</small>
+                                <span data-toggle="countTo" data-to= "1500000" data-after="+"></span>
+                                <small><%= t "home_infor.statistic1" %></small>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="counter site-block">
-                                <span data-toggle="countTo" data-to="5500" data-after="+"></span>
-                                <small>Happy Customers</small>
+                                <span data-toggle="countTo" data-to= "23" data-after="%"></span>
+                                <small><%= t "home_infor.statistic2" %></small>
                             </div>
                         </div>
                         <div class="col-sm-4">
                             <div class="counter site-block">
-                                <span data-toggle="countTo" data-to="100" data-after="+"></span>
-                                <small>New Accounts Today</small>
+                                <span data-toggle="countTo" data-to= "50" data-after="%"></span>
+                                <small><%= t "home_infor.statistic3" %></small>
                             </div>
                         </div>
                     </div>
@@ -240,48 +210,6 @@
                 </div>
             </section>
             <!-- END Quick Stats -->
-
-            <!-- Footer -->
-            <footer class="site-footer site-section">
-                <div class="container">
-                    <!-- Footer Links -->
-                    <div class="row">
-                        <div class="col-sm-6 col-md-3">
-                            <h4 class="footer-heading">About Us</h4>
-                            <ul class="footer-nav list-inline">
-                                <li><a href="about.html">Company</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="contact.html">Support</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <h4 class="footer-heading">Legal</h4>
-                            <ul class="footer-nav list-inline">
-                                <li><a href="javascript:void(0)">Licensing</a></li>
-                                <li><a href="javascript:void(0)">Privacy Policy</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <h4 class="footer-heading">Follow Us</h4>
-                            <ul class="footer-nav footer-nav-social list-inline">
-                                <li><a href="javascript:void(0)"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="javascript:void(0)"><i class="fa fa-rss"></i></a></li>
-                            </ul>
-                        </div>
-                        <div class="col-sm-6 col-md-3">
-                            <h4 class="footer-heading"><span id="year-copy">2014</span> &copy; <a href="http://goo.gl/TDOSuC">ProUI Frontend</a></h4>
-                            <ul class="footer-nav list-inline">
-                                <li>Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://goo.gl/vNS3I">pixelcave</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- END Footer Links -->
-                </div>
-            </footer>
-            <!-- END Footer -->
         </div>
         <!-- END Page Container -->
 

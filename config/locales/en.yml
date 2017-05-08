@@ -123,6 +123,15 @@ en:
       id3_algorithm: "ID3 Algorithm"
       title_training: "Training Data Chart"
       title_test: "Test Data Chart"
+    abouts:
+      title: "Abouts"
+      create_about: "Create About"
+      breast_cancer: "Breast Cancer"
+      data_mining: "Data mining"
+      create_about_success: "Create about success"
+      create_about_fail: "Create about fail"
+      updated_success: "Updated success"
+      updated_fail: "Updated fail"
   users:
     update: "Update profile"
     information_user: "Information user"
@@ -159,3 +168,48 @@ en:
     naise_bayes: "Naive Bayes"
     c45_algorithm: "C45 Algorithm"
     id3_algorithm: "ID3 Algorithm"
+
+  home_infor:
+    learn_more: "Learn More.."
+    author1: "Sarah Hawley"
+    title1: "a cancer research specialist"
+    sen1: "Breast cancer is the most diagnosed cancer in the world"
+    sen2: "If you find a lump in your breast, you likely don't have breast cancer"
+    sen3: "There's nothing a person can do to lower their risk developing breast cancer"
+    statistic1: "Breast Cancers"
+    statistic2: "Type Cancers"
+    statistic3: "Developing country"
+    summary1: "Breast cancer starts when cells in the breast begin to grow out of control. These cells usually form a tumor that can
+    often be seen on an x-ray or felt as a lump."
+    summary2: " data mining (sometimes called data or knowledge discovery) is the process of analyzing
+    data from different perspectives and summarizing it into useful information - information that can be used to increase revenue,
+    cuts costs, or both."
+    quest_first: "What is the"
+    breast_cancer: " Breast Cancer ?"
+    data_mining: " DataMining ?"
+    infor_breast_cancer: " Breast Cancer"
+    infor_data_mining: " DataMining"
+    answer: "Breast cancer starts when cells in the breast begin to grow out of control. These
+cells usually form a tumor that can often be seen on an x-ray or felt as a
+lump. The tumor is malignant (cancer) if the cells can grow into (invade)
+surrounding tissues or spread (metastasize) to distant areas of the body. Breast
+cancer occurs almost entirely in women, but men can get breast cancer, too. <br /><br />
+Cells in nearly any part of the body can become cancer and can spread to other areas of
+the body. To learn more about what is cancer and how all cancers start and
+spread, see our section on Cancer Basics.<br /><br />
+Breast cancers can start from different parts of the breast.
+Most breast cancers begin in the ducts that carry milk to the nipple (ductal cancers).
+Some start in the glands that make breast milk (lobular cancers).
+There are also other types of breast cancer that are less common.
+A small number of cancers start in other tissues in the breast. <br /><br />
+These cancers are called sarcomas and lymphomas and are not really thought of as breast cancers.<br /><br />
+Although many types of breast cancer can cause a lump in the breast, not all do. There
+are other symptoms of breast cancer you should watch for and report to a health care provider.<br /><br />
+It’s also important to understand that most breast lumps are not cancer, they are benign.
+Benign breast tumors are abnormal growths, but they do not spread outside of
+the breast and they are not life threatening. But some benign breast lumps can
+increase a woman's risk of getting breast cancer. Any breast lump or change
+needs to be checked by a health care provider to determine whether it is benign
+or cancer and whether it might impact your future cancer risk.
+
+"

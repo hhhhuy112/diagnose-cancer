@@ -19,6 +19,7 @@ per_page:
     rules: 10
     fictions: 5
     value_fictions: 10
+    abouts: 10
 image_format_accept: "image/jpeg,image/gif,image/png"
 image_default: "group_default.gif"
 user:
@@ -61,3 +62,8 @@ bg3: "bg3.jpg"
 bg4: "bg4.jpg"
 bg5: "bg5.jpg"
 bg6: "bg6.jpg"
+
+home:
+  statistic1: 1500000
+  statistic2: 23
+  statistic2: 50
