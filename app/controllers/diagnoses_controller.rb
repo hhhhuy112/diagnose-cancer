@@ -3,7 +3,7 @@ class DiagnosesController < ApplicationController
   before_action :load_fictions, only: [:create, :update]
   before_action :load_classifications, :load_user_groups, only: [:create, :update, :new, :edit]
   before_action :load_diagnose, only: [:edit, :show, :update, :destroy]
-  before_action :is_owner, except: :show
+  before_action :is_owner, except: [:show, :index]
   before_action :set_params_search, only: :index
   before_action :load_data_users, only: [:edit, :show]
 

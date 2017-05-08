@@ -32,11 +32,13 @@
         <li>
           <%= link_to t("tes_algorithms"), test_algorithms_path, class: "site-nav-sub" %>
         </li>
+        <% if current_user.owner? || current_user.admin?  %>
           <li>
             <%= link_to groups_path do %>
               <span class="site-nav-sub"><%= t("header.groups")%></span>
             <% end %>
           </li>
+        <% end %>
           <li>
             <%= link_to diagnoses_path do %>
               <span class="site-nav-sub"><%= t("header.diagnoses")%></span>

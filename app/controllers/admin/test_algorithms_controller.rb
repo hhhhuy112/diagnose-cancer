@@ -6,8 +6,11 @@ class Admin::TestAlgorithmsController < ApplicationController
   end
 
   def create
-    TestAlgorithm.delete_all
-    test_algorithm_service = TestAlgorithmService.new(@data_cancers_test, @data_cancers_training).test_alg
+    ActiveRecord::Base.transaction do
+      TestAlgorithm.delete_all
+      test_algorithm_service = TestAlgorithmService.new(@data_cancers_test, @data_cancers_training).test_alg
+      redirect_to test_algorithms_path
+    end
   end
 
   private

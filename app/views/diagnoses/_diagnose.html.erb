@@ -24,14 +24,15 @@
       <%= link_to diagnose, class: "btn btn-default" do %>
       <i class="fa fa-eye"></i>
       <% end %>
+      <% if current_user.admin? || current_user.owner? %>
+        <%= link_to  edit_diagnosis_path(diagnose), class: "btn btn-warning" do %>
+        <i class="fa fa-pencil"></i>
+        <% end %>
 
-      <%= link_to  edit_diagnosis_path(diagnose), class: "btn btn-warning" do %>
-      <i class="fa fa-pencil"></i>
-      <% end %>
-
-      <%= link_to diagnose,
-      method: :delete, class: "btn btn-danger", data: {confirm: t("are_you_sure")} do %>
-      <i class="fa fa-trash"></i>
+        <%= link_to diagnose,
+        method: :delete, class: "btn btn-danger", data: {confirm: t("are_you_sure")} do %>
+        <i class="fa fa-trash"></i>
+        <% end %>
       <% end %>
     </div>
   </td>

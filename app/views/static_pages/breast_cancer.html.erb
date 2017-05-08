@@ -1,5 +1,21 @@
 <section class="site-content site-section">
     <div class="container">
+        <!-- Project Navigation -->
+        <div class="site-block clearfix">
+            <div class="btn-group pull-right">
+                <%= link_to breast_cancer_path, class: "btn btn-primary" do %>
+                    <i class="fa fa-chevron-left"></i> Prev
+                <% end %>
+                 <%= link_to breast_cancer_path, class: "btn btn-primary" do %>
+                    <i class="fa fa-chevron-right"></i> Next
+                <% end %>
+            </div>
+            <%= link_to root_path, class: "btn btn-primary pull-left"  do %>
+                <i class="fa fa-th-large"></i>
+                <%= t("home")%>
+            <% end %>
+        </div>
+        <!-- END Project Navigation -->
         <!-- Project Info -->
         <div class="row">
             <!-- Project Slider -->
@@ -8,13 +24,13 @@
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner text-center">
                         <div class="active item">
-                            <%= image_tag "fictions/f1.png" %>
+                            <%= image_tag "home/b1.jpg" %>
                         </div>
                         <div class="item">
-                            <%= image_tag "fictions/f1.png" %>
+                            <%= image_tag "home/b2.jpg" %>
                         </div>
                         <div class="item">
-                            <%= image_tag "fictions/f1.png" %>
+                            <%= image_tag "home/b3.jpg" %>
                         </div>
                     </div>
                     <!-- END Wrapper for slides -->
@@ -36,16 +52,16 @@
                 <table class="table table-striped">
                     <tbody>
                         <tr>
-                            <td style="width: 50%;"><strong>Client</strong></td>
-                            <td class="text-right">Company Inc</td>
+                            <td style="width: 50%;"><strong>Source</strong></td>
+                            <td class="text-right">Wikipedia</td>
                         </tr>
                         <tr>
-                            <td><strong>Category</strong></td>
-                            <td class="text-right">Web Design</td>
+                            <td><strong>Category</strong>Data mining</td>
+                            <td class="text-right">wikipedia</td>
                         </tr>
                         <tr>
                             <td><strong>Website</strong></td>
-                            <td class="text-right"><a href="javascript:void(0)">http://example.com</a></td>
+                            <td class="text-right"><a href="javascript:void(0)">https://en.wikipedia.org/wiki/Breast_cancer</a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -67,7 +83,7 @@
                     <div class="row">
                         <% @fictions.each do |fiction| %>
                             <div class="col-sm-4 site-block">
-                                <h3 class="site-heading"><i class="fa fa-arrow-right animation-floatingHor"></i> <strong><%= fiction.name %></strong></h3>
+                                <h3 class="site-heading"><i class="fa fa-check text-success animation-pulse"></i> <strong><%= fiction.name %></strong></h3>
                                 <p class="remove-margin"><%= fiction.description.html_safe %></p>
                             </div>
                         <% end %>

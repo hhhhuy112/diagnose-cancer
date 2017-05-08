@@ -134,7 +134,9 @@ en:
       updated_fail: "Updated fail"
   users:
     update: "Update profile"
-    information_user: "Information user"
+    information_user: "Information User"
+    information_owner: "Information Doctor"
+    information_diagnoses: "Information Diagnoses"
     delete_not_success: "Delete item fail"
     update_password: "Update password"
   diagnoses:

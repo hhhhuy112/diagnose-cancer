@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-3 col-lg-3 " align="center">
+    <%= image_tag @owner.avatar.url, class: "height-250 image-register" %>
+  </div>
+  <div class=" col-md-9 col-lg-9 ">
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <td>
+            <strong>
+            <i class="fa fa-barcode"></i><%= t "patient_code" %>
+            </strong>
+          </td>
+          <td><%= @owner.patient_code %></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>
+              <i class="fa fa-user"></i> <%= t "name" %>
+            </strong>
+          </td>
+          <td><%= @owner.name %></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>
+              <i class="fa fa-envelope"></i> <%= t "email" %>
+            </strong>
+          </td>
+          <td><%= @owner.email %></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>
+              <i class="gi gi-parents"></i> <%= t "gender" %>
+            </strong>
+          </td>
+          <td><%= t "#{@owner.gender}" %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

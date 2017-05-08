@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :load_user, only: [:update, :edit, :show]
   before_action :permission_user, only: [:show, :edit, :update]
   before_action :load_diagnoses, only: :show
-
+  before_action :load_owner, only: :show
   def show
     @title = t "users.information_user"
   end
@@ -46,6 +46,14 @@ class UsersController < ApplicationController
     return if @user
     flash[:error] = t "not_found_item"
     redirect_to :back
+  end
+
+
+  def load_owner
+      if current_user.user_normal?
+        group = current_user.group
+        @owner = group.owner if group.present?
+      end
   end
 
   def load_diagnoses
