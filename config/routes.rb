@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount Ckeditor::Engine => '/ckeditor'
   root "static_pages#home"
+  get  '/breast_cancer', to: "static_pages#breast_cancer"
+  get  '/data_mining', to: "static_pages#data_mining"
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   resources :test_algorithms
   resources :user_groups
   resources :fictions
+  resources :abouts
   namespace :admin do
     root "users#index"
     resources :data_cancers
@@ -29,6 +32,7 @@ Rails.application.routes.draw do
     resources :user_groups
     resources :rules
     resources :rule_id3s
+    resources :abouts
     resources :knowledges do
       collection do
         get :create_knowledge

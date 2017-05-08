@@ -3,7 +3,7 @@ class TestAlgorithmsController < ApplicationController
   before_action :map_infor
 
   def index
-
+    @title = t "admin.test_algorithms.title"
   end
   private
 

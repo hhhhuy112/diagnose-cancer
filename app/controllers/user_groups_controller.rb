@@ -3,7 +3,6 @@ class UserGroupsController < ApplicationController
     before_action :load_group, only: [:index, :create, :destroy]
 
     def index
-     binding.pry
     end
 
     def create

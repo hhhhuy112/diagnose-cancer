@@ -1,0 +1,21 @@
+<%= simple_form_for [:admin, @about], multipart: true do |f| %>
+  <div class="form-group">
+    <%= f.label :type_about, t("admin.abouts.type_about"), class: "field-compulsory-before" %>
+    <div>
+      <%= f.select :type_about, About.type_abouts.map{|key,value| [t("admin.abouts.#{key}"), key]}, {}, class: "form-control col-md-9" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, t("admin.groups.description"), class: "field-compulsory-before" %>
+    <div>
+      <%= f.text_area :description, class: "form-control ckeditor" %>
+    </div>
+  </div>
+
+  <div class = "form-group">
+    <div class="text-center row">
+      <%= f.button :submit, t("submit"), class: "col-md-offset-2 col-md-8 btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

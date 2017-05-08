@@ -58,3 +58,12 @@ th {
 .custom_row{
   margin-bottom: 10px;
 }
+
+#left-carousel, #right-carousel{
+  background-color: white;
+  background-image: linear-gradient(to right, rgba(243, 237, 237, 0.5) 0, rgba(245, 240, 240, 0.0001) 100%);
+}
+
+#left-carousel i, #right-carousel i{
+  color: black !important;
+}

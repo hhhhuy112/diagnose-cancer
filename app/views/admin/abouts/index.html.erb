@@ -1,0 +1,61 @@
+<% provide :title, t("admin.fictions.title") %>
+<div class = "row">
+  <div class = "block-content-full">
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title">
+          <%= t"admin.fictions.list_fictions" %>
+        </h3>
+      </div>
+      <div class="panel-body">
+        <% if current_user.admin? %>
+          <div class="row manage_user">
+            <div class="col-md-4">
+              <div class="users_button_group">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createAbout">
+                  <i class="gi gi-plus"></i> <%= t "admin.groups.create_group" %>
+              </button>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover">
+            <thead class = "header-table-fictions">
+              <%= render "table_header" %>
+            </thead>
+            <tbody class = "fictions-content">
+              <% if @abouts.present? %>
+                <%= render(@abouts) %>
+              <% else %>
+                <div class = "col-md-4 text-danger">
+                  <i class="fa fa-fw fa-exclamation-triangle"></i>
+                  <strong><%= t(".data_not_find") %></strong>
+                </div>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+        <center><%= paginate @abouts %></center>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="createAbout" class="modal fade" role="dialog">
+  <div class="modal-dialog  modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= t "admin.abouts.create_about" %></h4>
+      </div>
+      <div class="modal-body">
+          <%= render "form" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,57 @@
+<div>
+  <tr id="about-#{about.id}">
+    <td>
+      <%= current_index @abouts.current_page, Settings.per_page.admin.abouts, about_counter %>
+    </td>
+    <td><%= t("admin.abouts.#{about.type_about}") %></td>
+    <td><%= about.description%></td>
+    <td class="text-center">
+      <div class="btn-group btn-group-xs">
+        <% if current_user.admin?%>
+          <button type="button" class="btn btn-warning" data-toggle="modal" data-target=<%= "#"+ "about-" + "#{about.id}" %>>
+            <i class="gi gi-pencil"></i>
+          </button>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+<div>
+
+<div id=<%= "about-" + "#{about.id}"%> class="modal fade" role="dialog">
+  <div class="modal-dialog  modal-lg">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"><%= t "admin.fictions.update_fiction" %></h4>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [:admin, about] do |f| %>
+          <div class="form-group">
+            <%= f.label :type_about, t("admin.abouts.type_about"), class: "field-compulsory-before" %>
+            <div>
+              <%= f.select :type_about, About.type_abouts.map{|key,value| [t("admin.abouts.#{key}"), key]}, {}, class: "form-control col-md-9" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :description, t("admin.fictions.description"), class: "field-compulsory-before" %>
+            <div>
+              <%= f.text_area :description, class: "form-control ckeditor" %>
+            </div>
+          </div>
+
+          <div class = "form-group">
+            <div class="text-center row">
+              <%= f.button :submit, t("submit"), class: "col-md-offset-2 col-md-8 btn btn-primary" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
