@@ -14,6 +14,8 @@ class User < ApplicationRecord
 
   has_many :groups, dependent: :destroy
   has_many :user_groups, through: :groups,dependent: :destroy
+  has_one :user_group
+  has_one :group, through: :user_group
 
   validate  :avatar_size
   validates :name, presence: true, length: {minimum: Settings.user.name_max}
@@ -27,8 +29,8 @@ class User < ApplicationRecord
   enum role: {user_normal: 0, admin: 1, owner: 2}
   enum gender: {male: 0, female: 1}
 
-  scope :not_in_group, ->group_id do
-    where "id NOT IN (select user_id from user_groups where group_id = ?)", group_id
+  scope :not_in_group, -> do
+    where "id NOT IN (select user_id from user_groups where group_id  IN (?) )", Group.all.map(&:id)
   end
   scope :is_normal_user, ->{where role: :user_normal}
   scope :is_not_normal_user, ->{where(role: [:admin, :owner])}

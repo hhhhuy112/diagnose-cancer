@@ -52,7 +52,7 @@ header {
     padding: 25px 0;
     color: #ffffff;
     background: url('../img/template/ie8_opacity_dark_20.png');
-    background: pink;
+    background: rgba(0, 0, 0, 0.2);
     z-index: 1000;
     -webkit-transition: all ease-out 0.25s;
     transition: all ease-out 0.25s;

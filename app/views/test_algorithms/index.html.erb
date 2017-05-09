@@ -8,9 +8,21 @@
         </h3>
       </div>
       <div class="panel-body">
-       <%= render "naive_bayes" %>
-       <%= render "c45_algorithm" %>
-       <%= render "id3_algorithm" %>
+        <% if current_user.admin? %>
+          <div class="row manage_user">
+            <div class="col-md-4">
+              <div class="users_button_group">
+                <%= link_to admin_test_algorithms_path, method: :post,
+                class: "btn btn-md btn-success float_right" do %>
+                <i class="fa fa-plus"></i> <%= t "admin.test_algorithms.title" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        <% end %>
+        <%= render "naive_bayes" %>
+        <%= render "c45_algorithm" %>
+        <%= render "id3_algorithm" %>
       </div>
     </div>
   </div>

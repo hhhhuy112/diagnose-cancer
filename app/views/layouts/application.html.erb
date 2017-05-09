@@ -29,6 +29,9 @@
     <%= render "layouts/media_container" %>
     <%= render "shared/flash"%>
     <%= yield %>
+    <% if user_signed_in? %>
+      <%= render "layouts/footer" %>
+    <% end %>
   </section>
   <%= render "layouts/footer" %>
   <% end %>

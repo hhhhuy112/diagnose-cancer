@@ -20,15 +20,18 @@ class TestAlgorithmsController < ApplicationController
       training: infor_traning(@id3_training),
       test: infor_traning(@id3_test),
     }
-
   end
 
   def infor_traning test_algorithm
-    {
-      "True": test_algorithm.true_probability,
-      "Fault": test_algorithm.fault_probability,
-      "Not Condition": test_algorithm.not_condition_probability
-    }
+    if test_algorithm.present?
+      {
+        "True": test_algorithm.true_probability,
+        "Fault": test_algorithm.fault_probability,
+        "Not Condition": test_algorithm.not_condition_probability
+      }
+    else
+      nil
+    end
   end
 
   def set_test_algorithm

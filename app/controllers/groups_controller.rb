@@ -72,6 +72,6 @@ class GroupsController < ApplicationController
 
   def init_variables
     @user_group = UserGroup.new
-    @users_outside = User.not_in_group(@group.id).is_normal_user.includes(:groups)
+    @users_outside = User.not_in_group.is_normal_user.includes(:groups)
   end
 end
