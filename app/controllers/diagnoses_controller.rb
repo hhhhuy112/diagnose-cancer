@@ -33,6 +33,7 @@ class DiagnosesController < ApplicationController
   def create
     @diagnose = Diagnose.new(params_diagnose)
     ActiveRecord::Base.transaction do
+      math_classification_probability
       if @diagnose.save
         if @diagnose.naise_bayes?
           diagose_service = DiagnosesNaiveBayesService.new(@classifications, @diagnose.data_users, @diagnose)
@@ -56,6 +57,7 @@ class DiagnosesController < ApplicationController
 
   def update
     ActiveRecord::Base.transaction do
+      math_classification_probability
       if @diagnose.update_attributes params_diagnose
         if @diagnose.naise_bayes?
           diagose_service = DiagnosesNaiveBayesService.new(@classifications, @diagnose.data_users, @diagnose)
@@ -84,10 +86,17 @@ class DiagnosesController < ApplicationController
     else
       flash[:error] = t "admin.diagnoses.delete_fail"
     end
-    redirect_to admin_diagnoses_path
+    redirect_to diagnoses_path
   end
 
   private
+
+  def math_classification_probability
+    Classification.all.each do |classification|
+      probability = (classification.data_cancers.count +1).to_f / (DataCancer.get_training_data.count + Classification.all.count)
+      classification.update(probability: probability)
+    end
+  end
 
   def load_rules
     @diagnose.c45_algorithm? ? Rule.all : RuleId3.all

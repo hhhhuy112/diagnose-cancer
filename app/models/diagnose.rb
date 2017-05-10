@@ -7,6 +7,7 @@ class Diagnose < ApplicationRecord
   accepts_nested_attributes_for :data_users, allow_destroy: true
 
   validate :check_valid_attribute
+  validate :check_data_before
 
   delegate :name, :patient_code, to: :owner, prefix: true, allow_nil: true
   delegate :name, :patient_code, to: :patient, prefix: true, allow_nil: true
@@ -24,9 +25,21 @@ class Diagnose < ApplicationRecord
     arr_valid = self.data_users.select do |data_user|
       data_user.value.present?
     end
-    if arr_valid.blank?
-      errors.add :errors, I18n.t("errors.diagnose.invalid_data_user")
+    return if arr_valid.present?
+    errors.add :errors, I18n.t("errors.diagnose.invalid_data_user")
+  end
+
+  def check_data_before
+    if self.naise_bayes?
+      if Knowledge.all.blank?
+        errors.add :errors, I18n.t("errors.diagnose.invalid_knowledges")
+      end
+    elsif self.c45_algorithm?
+      return if Rule.all.present?
+      errors.add :errors, I18n.t("errors.diagnose.invalid_rule")
+    elsif self.id3_algorithm?
+      return if RuleId3.all.present?
+      errors.add :errors, I18n.t("errors.diagnose.invalid_rule")
     end
-    arr_valid.blank?
   end
 end

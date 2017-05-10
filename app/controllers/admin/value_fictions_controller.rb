@@ -11,6 +11,7 @@ class Admin::ValueFictionsController < ApplicationController
   end
 
   def update
+    binding.pry
     if @value_fiction.update_attributes value_fiction_params
       flash[:success] = t "admin.value_fictions.updated_success"
     else

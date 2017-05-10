@@ -36,7 +36,7 @@ f.each_line do |line|
 end
 f.close
 
-putc "create fiction"
+puts "create fiction"
 
 fiction_file = File.open("/home/ubuntu/datn/data/data_fiction.txt", "r")
 fiction_file.each_line do |line|
@@ -72,9 +72,11 @@ Fiction.all.each_with_index do |f,index|
 end
 
 Fiction.all.each do |f|
-  putc "create fiction"
   value.each do |v|
     name_value = "#{f.code}#{v}"
     ValueFiction.create(name: name_value , value: v, description: "", fiction_id: f.id)
   end
 end
+
+puts "math classification \n"
+

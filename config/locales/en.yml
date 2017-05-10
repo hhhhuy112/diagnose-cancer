@@ -128,6 +128,7 @@ en:
       create_about: "Create About"
       breast_cancer: "Breast Cancer"
       data_mining: "Data mining"
+      data_set: "Data Set"
       create_about_success: "Create about success"
       create_about_fail: "Create about fail"
       updated_success: "Updated success"
@@ -157,6 +158,7 @@ en:
       c45_algorithm: "C45 Algorithm"
       id3_algorithm: "ID3 Algorithm"
       test: "Test Algorithm"
+    abouts: "Abouts"
   header:
     diagnose: "Diagnoses"
     groups: "Groups"
@@ -165,6 +167,9 @@ en:
   errors:
     diagnose:
       invalid_data_user: "Please selected value attribute"
+      invalid_knowledges: "Please create knowledges to diagnose"
+      invalid_classification: "Please create probability classification to diagnose"
+      invalid_rule: "Please create rule to diagnose"
   search:
     name_or_employee_code_or_email: "Search"
     naise_bayes: "Naive Bayes"
@@ -181,6 +186,12 @@ en:
     statistic1: "Breast Cancers"
     statistic2: "Type Cancers"
     statistic3: "Developing country"
+    back_end: "Program"
+    create_with: "Create with"
+    author: "Ho Minh Huy"
+    data_set: "Data Set"
+    support: "Support"
+    contact: "Contact"
     summary1: "Breast cancer starts when cells in the breast begin to grow out of control. These cells usually form a tumor that can
     often be seen on an x-ray or felt as a lump."
     summary2: " data mining (sometimes called data or knowledge discovery) is the process of analyzing

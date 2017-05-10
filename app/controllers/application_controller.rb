@@ -3,17 +3,20 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   layout :layout
   before_action :set_title_edit_password
+  before_action :check_root_page
 
   protected
 
   def check_root_page
     if is_root_page?
-      redirect_to admin_root_path
+      if  user_signed_in? &&  current_user.admin?
+        redirect_to admin_root_path
+      end
     end
   end
 
   def is_root_page?
-    current_page?(controller: 'static_pages', action: 'home')
+    request.fullpath == "/"
   end
 
   def configure_permitted_parameters

@@ -14,7 +14,7 @@ class User < ApplicationRecord
 
   has_many :groups, dependent: :destroy
   has_many :user_groups, through: :groups,dependent: :destroy
-  has_one :user_group
+  has_one :user_group, dependent: :destroy
   has_one :group, through: :user_group
 
   validate  :avatar_size

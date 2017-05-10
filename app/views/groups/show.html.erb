@@ -23,7 +23,7 @@
               </tr>
               <tr>
                 <td><%= t "dashboard.groups.description" %></td>
-                <td><span><%= @group.description %></span></td>
+                <td><span><%= @group.description.html_safe %></span></td>
               </tr>
               <tr>
                 <td><%= t "dashboard.user_groups.number_member" %></td>

@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
   before_action :load_breast_cancer, only: :breast_cancer
   before_action :load_data_mining, only: :data_mining
+  before_action :load_data_set, only: :data_set
 
   def home
   end
@@ -11,6 +12,10 @@ class StaticPagesController < ApplicationController
 
   def data_mining
     @title = t "home_infor.infor_data_mining"
+  end
+
+  def data_set
+    @title = t "home_infor.infor_data_set"
   end
 
   private
@@ -24,5 +29,10 @@ class StaticPagesController < ApplicationController
   def load_data_mining
     about_data_minings = About.load_by_type(:data_mining)
     @about = about_data_minings.last if about_data_minings.present?
+  end
+
+  def load_data_set
+    about_data_sets = About.load_by_type(:data_set)
+    @about = about_data_sets.last if about_data_sets.present?
   end
 end

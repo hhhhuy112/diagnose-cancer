@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root "static_pages#home"
   get  '/breast_cancer', to: "static_pages#breast_cancer"
   get  '/data_mining', to: "static_pages#data_mining"
+  get  '/data_set', to: "static_pages#data_set"
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

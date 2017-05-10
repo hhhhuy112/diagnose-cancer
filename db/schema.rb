@@ -238,10 +238,10 @@ ActiveRecord::Schema.define(version: 20170508170218) do
   create_table "value_fictions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.integer  "value"
-    t.integer  "description"
+    t.text     "description", limit: 65535
     t.integer  "fiction_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.index ["fiction_id"], name: "index_value_fictions_on_fiction_id", using: :btree
   end
 
