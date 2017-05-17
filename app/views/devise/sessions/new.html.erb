@@ -66,8 +66,8 @@
     </div>
     <div class="form-group">
       <div class="col-xs-12 text-center">
-        <%= link_to "" do %>
-        <small><%= t "forgot_password" %></small>
+        <%= link_to new_password_path(resource_name) do %>
+          <small><%= t "forgot_password" %></small>
         <% end %>
       </div>
     </div>

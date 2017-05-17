@@ -1,19 +1,81 @@
-<h2>Change your password</h2>
+<% provide :title, t("login") %>
+<!-- Login Background -->
+<div id="login-background">
+  <%= image_tag "background.jpg", class: "animation-pulseSlow" %>
+</div>
+<!-- END Login Background -->
 
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <%= f.input :reset_password_token, as: :hidden %>
-  <%= f.full_error :reset_password_token %>
-
-  <div class="form-inputs">
-    <%= f.input :password, label: "New password", required: true, autofocus: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, label: "Confirm your new password", required: true %>
+<!-- Login Container -->
+<div id="login-container" class="animation-fadeIn">
+  <%= render "shared/flash" %>
+  <!-- Login Title -->
+  <div class="login-title text-center">
+    <h1>
+      <i class="gi gi-flash"></i>
+      <strong><%= t "diagnostic" %></strong>
+      <br>
+      <small>
+        <%= t "please" %>
+        <strong><%= t "login" %></strong>
+        <%= t "or" %>
+        <strong><%= t "register" %></strong>
+      </small>
+    </h1>
   </div>
+  <!-- END Login Title -->
 
-  <div class="form-actions">
-    <%= f.button :submit, "Change my password" %>
+  <!-- Login Block -->
+  <div class="block push-bit">
+    <!-- Login Form -->
+   <%= form_for resource, html: {class: "form-horizontal form-bordered form-control-borderless",
+    method: :put}, as: resource_name,
+    url: password_path(resource_name) do |f| %>
+    <%= f.hidden_field :reset_password_token %>
+    <%= render "shared/error_mesages_devise", resource: resource %>
+
+    <div class="form-group">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="gi gi-asterisk"></i>
+          </span>
+          <div>
+            <%= f.password_field :password, autofocus: true,
+              class: "form-control", placeholder: t("new_password") %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-xs-12">
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="gi gi-asterisk"></i>
+          </span>
+          <div>
+            <%= f.password_field :password_confirmation, autofocus: true,
+              class: "form-control", placeholder: t("password_confirmation") %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-actions">
+      <div class="col-xs-8 text-right">
+        <%= f.submit t("reset_password"), class: "btn btn-sm btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+    <!-- END Login Form -->
   </div>
-<% end %>
+  <!-- END Login Block -->
 
-<%= render "devise/shared/links" %>
+  <!-- Footer -->
+  <footer class="text-warning text-center">
+    <small><%= t "year" %></small>
+    <small><%= t "by_education_framgia" %></small>
+    <small><%= t "sub" %></small>
+    <small><span class="green"><%= t "inc_all_rights_reserved" %></span></small>
+  </footer>
+  <!-- END Footer -->
+</div>
+<!-- END Login Container -->

@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  enter: "Enter"
+  mail: "mail"
+  send_mail: "Send mail"
   signin: "Sign in"
   you_do_not_have_access: "You don't have access"
   groups: "Groups"
