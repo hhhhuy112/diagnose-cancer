@@ -3,6 +3,6 @@
     <%= current_index @rules.current_page, Settings.per_page.admin.rules, rule_counter %>
   </td>
   <td><%= convert_rule_to_string(rule) %></td>
-  <td><%= rule.classification_name %></td>
+  <td><%= t "diagnose.#{rule.classification_name}" %></td>
 </tr>
 

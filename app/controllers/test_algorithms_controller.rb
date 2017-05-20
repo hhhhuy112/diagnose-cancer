@@ -24,10 +24,13 @@ class TestAlgorithmsController < ApplicationController
 
   def infor_traning test_algorithm
     if test_algorithm.present?
+      test_true = I18n.t ("admin.test_algorithms.test_true")
+      test_false = I18n.t ("admin.test_algorithms.test_false")
+      test_non =  I18n.t ("admin.test_algorithms.test_non")
       {
-        "True": test_algorithm.true_probability,
-        "Fault": test_algorithm.fault_probability,
-        "Not Condition": test_algorithm.not_condition_probability
+        "#{test_true}": test_algorithm.true_probability,
+        "#{test_false}": test_algorithm.fault_probability,
+        "#{test_non}": test_algorithm.not_condition_probability
       }
     else
       nil

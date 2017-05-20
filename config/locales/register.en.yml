@@ -17,6 +17,6 @@ en:
   remember: "Remember"
   current_password : "Current password"
   update: "Update"
-  current_password: "Current password"
   password_confirmation: "Password Confirmation"
-
+  patient_code: "Patient code"
+  new_user: "Add user"

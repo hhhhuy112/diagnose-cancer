@@ -64,4 +64,8 @@ module ApplicationHelper
   def get_result diagnose
     diagnose.classification_id.present? ? diagnose.classification_name : I18n.t("admin.diagnoses.not_condition")
   end
+
+  def is_locale_en?
+    I18n.locale == :en
+  end
 end

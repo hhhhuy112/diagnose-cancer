@@ -66,7 +66,7 @@
             </div>
           <% end %>
           <div class="form-group">
-            <%= f.label :image, t("image") %>
+            <%= f.label :image, t("admin.groups.image") %>
             <div class="text-center col-md-12">
               <%= image_tag group.image.url, class: "height-250 image-register", id: "img_prev" %>
               <%= f.file_field :image, accept: Settings.image_format_accept, class: "avatar-register" %>

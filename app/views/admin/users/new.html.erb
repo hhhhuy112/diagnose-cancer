@@ -32,11 +32,11 @@
                 <div class="input-group">
                   <span class="input-group-addon"><i class="gi gi-barcode"></i></span>
                   <%= f.text_field :patient_code, autofocus: true,
-                  class: "form-control", placeholder: t("admin.users.patient_code") %>
+                  class: "form-control", placeholder: t("patient_code") %>
                 </div>
                 <ul class = "errors">
                   <% @user.errors[:patient_code].each do |err|%>
-                  <li><span class="help-block"><%= t("admin.users.patient_code") + " #{err}" %></span></li>
+                  <li><span class="help-block"><%= t("patient_code") + " #{err}" %></span></li>
                   <% end %>
                 </ul>
               </div>
@@ -62,8 +62,8 @@
                   <%= f.select :role, User.roles.collect { |key, value| [t("role_#{key}"), key] }, {}, {class: "form-control col-md-9"} %>
                 </div>
                 <ul class = "errors">
-                  <% @user.errors[:name].each do |err|%>
-                  <li><span class="help-block"><%= t("name") + " #{err}" %></span></li>
+                  <% @user.errors[:role].each do |err|%>
+                  <li><span class="help-block"><%= t("role") + " #{err}" %></span></li>
                   <% end %>
                 </ul>
               </div>
@@ -108,7 +108,7 @@
                   <span class="input-group-addon"><i class="fa fa-birthday-cake"></i></span>
                   <%= f.text_field :birthday,
                   class: "form-control datepicker",
-                    placeholder: t("date_month_year_place") %>
+                    placeholder: t("date_month_year_place"), readonly: true %>
                   </div>
                   <ul class = "errors">
                     <% @user.errors[:birthday].each do |err|%>
@@ -131,20 +131,7 @@
                   </ul>
                 </div>
               </div>
-              <div class="form-group">
-                <div class="col-xs-12">
-                  <div class="input-group">
-                    <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
-                    <%= f.password_field :password_confirmation, autocomplete: "off",
-                    class: "form-control", placeholder: t("retype_password") %>
-                  </div>
-                  <ul class = "errors">
-                    <% @user.errors[:password_confirmation].each do |err|%>
-                    <li><span class="help-block"><%= t("retype_password") + " #{err}" %></span></li>
-                    <% end %>
-                  </ul>
-                </div>
-              </div>
+
               <div class="form-group">
                 <%= f.submit t("register_account"),
                 class: "btn btn-primary col-md-12" %>

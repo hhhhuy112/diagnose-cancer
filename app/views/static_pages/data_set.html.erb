@@ -53,16 +53,16 @@
                 <table class="table table-striped">
                     <tbody>
                         <tr>
-                            <td style="width: 50%;"><strong>Source</strong></td>
-                            <td class="text-right">Breast Cancer Wisconsin</td>
+                            <td style="width: 50%;"><strong><%= t "home_infor.source" %></strong></td>
+                            <td class="text-right"><%= @about.source %></td>
                         </tr>
                         <tr>
-                            <td><strong>Category</strong></td>
+                            <td><strong><%= t "home_infor.category" %></strong></td>
                             <td class="text-right">Breast Cancer Wisconsin</td>
                         </tr>
                         <tr>
                             <td><strong>Website</strong></td>
-                            <td class="text-right"><a href="javascript:void(0)">https://archive.ics.uci.edu/ml/datasets</a></td>
+                            <td class="text-right"><a href="javascript:void(0)"><%= @about.link %></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -71,8 +71,12 @@
 
             <!-- Project Details -->
             <div class="col-sm-7 site-block">
-                <h3 class="site-heading"><strong><%= t("home_infor.quest_first") %></strong><%= t("home_infor.data_mining") %></h3>
-                   <%= @about.description.html_safe %>
+                <h3 class="site-heading"></strong><%= t("home_infor.data_set") %></h3>
+                    <% if is_locale_en? %>
+                    <%= @about.description.html_safe  if @about.description.present? %>
+                   <% else %>
+                    <%= @about.description_vi.html_safe if @about.description_vi.present? %>
+                   <% end %>
              </div>
             <!-- END Project Details -->
         </div>

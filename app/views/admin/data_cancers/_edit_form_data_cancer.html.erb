@@ -153,7 +153,7 @@
         <div class="input-group-addon">
           <i class="fa fa-star"></i>
         </div>
-        <%= f.select :classification_id, Classification.all.collect {|classification| [classification.name, classification.id]}, {}, {class: "form-control input-md"} %>
+        <%= f.select :classification_id, Classification.all.collect {|classification| [t("diagnose.#{classification.name}"), classification.id]}, {}, {class: "form-control input-md"} %>
       </div>
       <ul class = "errors">
         <% @data_cancer.errors[:classification_id].each do |err|%>
@@ -164,7 +164,6 @@
   </div>
 </div>
 <div class="fix-clear form-group row">
-  <label class="col-md-3 control-label"></label>
   <div class="col-md-offset-4 col-md-4">
     <%= f.submit t("register_account"),
     class: "btn btn-primary col-md-12" %>

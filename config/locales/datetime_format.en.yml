@@ -13,7 +13,7 @@ en:
     abbr_day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
   time:
     formats:
-      long: "%d/%m/%Y %H:%M"
+      long: "%d/%m/%y %H:%M:%S"
       default: "%H:%M:%S %-d %B %Y"
       date_month_year: "%Y-%m-%d"
       format_datetime: "%H:%M %d/%m/%Y"

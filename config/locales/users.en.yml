@@ -3,9 +3,12 @@ en:
     users:
       value_male: "male"
       value_female: "female"
+      male: "Male"
+      female: "Female"
       information_user: "Infomation User"
       edit_user: "Update User"
       name: "name"
       patient_code: "Patient code"
       gender: "Gender"
       birthday: "Birthday"
+      avatar: "Avatar"

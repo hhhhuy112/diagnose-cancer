@@ -1,3 +1,4 @@
+languages: {en: "English", vi: "Tiếng Việt"}
 number_percent_training: 0.7
 number_percent_test: 0.3
 is_true: 1
@@ -23,7 +24,7 @@ per_page:
 image_format_accept: "image/jpeg,image/gif,image/png"
 image_default: "group_default.gif"
 user:
-  name_max: 5
+  name_max: 50
   code_admin: "A"
   code_patient: "P"
   code_owner: "D"

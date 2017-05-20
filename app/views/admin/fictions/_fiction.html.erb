@@ -4,7 +4,8 @@
       <%= current_index @fictions.current_page, Settings.per_page.admin.fictions, fiction_counter %>
     </td>
     <td><%= fiction.name %></td>
-    <td><%= fiction.description%></td>
+    <td><%= fiction.description.html_safe if fiction.description.present? %></td>
+    <td><%= fiction.description_vi.html_safe if fiction.description_vi.present? %></td>
     <td class="text-center">
       <div class="btn-group btn-group-xs">
         <% if current_user.admin?%>
@@ -38,6 +39,13 @@
             <%= f.label :description, t("admin.fictions.description"), class: "field-compulsory-before" %>
             <div>
               <%= f.text_area :description, class: "form-control ckeditor" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :description_vi, t("admin.fictions.description_vi"), class: "field-compulsory-before" %>
+            <div>
+              <%= f.text_area :description_vi, class: "form-control ckeditor" %>
             </div>
           </div>
 

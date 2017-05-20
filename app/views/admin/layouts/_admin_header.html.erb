@@ -75,6 +75,30 @@
             </ul>
         </li>
         <!-- END User Dropdown -->
+        <li class="dropdown chosen-language">
+            <% if session[:locale].present? %>
+              <%= link_to url_for(locale: session[:locale]), class:"dropdown-toggle current-flag",
+                data: {toggle: "dropdown"} do %>
+                <%= image_tag "flag/#{session[:locale]}.png", class: "icon-language" %>
+                <i class="fa fa-angle-down"></i>
+              <% end %>
+            <% else %>
+              <%= link_to url_for(locale: :en), class:"dropdown-toggle current-flag",
+                data: {toggle: "dropdown"} do %>
+                <%= image_tag "flag/en.png", class: "icon-language" %>
+                <i class="fa fa-angle-down"></i>
+              <% end %>
+            <% end %>
+            <ul class="dropdown-menu dropdown-menu-right choose-language" role="menu">
+              <% Settings.languages.keys.each do |lang| %>
+                <%= link_to url_for(locale: lang), class: "flag-drop" do %>
+                  <%= image_tag "flag/#{lang}.png", class: "icon-languages" %>
+                  <%= Settings.languages[lang] %>
+                <% end %>
+                <br/>
+              <% end %>
+            </ul>
+          </li>
     </ul>
     <!-- END Right Header Navigation -->
 </header>

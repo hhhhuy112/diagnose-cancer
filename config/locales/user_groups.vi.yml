@@ -1,0 +1,14 @@
+vi:
+  user_groups:
+    remove_member: "Xóa thành viên"
+    add_member: "Thêm thành viên"
+    enter_name: "Nhập tên"
+    create_not_successfully: "Thêm bệnh nhân thất bại"
+    create_successfully: "Thêm bệnh nhân thành công"
+    delete_not_successfully: "Xóa bệnh nhân thất bại"
+    delete_successfully: "Xóa bệnh nhân thành công"
+    patient_code: "Mã bệnh nhân"
+    image: "Hình ảnh"
+    name: "Tên"
+    gender: "Giới tính"
+    search: "Tìm kiếm"

@@ -30,14 +30,6 @@
 
 
 $(document).ready(function(){
-    $('.datepicker').datepicker({
-      format: "dd/mm/yyyy"
-    });
-
-     $('.datepicker1').datepicker({
-      format: "dd/mm/yyyy"
-    });
-
     $('.avatar-register').change(function(){
       readURL(this);
     });
@@ -68,6 +60,6 @@ function readURL(input) {
 //active-sidebar
 
 $('.sidebar-nav').ready(function () {
-  $('a[href="' + this.location.pathname + '"]').parent().parent().parent().addClass('active');
-  $('a[href="' + this.location.pathname + '"]').addClass('active');
+    $('a[href="' + this.location.pathname + '"]').addClass('active');
+    $('a[href="' + this.location.pathname + '"]').parent().parent().parent().addClass('active');
 });

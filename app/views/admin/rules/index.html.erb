@@ -12,6 +12,18 @@
         </h3>
       </div>
       <div class="panel-body">
+      <% if current_user.admin? %>
+        <div class="row manage_user">
+          <div class="col-md-6">
+            <div class="users_button_group">
+              <%= link_to admin_rules_path, method: :Post,
+                class: "btn btn-md btn-success float_right create_rule" do %>
+                <i class="gi gi-plus"></i> <%= t "admin.rules.create_rules_c45" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <% end %>
         <div class="table-responsive">
           <table class="table table-bordered table-hover">
             <thead class = "header-table-rules">
