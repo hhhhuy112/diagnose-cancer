@@ -1,14 +1,6 @@
 <% provide :title, t("login") %>
 <!-- Login Background -->
-<div id="login-background">
-  <%= image_tag "background.jpg", class: "animation-pulseSlow" %>
-</div>
-<!-- END Login Background -->
 
-<!-- Login Container -->
-<div id="login-container" class="animation-fadeIn">
-  <%= render "shared/flash" %>
-  <!-- Login Title -->
   <div class="login-title text-center">
     <h1>
       <i class="gi gi-flash"></i>
@@ -54,50 +46,3 @@
     <!-- END Login Form -->
   </div>
   <!-- END Login Block -->
-
-  <!-- Footer -->
-  <footer class="text-warning text-center">
-    <small><%= t "year" %></small>
-    <small><%= t "by_education_framgia" %></small>
-    <small><%= t "sub" %></small>
-    <small><span class="green"><%= t "inc_all_rights_reserved" %></span></small>
-  </footer>
-  <!-- END Footer -->
-</div>
-<!-- END Login Container -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h2>Forgot your password?</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>

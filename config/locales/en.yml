@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  author: "Ho Minh Huy"
+  by: "by"
+  created: "Created"
   enter: "Enter"
   mail: "mail"
   send_mail: "Send mail"

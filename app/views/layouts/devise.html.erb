@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title yield :title %></title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "application", media: "all",
+      "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "application",
+      "data-turbolinks-track": "reload" %>
+  </head>
+  <body>
+   <!-- Login Background -->
+   <%= render "layouts/header" %>
+    <div id="login-background">
+      <%= image_tag "background.jpg", class: "animation-pulseSlow" %>
+    </div>
+    <!-- END Login Background -->
+
+    <!-- Login Container -->
+    <div id="login-container" class="animation-fadeIn">
+      <%= render "shared/flash"%>
+      <%= yield %>
+      <!-- Footer -->
+      <footer class="text-warning text-center">
+        <small><%= t "created" %></small>
+        <small><%= t "by" %></small>
+        <small><%= t "author" %></small>
+      </footer>
+  <!-- END Footer -->
+    </div>
+  <!-- END Login Container -->
+
+  </body>
+</html>

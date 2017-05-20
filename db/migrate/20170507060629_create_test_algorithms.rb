@@ -3,6 +3,7 @@ class CreateTestAlgorithms < ActiveRecord::Migration[5.0]
     create_table :test_algorithms do |t|
       t.integer :type_diagnose
       t.integer :type_data
+      t.integer :type_test
       t.float :true_probability
       t.float :fault_probability
       t.float :not_condition_probability

@@ -73,6 +73,12 @@ class ApplicationController < ActionController::Base
       else
         "application"
       end
+    else
+      if is_a?(Devise::SessionsController) || is_a?(Devise::PasswordsController)
+        "devise"
+      else
+        "application"
+      end
     end
   end
 end
