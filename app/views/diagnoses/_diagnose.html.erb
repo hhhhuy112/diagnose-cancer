@@ -8,9 +8,9 @@
   <td>
     <% if diagnose.classification_id.present? %>
       <% if diagnose.classification_id == 1 %>
-        <a href="javascript:void(0)" class="label label-success animation-pulse"><%= diagnose.classification_name %></a>
+        <a href="javascript:void(0)" class="label label-success animation-pulse"><%= t "diagnose.#{diagnose.classification_name}" %></a>
       <% else %>
-        <a href="javascript:void(0)" class="label label-danger animation-pulse"><%= diagnose.classification_name %></a>
+        <a href="javascript:void(0)" class="label label-danger animation-pulse"><%= t "diagnose.#{diagnose.classification_name}" %></a>
       <% end %>
     <% else %>
       <a href="javascript:void(0)" class="label label-warning animation-pulse"><%= t "admin.diagnoses.not_condition" %></a>

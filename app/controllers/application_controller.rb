@@ -4,8 +4,22 @@ class ApplicationController < ActionController::Base
   layout :layout
   before_action :set_title_edit_password
   before_action :check_root_page
+  before_action :set_locale
 
   protected
+
+  def set_locale
+    save_session_locale
+    I18n.locale = session[:locale]|| params[:locale] || I18n.default_locale
+  end
+
+  def save_session_locale
+    session[:locale] = params[:locale] if params[:locale]
+  end
+
+  def default_url_options(options={})
+    { locale: I18n.locale}
+  end
 
   def check_root_page
     if is_root_page?
@@ -16,7 +30,7 @@ class ApplicationController < ActionController::Base
   end
 
   def is_root_page?
-    request.fullpath == "/"
+    request.fullpath == "/" || request.fullpath == "/vi" || request.fullpath == "/en"
   end
 
   def configure_permitted_parameters

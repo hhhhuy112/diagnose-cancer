@@ -9,6 +9,9 @@ class Diagnose < ApplicationRecord
   validate :check_valid_attribute
   validate :check_data_before
 
+  validates :patient_id, presence: true
+  validates :owner_id, presence: true
+
   delegate :name, :patient_code, to: :owner, prefix: true, allow_nil: true
   delegate :name, :patient_code, to: :patient, prefix: true, allow_nil: true
 

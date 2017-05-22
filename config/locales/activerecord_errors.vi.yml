@@ -1,0 +1,27 @@
+vi:
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              taken: " đã tồn tại."
+              blank: " không được để trống."
+            name:
+              blank: " không được để trống."
+              too_long: " quá dài (tối đa là 50 ký tự)"
+            patient_code:
+              taken: " đã tồn tại."
+              blank: " không được để trống."
+            current_password:
+              invalid: "không đúng"
+            birthday:
+              blank: " không được để trống"
+            gender:
+              blank: " không được để trống"
+            password:
+              blank: "không được để trống"
+        diagnose:
+          attributes:
+            owner_id:
+              blank: "Vui lòng chọn bệnh nhân"

@@ -6,7 +6,7 @@
     </div>
     <ul>
       <% object.errors.full_messages.each do |msg| %>
-      <li class="text-danger"><%= msg %></li>
+      <li class="text-danger"><%= "#{msg[6, msg.length-1]}" %></li>
       <% end %>
     </ul>
   </div>

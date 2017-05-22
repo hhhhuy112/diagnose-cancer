@@ -18,13 +18,15 @@ class User < ApplicationRecord
   has_one :group, through: :user_group
 
   validate  :avatar_size
-  validates :name, presence: true, length: {minimum: Settings.user.name_max}
+  validates :name, presence: true, length: {maximum: Settings.user.name_max}
   validates :gender, presence: true
   validates :birthday, presence: true
   validates :patient_code, presence: true,
     uniqueness: {case_sensitive: false}
+  validates :email, presence: true,
+    uniqueness: {case_sensitive: false}
 
-   validate :valid_patient_code, on: [:create, :update], if: ->{self.patient_code.present?}
+  validate :valid_patient_code, on: [:create, :update], if: ->{self.patient_code.present?}
 
   enum role: {user_normal: 0, admin: 1, owner: 2}
   enum gender: {male: 0, female: 1}

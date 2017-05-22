@@ -52,16 +52,16 @@
                 <table class="table table-striped">
                     <tbody>
                         <tr>
-                            <td style="width: 50%;"><strong>Source</strong></td>
-                            <td class="text-right">Wikipedia</td>
+                            <td style="width: 50%;"><strong><%= t "home_infor.source" %></strong></td>
+                            <td class="text-right"><%= @about.source %></td>
                         </tr>
                         <tr>
-                            <td><strong>Category</strong>Data mining</td>
-                            <td class="text-right">wikipedia</td>
+                            <td><strong><%= t "home_infor.category" %></strong></td>
+                            <td class="text-right"><%= t "home_infor.infor_breast_cancer" %></td>
                         </tr>
                         <tr>
                             <td><strong>Website</strong></td>
-                            <td class="text-right"><a href="javascript:void(0)">https://en.wikipedia.org/wiki/Breast_cancer</a></td>
+                            <td class="text-right"><a href="javascript:void(0)"><%= @about.link %></a></td>
                         </tr>
                     </tbody>
                 </table>
@@ -71,7 +71,11 @@
             <!-- Project Details -->
             <div class="col-sm-7 site-block">
                 <h3 class="site-heading"><strong><%= t("home_infor.quest_first") %></strong><%= t("home_infor.breast_cancer") %></h3>
-                   <%= @about.description.html_safe %>
+                   <% if is_locale_en? %>
+                    <%= @about.description.html_safe  if @about.description.present? %>
+                   <% else %>
+                    <%= @about.description_vi.html_safe if @about.description_vi.present? %>
+                   <% end %>
              </div>
             <!-- END Project Details -->
         </div>
@@ -84,7 +88,11 @@
                         <% @fictions.each do |fiction| %>
                             <div class="col-sm-4 site-block">
                                 <h3 class="site-heading"><i class="fa fa-check text-success animation-pulse"></i> <strong><%= fiction.name %></strong></h3>
-                                <p class="remove-margin"><%= fiction.description.html_safe %></p>
+                                <% if is_locale_en? %>
+                                    <p class="remove-margin"><%= fiction.description.html_safe if fiction.description.present? %></p>
+                                <% else %>
+                                    <p class="remove-margin"><%= fiction.description_vi.html_safe if fiction.description_vi.present? %></p>
+                                <% end %>
                             </div>
                         <% end %>
                     </div>

@@ -14,9 +14,12 @@ ActiveRecord::Schema.define(version: 20170508170218) do
 
   create_table "abouts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "type_about"
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "source"
+    t.string   "link"
+    t.text     "description",    limit: 65535
+    t.text     "description_vi", limit: 65535
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "ckeditor_assets", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -90,10 +93,11 @@ ActiveRecord::Schema.define(version: 20170508170218) do
     t.string   "name"
     t.string   "code"
     t.string   "code_data"
-    t.string   "description"
+    t.text     "description",    limit: 65535
+    t.text     "description_vi", limit: 65535
     t.datetime "deleted_at"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -107,17 +111,6 @@ ActiveRecord::Schema.define(version: 20170508170218) do
     t.index ["user_id"], name: "index_groups_on_user_id", using: :btree
   end
 
-  create_table "infor_fictions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "fiction_id"
-    t.float    "gain_infor",      limit: 24
-    t.float    "potential_infor", limit: 24
-    t.float    "gain_ratio",      limit: 24
-    t.datetime "deleted_at"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.index ["fiction_id"], name: "index_infor_fictions_on_fiction_id", using: :btree
-  end
-
   create_table "knowledges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "classification_id"
     t.integer  "fiction_id"
@@ -127,36 +120,6 @@ ActiveRecord::Schema.define(version: 20170508170218) do
     t.datetime "updated_at",                               null: false
     t.index ["classification_id"], name: "index_knowledges_on_classification_id", using: :btree
     t.index ["fiction_id"], name: "index_knowledges_on_fiction_id", using: :btree
-  end
-
-  create_table "nodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "type_node"
-    t.integer  "attr_id"
-    t.integer  "value_id"
-    t.string   "parent_path"
-    t.integer  "closest_parent_id"
-    t.datetime "deleted_at"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["attr_id"], name: "index_nodes_on_attr_id", using: :btree
-    t.index ["value_id"], name: "index_nodes_on_value_id", using: :btree
-  end
-
-  create_table "rule_c45s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "clump_thickness"
-    t.integer  "uniformity_of_cell_size"
-    t.integer  "uniformity_of_cell_shape"
-    t.integer  "marginal_adhesion"
-    t.integer  "single_epithelial_cell_size"
-    t.integer  "bare_nuclei"
-    t.integer  "bland_chromatin"
-    t.integer  "normal_nucleoli"
-    t.integer  "mitoses"
-    t.integer  "classification_id"
-    t.datetime "deleted_at"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.index ["classification_id"], name: "index_rule_c45s_on_classification_id", using: :btree
   end
 
   create_table "rule_id3s", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -196,6 +159,7 @@ ActiveRecord::Schema.define(version: 20170508170218) do
   create_table "test_algorithms", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "type_diagnose"
     t.integer  "type_data"
+    t.integer  "type_test"
     t.float    "true_probability",          limit: 24
     t.float    "fault_probability",         limit: 24
     t.float    "not_condition_probability", limit: 24
@@ -250,10 +214,8 @@ ActiveRecord::Schema.define(version: 20170508170218) do
   add_foreign_key "data_users", "fictions"
   add_foreign_key "diagnoses", "classifications"
   add_foreign_key "groups", "users"
-  add_foreign_key "infor_fictions", "fictions"
   add_foreign_key "knowledges", "classifications"
   add_foreign_key "knowledges", "fictions"
-  add_foreign_key "rule_c45s", "classifications"
   add_foreign_key "rule_id3s", "classifications"
   add_foreign_key "rules", "classifications"
   add_foreign_key "user_groups", "groups"

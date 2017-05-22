@@ -1,0 +1,16 @@
+vi:
+  diagnose:
+    non_user: "Vui lòng thêm bệnh nhân vào nhóm để chẩn đoán"
+    created_at: "Ngày tạo"
+    user: "Bệnh nhân"
+    classification: "Kết quả chẩn đoán"
+    result: "Tỉ lệ"
+    list_diagnoses: "Danh sách chẩn đoán"
+    patient_code: "Mã bệnh nhân"
+    owner: "Bác sĩ"
+    patient: "Bệnh nhân"
+    type_diagnose: "Loại thuật toán"
+    malignant: "Ác tính"
+    benign: "Lành tính"
+  naive_bayes: "Naive Bayes"
+  desicion_tree: "Cây quyết định"

@@ -2,7 +2,7 @@
   <div class="panel panel-info">
     <div class="panel-heading">
       <h3 class="panel-title text-center">
-        <%= t "dashboard.user_groups.information_group" %>
+        <%= t "admin.groups.information_group" %>
       </h3>
     </div>
     <div class="panel-body">
@@ -14,19 +14,19 @@
           <table class="table">
             <tbody>
               <tr>
-                <td class="col-md-3"><%= t "groups.name" %></td>
+                <td class="col-md-3"><%= t "admin.groups.name" %></td>
                 <td><span><%= @group.name %></span></td>
               </tr>
               <tr>
-                <td class="col-md-3"><%= t "groups.owner" %></td>
+                <td class="col-md-3"><%= t "admin.groups.owner" %></td>
                 <td><span><%= @group.owner.name %></span></td>
               </tr>
               <tr>
-                <td><%= t "dashboard.groups.description" %></td>
-                <td><span><%= @group.description.html_safe %></span></td>
+                <td><%= t "admin.groups.description" %></td>
+                <td><span><%= @group.description.html_safe if @group.description.present? %></span></td>
               </tr>
               <tr>
-                <td><%= t "dashboard.user_groups.number_member" %></td>
+                <td><%= t "admin.groups.number_member" %></td>
                 <td><span id="count"><%= @group.users.count %></span></td>
               </tr>
             </tbody>
@@ -39,7 +39,7 @@
   <div class="panel panel-info">
     <div class="panel-heading">
       <h3 class="panel-title text-center">
-        <%= t "dashboard.user_groups.list_member" %>
+        <%= t "admin.groups.list_members" %>
       </h3>
     </div>
     <div class="row">
@@ -50,7 +50,7 @@
             <input type="checkbox" id="select-all-user-inside" class="col-md-1"
               value="">
             <span class="col-md-9">
-              <%= t "dashboard.user_groups.select_all" %>
+              <%= t "admin.groups.select_all" %>
             </span>
           </div>
         <% end %>

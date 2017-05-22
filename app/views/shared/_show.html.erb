@@ -24,6 +24,14 @@
         <tr>
           <td>
             <strong>
+              <i class="fa fa-user"></i> <%= t "role" %>
+            </strong>
+          </td>
+          <td><%= t "role_#{@user.role}" %></td>
+        </tr>
+        <tr>
+          <td>
+            <strong>
               <i class="fa fa-envelope"></i> <%= t "email" %>
             </strong>
           </td>
@@ -44,7 +52,7 @@
             </strong>
           </td>
           <td>
-            <%= l @user.birthday, format: :date_month_year_v1 if @user.birthday %>
+            <%= l @user.birthday, format: :default if @user.birthday %>
           </td>
         </tr>
       </tbody>

@@ -50,7 +50,7 @@
           <div class="input-group-addon">
             <i class="fa fa-user"></i>
           </div>
-          <%= f.select :role, User.roles.collect { |key, value| [t("#{key}"), key] }, {}, {class: "form-control col-md-9"} %>
+          <%= f.select :role, User.roles.collect { |key, value| [t("role_#{key}"), key] }, {}, {class: "form-control col-md-9"} %>
         </div>
         <ul class = "errors">
           <% @user.errors[:role].each do |err|%>
@@ -68,7 +68,7 @@
           <div class="input-group-addon">
             <i class="fa fa-user"></i>
           </div>
-          <%= f.text_field :role, class: "form-control input-md field-compulsory-before",
+          <%= f.text_field :role, value: t("role_#{@user.role}"), class: "form-control input-md field-compulsory-before",
             placeholder: t("admin.users.role"), disabled: true %>
         </div>
         <ul class = "errors">
@@ -123,12 +123,12 @@
         </div>
         <% if @user.birthday.nil? %>
         <%= f.text_field :birthday,
-        class: "form-control datepicker",
+        class: "form-control",
           placeholder: t("date_month_year_place") %>
           <% else %>
           <%= f.text_field :birthday,
          value: l(@user.birthday, format: :date_month_year_v1),
-          class: "form-control datepicker",
+          class: "form-control datepicker", data: {date_format:"dd/mm/yyyy"},
             placeholder: t("date_month_year_place") %>
             <% end %>
           </div>

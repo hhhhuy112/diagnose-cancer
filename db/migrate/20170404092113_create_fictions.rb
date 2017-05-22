@@ -4,7 +4,8 @@ class CreateFictions < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :code
       t.string :code_data
-      t.string :description
+      t.text :description
+      t.text :description_vi
       t.datetime :deleted_at
 
       t.timestamps

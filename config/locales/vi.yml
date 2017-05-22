@@ -1,0 +1,256 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vi:
+  the_form_contains: "Biểu mẫu bao gồm"
+  action: "Hành động"
+  author: "Hồ Minh Huy"
+  by: "bởi"
+  created: "Được thiết kế "
+  enter: "Nhập"
+  mail: "mail"
+  send_mail: " Gửi mail"
+  signin: "Đăng nhập"
+  you_do_not_have_access: "Bạn không có quyền để thực hiện hành động này"
+  groups: "Danh sách nhóm"
+  home: "Trang chủ"
+  tes_algorithms: "Thống kê"
+  submit: "Gửi yêu cầu"
+  patient: "Bệnh nhân"
+  role: "Loại người dùng"
+  role_admin: "Người quản lý"
+  role_owner: "Bác sĩ"
+  role_user_normal: "Bệnh nhân"
+  diagnostic_title: "Diagnose "
+  cancer_title: "Cancer"
+  please_log_in: "Vui lòng đăng nhập"
+  logout: "Đăng xuất"
+  profile: "Thông tin cá nhân"
+  data: "Dữ liệu"
+  name_app: "Diagnostic Cancer"
+  not_found_item: "Không tìm thấy"
+  admin:
+    data_cancers:
+      title: "Quản lý dữ liệu mẫu"
+      update_data_cancer: "Chỉnh sửa dữ liệu mẫu"
+      list_data_cancers: "Danh sách dữ liệu mẫu"
+      information_data_cancer: "Thông tin dữ liệu mẫu"
+      updated_success: "Chỉnh sửa dữ liệu mẫu thành công"
+    users:
+      title: "Quản lý người dùng"
+      add: "Thêm người dùng"
+      list_users: "Danh sách người dùng"
+      role: "Loại người dùng"
+      errors:
+        patient_code: "người quản lý sẽ có mã bắt đầu là A, bác sĩ có mã bắt đầu là D và bệnh nhân là P"
+    knowledges:
+      title: "Thuật toán Naive bayes"
+      create_knowledges: "Naive Bayes"
+      create_knowledges_success: "Tạo tri tức thành công từ dữ liệu mẫu"
+      information_knowledge: "Thông tin chi tiết tri thức"
+      list_knowledges: "Danh sách tri thức"
+    diagnoses:
+      title: "Quản lý chẩn đoán"
+      create_diagnose: "Thêm chẩn đoán"
+      information_diagnoses: "Chi tiết chẩn đoán"
+      update_diagnose: "Chỉnh sửa chẩn đoán"
+      update_success: "Bạn đã chỉnh sửa chẩn đoán thành công"
+      update_fail: "Bạn đã chỉnh sửa chẩn đoán thất bại"
+      create_success: "Bạn đã tạo chẩn đoán thành công"
+      create_fail: "Bạn đã tạo chẩn đoán thất bại"
+      delete_success: "Bạn đã xóa chẩn đoán thành công"
+      delete_fail: "Bạn đã xóa chẩn đoán thất bại"
+      patient: "Bệnh nhân"
+      type: "Chọn thuật toán"
+      select_value: "Chọn giá trị"
+      naise_bayes: "Naive Bayes"
+      c45_algorithm: "Thuật toán C45"
+      id3_algorithm: "Thuật toán ID3"
+      not_condition: "Not condition to conclude"
+    rules:
+      create_rules_c45: "Thuật toán C45"
+      create_rules_id3: "Thuật toán ID3"
+      title_c45: "Quản lý luật C45"
+      title_id3: "Quản lý luật ID3"
+      create_rules_success: "Tạo luật thành công từ dữ liệu mẫu"
+    fictions:
+      title: "Quản lý thuộc tính"
+      list_fictions: "Danh sách thuộc tính"
+      name: "Tên"
+      description: "Mô tả"
+      description_vi: "Mô tả tiếng việt"
+      update_fiction: "Chỉnh sửa thuộc tính"
+      updated_success: "Chỉnh sửa thuộc tính thành công"
+      updated_fail: "Chỉnh sửa thuộc tính thất bại"
+    value_fictions:
+      title: "Quản lý giá trị thuộc tính"
+      list_value_fictions: "Danh sách giá trị thuộc tính"
+      name: "Tên"
+      value: "Giá trị"
+      fiction: "Thuộc tính"
+      description: "Mô tả"
+      update_value_fiction: "Chỉnh sửa giá trị thuộc tính"
+      updated_success: "Chỉnh sửa giá trị thuộc tính thành công"
+      updated_fail: "Chỉnh sửa giá trị thuộc tính thất bại"
+    groups:
+      title: "Quản lý nhóm"
+      list_groups: "Danh sách nhóm"
+      create_groups: "Tạo nhóm"
+      create_group_success: "Tạo nhóm thành công"
+      create_group_fail: "Tạo nhóm thất bại"
+      information_group: "Thông tin nhóm"
+      list_members: "Danh sách thành viên"
+      delete: "Xóa"
+      delete_group_success: "Xóa nhóm thành công"
+      delete_group_fail: "Xóa nhóm thất bại"
+      owner: "Bác sĩ"
+      name: "Tên"
+      image: "Hình ảnh"
+      update_group: "Chỉnh sửa nhóm"
+      update_group_success: "Chỉnh sửa nhóm thành công"
+      update_group_fail: "Chỉnh sửa nhóm thất bại"
+      description: "Mô tả"
+      list_user: "Danh sách bệnh nhân"
+      select_all: "Chọn tất cả"
+      number_member: "Số lượng thành viên"
+      information_group: "Thông tin nhóm"
+    test_algorithms:
+      title: "Thống kê"
+      naive_bayes: "Naive Bayes"
+      c45_algorithm: "Thuật toán C45"
+      id3_algorithm: "Thuật toán ID3"
+      title_training: "Biểu đồ dữ liệu huấn luyện"
+      title_test: "Biểu đồ dữ liệu kiểm tra"
+      test_true: "Dữ liệu kiểm tra đúng"
+      test_false: "Dữ liệu kiểm tra sai"
+      test_non: "Không đủ điều kiện"
+    abouts:
+      title: "Thông tin website"
+      create_about: "Tạo thông tin"
+      breast_cancer: "Ung thư vú"
+      data_mining: "Khai phá dữ liệu"
+      data_set: "Dữ liệu mẫu"
+      description: "Mô tả"
+      description_vi: "Mô tả tiếng việt"
+      create_about_success: "Tạo thông tin thành công"
+      create_about_fail: "Tạo thông tin thất bại"
+      updated_success: "Chỉnh sửa thông tin thành công"
+      updated_fail: "Chỉnh sửa thông tin thất bại"
+      type_about: "Kiểu thông tin"
+      link: "Đường dẫn"
+      source: "Nguồn"
+  users:
+    update: "Chỉnh sửa thông tin cá nhân"
+    information_user: "Thông tin người dùng"
+    information_owner: "Thông tin bác sĩ điều trị"
+    information_diagnoses: "Danh sách chẩn đoán"
+    delete_not_success: "Xóa dữ liệu thất bại"
+    update_password: "Chỉnh sửa mật khẩu"
+  diagnoses:
+    diagnose: "Chẩn đoán bệnh"
+  sidebar:
+    data_cancers: "Dữ liệu mẫu"
+    user: "Người dùng"
+    fiction_value: "Giá trị thuộc tính"
+    value_fictions: "Giá trị thuộc tính"
+    fictions: "Thuộc tính"
+    knowledges: "Tri thức"
+    diagnoses: "Chẩn đoán bệnh"
+    manage_users: "Quản lý người dùng"
+    groups: "Nhóm"
+    action: "Hành động"
+    manage_knowledges:
+      title: "Quản lý tri thức"
+      naive_bayes: "Naive Bayes"
+      c45_algorithm: "Thuật toán C45"
+      id3_algorithm: "Thuật toán ID3"
+      test: "Thống kê"
+    abouts: "Thông tin website"
+  header:
+    diagnose: "Diagnose "
+    groups: "Quản lý nhóm"
+    diagnoses: "Quản lý chẩn đoán bệnh"
+    action: "Hành động"
+  error: "Lỗi"
+  errors:
+    diagnose:
+      invalid_data_user: "Vui lòng chọn giá trị thuộc tính"
+      invalid_knowledges: "Vui lòng tạo tri thức để chẩn đoán"
+      invalid_classification: "Vui lòng tính xác suất lớp phân loại để chẩn đoán"
+      invalid_rule: "Vui lòng tạo luật để chẩn đoán"
+  search:
+    name_or_employee_code_or_email: "Tìm kiếm"
+    naise_bayes: "Naive Bayes"
+    c45_algorithm: "Thuật toán C45"
+    id3_algorithm: "Thuật toán ID3"
+
+  home_infor:
+    category: "Danh mục"
+    source: "Nguồn"
+    learn_more: "Xem thêm.."
+    author1: "Sarah Hawley"
+    title1: "Chuyên gia nghiên cứu ung thu vú"
+    sen1: "Ung thư vú là loại ung thu được chẩn đoán nhiều nhất trên thế giới"
+    sen2: "Nếu bạn tìm thấy một khối u ở vú, bạn chưa thể khẳng định bị ung thư vú"
+    sen3: "Có rất nhiều phương pháp để làm giảm tác hại ung thu vú"
+    statistic1: "Ung thu vú"
+    statistic2: "Loại ung thư"
+    statistic3: "Các nước đang phát triển"
+    back_end: "Chương trình"
+    create_with: "Được tạo bởi"
+    author: "Hồ Minh Huy"
+    data_set: "Bộ dữ liệu"
+    support: "Hỗ trợ"
+    contact: "Liên hệ"
+    summary1: "Ung thư vú bắt đầu khi tế bào ở vú bắt đầu phát triển vượt ra ngoài tầm kiểm soát.
+    Những tế bào này thường tạo thành một khối u thường thấy trên một tia X hoặc cảm thấy như một khối u."
+    summary2: " Khai thác dữ liệu (đôi khi được gọi là dữ liệu hoặc khám phá kiến ​​thức) là quá trình phân tích dữ liệu từ các quan điểm khác nhau và tóm tắt nó thành thông tin hữu ích - thông tin có thể được sử dụng để tăng doanh thu, cắt giảm chi phí, hoặc cả hai."
+    quest_first: "Thông tin về"
+    breast_cancer: " Ung thư vú ?"
+    data_mining: " Khai phá dữ liệu ?"
+    infor_breast_cancer: " Ung thư vú"
+    infor_data_mining: " Khai phá dữ liệu"
+    infor_data_set: "Bộ dữ liệu ung thư vú"
+    data_set: "Thông tin bộ dữ liệu"
+    answer: "Breast cancer starts when cells in the breast begin to grow out of control. These
+cells usually form a tumor that can often be seen on an x-ray or felt as a
+lump. The tumor is malignant (cancer) if the cells can grow into (invade)
+surrounding tissues or spread (metastasize) to distant areas of the body. Breast
+cancer occurs almost entirely in women, but men can get breast cancer, too. <br /><br />
+Cells in nearly any part of the body can become cancer and can spread to other areas of
+the body. To learn more about what is cancer and how all cancers start and
+spread, see our section on Cancer Basics.<br /><br />
+Breast cancers can start from different parts of the breast.
+Most breast cancers begin in the ducts that carry milk to the nipple (ductal cancers).
+Some start in the glands that make breast milk (lobular cancers).
+There are also other types of breast cancer that are less common.
+A small number of cancers start in other tissues in the breast. <br /><br />
+These cancers are called sarcomas and lymphomas and are not really thought of as breast cancers.<br /><br />
+Although many types of breast cancer can cause a lump in the breast, not all do. There
+are other symptoms of breast cancer you should watch for and report to a health care provider.<br /><br />
+It’s also important to understand that most breast lumps are not cancer, they are benign.
+Benign breast tumors are abnormal growths, but they do not spread outside of
+the breast and they are not life threatening. But some benign breast lumps can
+increase a woman's risk of getting breast cancer. Any breast lump or change
+needs to be checked by a health care provider to determine whether it is benign
+or cancer and whether it might impact your future cancer risk.
+
+"

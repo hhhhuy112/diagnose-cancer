@@ -1,0 +1,14 @@
+vi:
+  admin:
+    users:
+      male: "Nam"
+      female: "Nữ"
+      value_male: "male"
+      value_female: "female"
+      information_user: "Thông tin người dùng"
+      edit_user: "Chỉnh sửa thông tin người dùng"
+      name: "Tên"
+      patient_code: "Mã người dùng "
+      gender: "Giới tính"
+      birthday: "Ngày sinh"
+      avatar: "Ảnh đại diện"

@@ -31,3 +31,7 @@
 #page-content{
   overflow: auto;
 }
+
+.flag-drop{
+  margin: 5px;
+}

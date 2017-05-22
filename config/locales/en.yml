@@ -20,6 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  the_form_contains: "The form contains"
+  action: "Action"
   author: "Ho Minh Huy"
   by: "by"
   created: "Created"
@@ -33,6 +35,7 @@ en:
   tes_algorithms: "Test algorithms"
   submit: "submit"
   patient: "Patient"
+  role: "Role"
   role_admin: "Admin"
   role_owner: "Owner"
   role_user_normal: "Patient"
@@ -57,7 +60,7 @@ en:
       list_users: "List Users"
       role: "Role"
       errors:
-        patient_code: "Admin will has code start by A, owner is D and patient is P"
+        patient_code: "admin will has code start by A, owner is D and patient is P"
     knowledges:
       title: "Knowledges"
       create_knowledges: "Naive Bayes algorithm"
@@ -93,8 +96,11 @@ en:
       list_fictions: "List Fictions"
       name: "Name"
       description: "Description"
+      description_vi: "Vietnamese description"
+      update_fiction: "Update fiction"
       updated_success: "Update fiction success"
       updated_fail: "Update fiction fail"
+
     value_fictions:
       title: "Value Fictions"
       list_value_fictions: "List Value Fictions"
@@ -102,6 +108,7 @@ en:
       value: "Value"
       fiction: "Fiction"
       description: "Description"
+      update_fiction: "Update value fiction"
       updated_success: "Update fiction success"
       updated_fail: "Update fiction fail"
     groups:
@@ -122,6 +129,10 @@ en:
       update_group_success: "Update group success"
       update_group_fail: "Update group fail"
       description: "Description"
+      list_user: "List users"
+      select_all: "Select all"
+      number_member: "Number member"
+      information_group: "Information group"
     test_algorithms:
       title: "Test Algorithms"
       naive_bayes: "Naive Bayes"
@@ -129,16 +140,24 @@ en:
       id3_algorithm: "ID3 Algorithm"
       title_training: "Training Data Chart"
       title_test: "Test Data Chart"
+      test_true: "Test true"
+      test_false: "Test false"
+      test_non: "Not condition"
     abouts:
       title: "Abouts"
       create_about: "Create About"
       breast_cancer: "Breast Cancer"
       data_mining: "Data mining"
       data_set: "Data Set"
+      description: "Description"
+      description_vi: "Vietnamese description"
       create_about_success: "Create about success"
       create_about_fail: "Create about fail"
       updated_success: "Updated success"
       updated_fail: "Updated fail"
+      type_about: "Type about"
+      link: "Link"
+      source: "Source"
   users:
     update: "Update profile"
     information_user: "Information User"
@@ -151,7 +170,8 @@ en:
   sidebar:
     data_cancers: "Data cancers"
     user: "Users"
-    fiction_value: "Fiction values"
+    fiction_values: "Fiction values"
+    value_fictions: "Fiction values"
     fictions: "Fictions"
     knowledges: "Knowledges"
     diagnoses: "Diagnoses"
@@ -166,9 +186,10 @@ en:
       test: "Test Algorithm"
     abouts: "Abouts"
   header:
-    diagnose: "Diagnoses"
+    diagnose: "Diagnoses "
     groups: "Groups"
-
+    diagnoses: "Diagnoses"
+    action: "Action"
   error: "Error"
   errors:
     diagnose:
@@ -183,6 +204,8 @@ en:
     id3_algorithm: "ID3 Algorithm"
 
   home_infor:
+    category: "Category"
+    source: "Source"
     learn_more: "Learn More.."
     author1: "Sarah Hawley"
     title1: "a cancer research specialist"
@@ -208,6 +231,8 @@ en:
     data_mining: " DataMining ?"
     infor_breast_cancer: " Breast Cancer"
     infor_data_mining: " DataMining"
+    infor_data_set: "Data set"
+    data_set: "Information data set"
     answer: "Breast cancer starts when cells in the breast begin to grow out of control. These
 cells usually form a tumor that can often be seen on an x-ray or felt as a
 lump. The tumor is malignant (cancer) if the cells can grow into (invade)

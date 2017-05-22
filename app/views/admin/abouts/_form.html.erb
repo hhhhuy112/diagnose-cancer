@@ -7,9 +7,30 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :source, t("admin.groups.source"), class: "field-compulsory-before" %>
+    <div>
+      <%= f.text_field :source, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :link, t("admin.groups.link"), class: "field-compulsory-before" %>
+    <div>
+      <%= f.text_field :link, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
     <%= f.label :description, t("admin.groups.description"), class: "field-compulsory-before" %>
     <div>
       <%= f.text_area :description, class: "form-control ckeditor" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description_vi, t("admin.groups.description_vi"), class: "field-compulsory-before" %>
+    <div>
+      <%= f.text_area :description_vi, class: "form-control ckeditor" %>
     </div>
   </div>
 

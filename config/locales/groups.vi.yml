@@ -1,0 +1,6 @@
+vi:
+  groups:
+    name: "Tên"
+    owner: "Bác sĩ"
+    list_groups: "Danh sách nhóm"
+    information_group: "Thông tin nhóm"

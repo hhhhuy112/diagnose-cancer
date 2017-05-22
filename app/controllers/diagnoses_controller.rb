@@ -25,7 +25,7 @@ class DiagnosesController < ApplicationController
   end
 
   def new
-    @title = t "admin.diagnoses.title"
+    @title = t "admin.diagnoses.create_diagnose"
     @diagnose = Diagnose.new
     create_data_users
   end
@@ -122,7 +122,7 @@ class DiagnosesController < ApplicationController
   def load_diagnose
     @diagnose = Diagnose.find_by id: params[:id]
     return if @diagnose
-    flash[:warning] = t "not_found_item"
+    flash[:alert] = t "not_found_item"
     redirect_to :back
   end
 
@@ -136,6 +136,13 @@ class DiagnosesController < ApplicationController
     else
       current_user.groups.map(&:users).sum
     end
+    if current_user.admin?
+      return if @user_insides.present?
+    else
+      return unless @user_insides.size.zero?
+    end
+    flash[:alert] = t "diagnose.non_user"
+    redirect_to diagnoses_path
   end
 
   def load_fictions

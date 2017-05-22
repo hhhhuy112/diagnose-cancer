@@ -2,9 +2,9 @@
 <header>
   <div class="container">
     <!-- Site Logo -->
-    <a href="index.html" class="site-logo">
-      <i class="gi gi-flash"></i> <strong><%= t "diagnostic" %></strong><%= t "cancer_title" %>
-    </a>
+    <%= link_to  root_path, class: "site-logo" do %>
+      <i class="gi gi-flash"></i> <strong><%= t "header.diagnose" %></strong><%= t "cancer_title" %>
+    <% end %>
     <!-- Site Logo -->
 
     <!-- Site Navigation -->
@@ -29,9 +29,9 @@
           <%= link_to t("home"), root_path, class: "site-nav-sub" %>
         </li>
         <% if user_signed_in? %>
-        <li>
-          <%= link_to t("tes_algorithms"), test_algorithms_path, class: "site-nav-sub" %>
-        </li>
+          <li>
+            <%= link_to t("tes_algorithms"), test_algorithms_path, class: "site-nav-sub" %>
+          </li>
         <% if current_user.owner? || current_user.admin?  %>
           <li>
             <%= link_to groups_path do %>
@@ -45,7 +45,7 @@
             <% end %>
           </li>
           <li>
-            <a href="javascript:void(0)" class="site-nav-sub"><i class="fa fa-angle-down site-nav-arrow"></i></a>
+            <a href="javascript:void(0)" class="site-nav-sub"><%= t "header.action" %><i class="fa fa-angle-down site-nav-arrow"></i></a>
             <ul>
               <li>
                 <%= link_to current_user  do %>
@@ -70,6 +70,30 @@
                 <% end %>
           </li>
         <% end %>
+        <li class="dropdown chosen-language">
+            <% if session[:locale].present? %>
+              <%= link_to url_for(locale: session[:locale]), class:"dropdown-toggle current-flag",
+                data: {toggle: "dropdown"} do %>
+                <%= image_tag "flag/#{session[:locale]}.png", class: "icon-language" %>
+                <i class="fa fa-angle-down"></i>
+              <% end %>
+            <% else %>
+              <%= link_to url_for(locale: :en), class:"dropdown-toggle current-flag",
+                data: {toggle: "dropdown"} do %>
+                <%= image_tag "flag/en.png", class: "icon-language" %>
+                <i class="fa fa-angle-down"></i>
+              <% end %>
+            <% end %>
+            <ul class="dropdown-menu dropdown-menu-right choose-language" role="menu">
+              <% Settings.languages.keys.each do |lang| %>
+                <%= link_to url_for(locale: lang) do %>
+                  <%= image_tag "flag/#{lang}.png", class: "icon-languages" %>
+                  <%= Settings.languages[lang] %>
+                <% end %>
+                <br/>
+              <% end %>
+            </ul>
+          </li>
       </ul>
       <!-- END Main Menu -->
     </nav>

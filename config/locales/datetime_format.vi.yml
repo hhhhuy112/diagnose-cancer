@@ -1,0 +1,35 @@
+vi:
+  date:
+    formats:
+      default: "%m/%d/%Y"
+      month_year: "%m/%Y"
+      date_month_year: "%Y-%m-%d"
+      format_datetime: "%H:%M %d/%m/%Y"
+      date_month_year_v2: "%-d %B %Y"
+      date_month_year_concise: "%Y-%m-%d"
+      date_month: "%m/%d"
+      date_month_year_v1: "%d/%m/%Y"
+    month_names: [~, January, Febuary, March, April, May, June, July, August, September, October, November, December]
+    abbr_day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+  time:
+    formats:
+      long: "%d/%m/%y %H:%M:%S"
+      default: "%H:%M:%S %-d %B %Y"
+      date_month_year: "%Y-%m-%d"
+      format_datetime: "%H:%M %d/%m/%Y"
+      format_datetime_picker: "YYYY/MM/DD HH:mm"
+      format_datetime_picker_rb: "%Y/%m/%d %H:%M"
+      format_time: "%H:%M"
+      hour_minutes: "HH:mm"
+      format_date_picker: "YYYY-MM-DD"
+      date_month_year_v1: "%d/%m/%Y"
+  datetime:
+    distance_in_words:
+      x_minutes:
+        one: "1 minutes ago"
+        other: "%{count} minutes ago"
+      less_than_x_minutes: "just now"
+      about_x_hours: "%{count} hours ago"
+      x_days:
+        one: "1 day ago"
+        other: "%{count} days ago"

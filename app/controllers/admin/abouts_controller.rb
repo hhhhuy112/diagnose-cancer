@@ -37,7 +37,7 @@ class Admin::AboutsController < ApplicationController
   private
 
   def about_params
-    params.require(:about).permit :type_about, :description
+    params.require(:about).permit :type_about, :description, :description_vi, :link, :source
   end
 
   def load_fiction
