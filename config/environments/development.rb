@@ -46,9 +46,7 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-   #don't send emails in development
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.perform_deliveries = true
+  #don't send emails in development
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = {
   #   address: ,
@@ -59,6 +57,22 @@ Rails.application.configure do
   #   domain: "gmail.com",
   #   enable_starttls_auto: true
   # }
+
+  config.action_mailer.delivery_method = :smtp
+  # change to true to allow email to be sent during development
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    port: 587,
+    domain: "mail.google.com",
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: "diagnose.breastcancer@gmail.com",
+    password: "huy123147"
+  }
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

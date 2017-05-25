@@ -22,7 +22,7 @@
     method: :put}, as: resource_name,
     url: password_path(resource_name) do |f| %>
     <%= f.hidden_field :reset_password_token %>
-    <%= render "shared/error_mesages_devise", resource: resource %>
+    <%= render "shared/error_message_devise", resource: resource %>
 
     <div class="form-group">
       <div class="col-xs-12">
