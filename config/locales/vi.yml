@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 vi:
+  new_password: "Mật khẩu mới"
+  password_confirmation: "Xác nhận mật khẩu"
+  reset_password: "Đặt lại mật khẩu"
   the_form_contains: "Biểu mẫu bao gồm"
   action: "Hành động"
   author: "Hồ Minh Huy"

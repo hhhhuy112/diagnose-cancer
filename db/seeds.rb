@@ -80,3 +80,5 @@ end
 
 puts "math classification \n"
 
+DataCancer.all.each do |data_cancer|
+end

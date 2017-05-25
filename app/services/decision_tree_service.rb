@@ -1,7 +1,6 @@
 class DecisionTreeService
   def initialize classifications, data_cancers
     @classifications = classifications
-    @abc = ""
     @array_special_fictions = []
   end
 

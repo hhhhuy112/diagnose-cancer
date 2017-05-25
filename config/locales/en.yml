@@ -20,6 +20,9 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  new_password: "New password"
+  password_confirmation: "Password confirmation"
+  reset_password: "Reset password"
   the_form_contains: "The form contains"
   action: "Action"
   author: "Ho Minh Huy"
