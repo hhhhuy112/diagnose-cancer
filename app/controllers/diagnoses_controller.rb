@@ -110,12 +110,12 @@ class DiagnosesController < ApplicationController
   end
 
   def params_diagnose
-    params.require(:diagnose).permit( :patient_id , :type_diagnose, data_users_attributes: [:id, :fiction_id, :name_fiction, :value]).merge!(owner_id: "#{current_user.id}")
+    params.require(:diagnose).permit( :patient_id , :type_diagnose, data_users_attributes: [:id, :fiction_id, :name_fiction, :name_fiction_vi, :value]).merge!(owner_id: "#{current_user.id}")
   end
 
   def create_data_users
     Fiction.all.each do |fiction|
-      @diagnose.data_users.build(fiction_id: fiction.id, name_fiction: fiction.name)
+      @diagnose.data_users.build(fiction_id: fiction.id, name_fiction: fiction.name, name_fiction_vi: fiction.name_vi)
     end
   end
 

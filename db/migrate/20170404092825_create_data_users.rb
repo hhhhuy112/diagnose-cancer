@@ -3,6 +3,7 @@ class CreateDataUsers < ActiveRecord::Migration[5.0]
     create_table :data_users do |t|
       t.integer :value
       t.string :name_fiction
+      t.string :name_fiction_vi
       t.references :fiction, foreign_key: true
       t.references :diagnose, foreign_key: true
 

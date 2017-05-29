@@ -26,7 +26,7 @@ class Admin::FictionsController < ApplicationController
   private
 
   def fiction_params
-    params.require(:fiction).permit :description, :description_vi
+    params.require(:fiction).permit :name_vi, :description, :description_vi
   end
 
   def load_fiction
