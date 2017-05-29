@@ -1,8 +1,13 @@
 <div class="col-md-12 personal-info">
   <%= data_user.hidden_field :fiction_id, class: "form-control" %>
   <%= data_user.hidden_field :name_fiction, class: "form-control" %>
+  <%= data_user.hidden_field :name_fiction_vi, class: "form-control" %>
   <div class="form-group">
-    <%= data_user.label data_user.object.name_fiction, class: "col-md-4 control-label field-compulsory-before" %>
+    <% if is_locale_en? %>
+      <%= data_user.label data_user.object.name_fiction, class: "col-md-4 control-label field-compulsory-before" %>
+    <% else %>
+      <%= data_user.label data_user.object.name_fiction_vi, class: "col-md-4 control-label field-compulsory-before" %>
+    <% end %>
     <div class="col-md-8">
       <div class="input-group">
         <div class="input-group-addon">

@@ -18,7 +18,11 @@
                 <tr>
                   <td>
                     <strong>
-                      <i class="fa fa-star"></i> <%= data_user.fiction_name %>
+                      <% if is_locale_en? %>
+                        <i class="fa fa-star"></i> <%= data_user.fiction_name %>
+                      <% else %>
+                        <i class="fa fa-star"></i> <%= data_user.name_fiction_vi %>
+                      <% end %>
                     </strong>
                   </td>
                   <td><%= data_user.value %></td>

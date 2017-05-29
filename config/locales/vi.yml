@@ -98,6 +98,7 @@ vi:
       title: "Quản lý thuộc tính"
       list_fictions: "Danh sách thuộc tính"
       name: "Tên"
+      name_vi: "Tên tiếng việt"
       description: "Mô tả"
       description_vi: "Mô tả tiếng việt"
       update_fiction: "Chỉnh sửa thuộc tính"

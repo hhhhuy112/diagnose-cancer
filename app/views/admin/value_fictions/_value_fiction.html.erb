@@ -3,7 +3,11 @@
     <td>
       <%= current_index @value_fictions.current_page, Settings.per_page.admin.value_fictions, value_fiction_counter %>
     </td>
-    <td><%= value_fiction.fiction_name %></td>
+    <% if is_locale_en? %>
+      <td><%= value_fiction.fiction_name %></td>
+    <% else %>
+      <td><%= value_fiction.fiction_name_vi %></td>
+    <% end %>
     <td><%= value_fiction.name %></td>
     <td><%= value_fiction.value %></td>
     <td><%= value_fiction.description%></td>

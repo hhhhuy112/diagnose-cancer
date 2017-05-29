@@ -68,3 +68,14 @@ home:
   statistic1: 1500000
   statistic2: 23
   statistic2: 50
+
+name_fiction_vi:
+  clump_thickness: "Độ dày lùm"
+  uniformity_of_cell_size: "Tính đồng nhất kích thước tế bào"
+  uniformity_of_cell_shape: "Tính đồng nhất hình dạng tế bào"
+  marginal_adhesion: "Biên độ bám dính"
+  single_epithelial_cell_size: "Kích thước tế bào biểu mô đơn"
+  bare_nuclei: "Nhân trần"
+  bland_chromatin: "Độ vô khuẩn chất nhiễm sắc"
+  normal_nucleoli: "Hạch nhân bình thường"
+  mitoses: "Nguyên phân"

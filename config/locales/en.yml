@@ -98,6 +98,7 @@ en:
       title: "Fictions"
       list_fictions: "List Fictions"
       name: "Name"
+      name_vi: "Vietnamese Name"
       description: "Description"
       description_vi: "Vietnamese description"
       update_fiction: "Update fiction"

@@ -41,7 +41,29 @@ puts "create fiction"
 fiction_file = File.open("/home/ubuntu/datn/data/data_fiction.txt", "r")
 fiction_file.each_line do |line|
   name = line[0, line.length - 1]
-  Fiction.create(name: name, description: "")
+  name_vi = case name
+    when Settings.fiction.code.clump_thickness
+      Settings.name_fiction_vi.clump_thickness
+    when Settings.fiction.code.uniformity_of_cell_size
+      Settings.name_fiction_vi.uniformity_of_cell_size
+    when Settings.fiction.code.uniformity_of_cell_shape
+      Settings.name_fiction_vi.uniformity_of_cell_shape
+    when Settings.fiction.code.marginal_adhesion
+      Settings.name_fiction_vi.marginal_adhesion
+    when Settings.fiction.code.single_epithelial_cell_size
+      Settings.name_fiction_vi.single_epithelial_cell_size
+    when Settings.fiction.code.bare_nuclei
+      Settings.name_fiction_vi.bare_nuclei
+    when Settings.fiction.code.bland_chromatin
+      Settings.name_fiction_vi.bland_chromatin
+    when Settings.fiction.code.normal_nucleoli
+      Settings.name_fiction_vi.normal_nucleoli
+    when Settings.fiction.code.mitoses
+      Settings.name_fiction_vi.mitoses
+    else
+      ""
+    end
+  Fiction.create(name: name, name_vi: name_vi,description: "")
 end
 fiction_file.close
 

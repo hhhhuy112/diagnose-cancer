@@ -1,6 +1,10 @@
 <tr class = "active name-colum" >
     <th>STT</th>
-    <th><%= sort_link @search, :fiction_id, t("admin.value_fictions.fiction") %></th>
+    <% if is_locale_en? %>
+      <th><%= sort_link @search, :fiction_name, t("admin.value_fictions.fiction") %></th>
+    <% else %>
+      <th><%= sort_link @search, :fiction_name_vi, t("admin.value_fictions.fiction") %></th>
+    <% end %>
     <th><%= sort_link @search, :name, t("admin.value_fictions.name") %></th>
     <th><%= sort_link @search, :value, t("admin.value_fictions.value") %></th>
     <th><%= sort_link @search, :description, t("admin.value_fictions.description") %></th>
