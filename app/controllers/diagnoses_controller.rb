@@ -17,7 +17,7 @@ class DiagnosesController < ApplicationController
       @search = current_user.passive_diagnoses.ransack(params[:q])
     end
     @diagnoses = @search.result
-    @diagnoses = @diagnoses.page(params[:page]).per Settings.per_page.admin.diagnose
+    @diagnoses = @diagnoses.recent.page(params[:page]).per Settings.per_page.admin.diagnose
      respond_to do |format|
       format.html
       format.js

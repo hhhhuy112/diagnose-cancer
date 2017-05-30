@@ -3,7 +3,7 @@ class Admin::UsersController < Admin::BaseController
   def index
     @search = User.ransack(params[:q])
     @users = @search.result
-    @users = @users.page(params[:page]).per Settings.per_page.admin.user
+    @users = @users.recent.page(params[:page]).per Settings.per_page.admin.user
     respond_to do |format|
       format.html
       format.js

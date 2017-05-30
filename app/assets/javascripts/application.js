@@ -63,3 +63,35 @@ $('.sidebar-nav').ready(function () {
     $('a[href="' + this.location.pathname + '"]').addClass('active');
     $('a[href="' + this.location.pathname + '"]').parent().parent().parent().addClass('active');
 });
+
+
+//set search
+/*
+$(document).on('change', '#example-daterange1', function(){
+  value2 = $('#example-daterange2').val();
+  value1 = $(this).val();
+  if(value1 !== ''){
+    if(value2 === ''){
+      $('#example-daterange2').val(value1);
+    }else{
+      if(Date.parse(value1) > Date.parse(value2)){
+        $('#example-daterange2').val(value1);
+      }
+    }
+  }
+});
+
+$(document).on('change', '#example-daterange2', function(){
+  value1 = $('#example-daterange1').val();
+  value2 = $(this).val();
+  if(value2 !== ''){
+    if(value1 === ''){
+      $('#example-daterange1').val(value2);
+    }else{
+      if(Date.parse(value1) > Date.parse(value2)){
+        $('#example-daterange1').val(value2);
+      }
+    }
+  }
+});
+*/

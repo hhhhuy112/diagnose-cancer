@@ -11,16 +11,16 @@
 </div>
 
 <div class="form-group">
-  <div class="form-group input-daterange" data-date-format="dd/mm/yyyy">
-    <%= f.label :created_at_gteq, t("dashboard.users.from") %>
+  <div class="form-group input-daterange">
+    <%= f.label :created_at_gteq, t("admin.users.from") %>
     <%= f.text_field :created_at_gteq,
       value: (l(@search.created_at_gteq, format: :date_month_year_v1) if @search.created_at_gteq.present?),
-      id: "example-daterange1", class: "form-control", data: {date_format:"dd/mm/yyyy"},
+      id: "example-daterange1", class: "form-control datepicker", data: {date_format:"dd/mm/yyyy"},
       placeholder: t("date_month_year_place") %>
-    <%= f.label :created_at_lteq, t("dashboard.users.to") %>
+    <%= f.label :created_at_lteq, t("admin.users.to") %>
     <%= f.text_field :created_at_lteq,
         value: (l(@search.created_at_lteq, format: :date_month_year_v1) if @search.created_at_lteq.present?),
-        id: "example-daterange1", class: "form-control", data: {date_format:"dd/mm/yyyy"},
+        id: "example-daterange2", class: "form-control datepicker", data: {date_format:"dd/mm/yyyy"},
         placeholder: t("date_month_year_place") %>
   </div>
 </div>

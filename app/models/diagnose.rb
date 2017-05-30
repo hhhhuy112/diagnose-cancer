@@ -20,6 +20,8 @@ class Diagnose < ApplicationRecord
 
   enum type_diagnose: {naise_bayes: 0, c45_algorithm: 1, id3_algorithm: 2}
 
+  scope :recent, ->{order created_at: :desc}
+
 
 
   private

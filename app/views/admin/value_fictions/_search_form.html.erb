@@ -1,5 +1,11 @@
 <%= search_form_for [:admin, @search], class: "search_form_value_fiction" do |f| %>
-  <%= f.text_field :name_or_fiction_name_or_fiction_name_vi_cont,
-    placeholder: t("search.name_or_employee_code_or_email"),
-    class: "form-control search_text" %>
+  <% if is_locale_en?%>
+    <%= f.text_field :name_or_fiction_name_cont,
+      placeholder: t("search.name_or_employee_code_or_email"),
+      class: "form-control search_text" %>
+  <% else %>
+    <%= f.text_field :name_or_fiction_name_vi_cont,
+      placeholder: t("search.name_or_employee_code_or_email"),
+      class: "form-control search_text" %>
+  <% end %>
 <% end %>

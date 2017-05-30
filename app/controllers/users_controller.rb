@@ -63,6 +63,6 @@ class UsersController < ApplicationController
     else
       @search = @user.passive_diagnoses.ransack(params[:q])
     end
-    @diagnoses = @search.result.page(params[:page]).per Settings.per_page.admin.diagnose
+    @diagnoses = @search.result.recent.page(params[:page]).per Settings.per_page.admin.diagnose
   end
 end
