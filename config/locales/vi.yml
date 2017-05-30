@@ -52,12 +52,17 @@ vi:
   not_found_item: "Không tìm thấy"
   admin:
     data_cancers:
+      create: "Tạo dữ liệu mẫu"
+      create_success: "Tạo dữ liệu mẫu thành công"
+      create_fail: "Tạo dữ liệu mẫu thất bại"
       title: "Quản lý dữ liệu mẫu"
       update_data_cancer: "Chỉnh sửa dữ liệu mẫu"
       list_data_cancers: "Danh sách dữ liệu mẫu"
       information_data_cancer: "Thông tin dữ liệu mẫu"
       updated_success: "Chỉnh sửa dữ liệu mẫu thành công"
     users:
+      from: "Từ"
+      to: "đến"
       title: "Quản lý người dùng"
       add: "Thêm người dùng"
       list_users: "Danh sách người dùng"

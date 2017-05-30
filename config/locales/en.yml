@@ -52,12 +52,17 @@ en:
   not_found_item: "Find not item"
   admin:
     data_cancers:
+      create: "Create data cancer"
+      create_success: "Create data cancer success"
+      create_fail: "Create data cancer fail"
       title: "Data Cancers"
       update_data_cancer: "Update data cancer"
       list_data_cancers: "List Data cancers"
       information_data_cancer: "Information data cancer"
       updated_success: "Update data cancer success"
     users:
+      from: "From"
+      to: "To"
       title: "Users"
       add: "Add User"
       list_users: "List Users"

@@ -36,7 +36,7 @@
           <div class="form-group">
             <%= f.label :fiction_id, t("admin.value_fictions.fiction"), class: "field-compulsory-before" %>
             <div>
-              <%= f.select :fiction_id, Fiction.all.collect { |fiction| [fiction.name, fiction.id] }, {}, {class: "form-control col-md-9", disabled: true} %>
+              <%= f.select :fiction_id, Fiction.all.collect { |fiction| [(is_locale_en? ? fiction.name : fiction.name_vi), fiction.id] }, {}, {class: "form-control col-md-9", disabled: true} %>
             </div>
           </div>
 

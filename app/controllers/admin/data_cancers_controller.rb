@@ -20,7 +20,14 @@ class Admin::DataCancersController < Admin::BaseController
   end
 
   def create
-
+    @data_cancer = DataCancer.new data_cancer_params
+    if @data_cancer.save
+      flash[:success] = t "admin.data_cancers.create_success"
+      redirect_to admin_data_cancers_path
+    else
+      flash[:success] = t "admin.data_cancers.create_success"
+      render :new
+    end
   end
 
   def edit

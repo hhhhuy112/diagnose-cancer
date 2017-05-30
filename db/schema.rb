@@ -66,11 +66,12 @@ ActiveRecord::Schema.define(version: 20170508170218) do
   create_table "data_users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "value"
     t.string   "name_fiction"
+    t.string   "name_fiction_vi"
     t.integer  "fiction_id"
     t.integer  "diagnose_id"
     t.datetime "deleted_at"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.index ["diagnose_id"], name: "index_data_users_on_diagnose_id", using: :btree
     t.index ["fiction_id"], name: "index_data_users_on_fiction_id", using: :btree
   end
@@ -91,6 +92,7 @@ ActiveRecord::Schema.define(version: 20170508170218) do
 
   create_table "fictions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
+    t.string   "name_vi"
     t.string   "code"
     t.string   "code_data"
     t.text     "description",    limit: 65535

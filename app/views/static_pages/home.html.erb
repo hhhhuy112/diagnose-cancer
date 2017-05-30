@@ -62,9 +62,11 @@
             <section class="site-content site-section">
                 <div class="container">
                     <div class="site-block text-center">
-                        <%= link_to  new_user_session_path, class: "btn btn-lg btn-primary" do %>
-                            <i class="fa fa-share"></i>
-                            <%= t "signin" %>
+                        <% if !user_signed_in? %>
+                            <%= link_to  new_user_session_path, class: "btn btn-lg btn-primary" do %>
+                                <i class="fa fa-share"></i>
+                                <%= t "signin" %>
+                            <% end %>
                         <% end %>
                     </div>
                     <hr>
@@ -180,36 +182,35 @@
                 </div>
             </section>
             <!-- END Sign Up Action -->
-
-            <!-- Quick Stats -->
-            <section class="site-content site-section themed-background">
-                <div class="container">
-                    <!-- Stats Row -->
-                    <!-- CountTo (initialized in js/app.js), for more examples you can check out https://github.com/mhuggins/jquery-countTo -->
-                    <div class="row" id="counters">
-                        <div class="col-sm-4">
-                            <div class="counter site-block">
-                                <span data-toggle="countTo" data-to= "1500000" data-after="+"></span>
-                                <small><%= t "home_infor.statistic1" %></small>
+            <% if !user_signed_in? %>
+                <section class="site-content site-section themed-background">
+                    <div class="container">
+                        <!-- Stats Row -->
+                        <!-- CountTo (initialized in js/app.js), for more examples you can check out https://github.com/mhuggins/jquery-countTo -->
+                        <div class="row" id="counters">
+                            <div class="col-sm-4">
+                                <div class="counter site-block">
+                                    <span data-toggle="countTo" data-to= "1500000" data-after="+"></span>
+                                    <small><%= t "home_infor.statistic1" %></small>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="counter site-block">
+                                    <span data-toggle="countTo" data-to= "23" data-after="%"></span>
+                                    <small><%= t "home_infor.statistic2" %></small>
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="counter site-block">
+                                    <span data-toggle="countTo" data-to= "50" data-after="%"></span>
+                                    <small><%= t "home_infor.statistic3" %></small>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="counter site-block">
-                                <span data-toggle="countTo" data-to= "23" data-after="%"></span>
-                                <small><%= t "home_infor.statistic2" %></small>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="counter site-block">
-                                <span data-toggle="countTo" data-to= "50" data-after="%"></span>
-                                <small><%= t "home_infor.statistic3" %></small>
-                            </div>
-                        </div>
+                        <!-- END Stats Row -->
                     </div>
-                    <!-- END Stats Row -->
-                </div>
-            </section>
-            <!-- END Quick Stats -->
+                </section>
+            <% end %>
         </div>
         <!-- END Page Container -->
 
