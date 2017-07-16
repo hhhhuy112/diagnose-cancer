@@ -71,6 +71,7 @@ group :development do
 end
 
 group :test do
+  gem 'rake'
   gem "rspec-rails", "~> 3.4"
   gem "rspec-collection_matchers"
   gem "shoulda-matchers", "~> 3.0"
@@ -89,6 +90,14 @@ group :test do
   gem "simplecov-rcov"
   gem "simplecov-json"
   gem "rspec-activemodel-mocks"
+
+  gem "pronto"
+  gem "pronto-rubocop", require: false
+  gem "pronto-flay", require: false
+  gem "pronto-brakeman", require: false
+  gem "pronto-rails_best_practices", require: false
+  gem "pronto-reek", require: false
+  gem "pronto-eslint", require: false
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
